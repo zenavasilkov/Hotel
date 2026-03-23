@@ -1,0 +1,546 @@
+{
+  "rooms": [
+    {
+      "id": 1,
+      "name": "Стандарт",
+      "nameEn": "Standard",
+      "category": "standard",
+      "price": 5000,
+      "area": 25,
+      "guests": 2,
+      "beds": 1,
+      "description": "Уютный номер с видом на сад. Идеально подходит для пар.",
+      "descriptionEn": "Cozy room with garden view. Perfect for couples.",
+      "amenities": ["wifi", "tv", "ac", "minibar"],
+      "images": [
+        "assets/images/figma/imgCozyPillowsOnComfortableBigKingSizeBedInB20210826154547Utc2.jpg",
+        "assets/images/rooms/standard-2.jpg",
+        "assets/images/rooms/standard-3.jpg"
+      ],
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "Люкс",
+      "nameEn": "Lux",
+      "category": "lux",
+      "price": 8000,
+      "area": 40,
+      "guests": 4,
+      "beds": 2,
+      "description": "Просторный номер с видом на море. Включает гостиную зону.",
+      "descriptionEn": "Spacious room with sea view. Includes living area.",
+      "amenities": ["wifi", "tv", "ac", "minibar", "balcony", "seaView"],
+      "images": [
+        "assets/images/figma/imgVacationRoomWithSeaViewAndTableWithBottle20220509233953Utc1.jpg",
+        "assets/images/rooms/lux-2.jpg",
+        "assets/images/rooms/lux-3.jpg"
+      ],
+      "available": true
+    },
+    {
+      "id": 3,
+      "name": "Делюкс",
+      "nameEn": "Deluxe",
+      "category": "deluxe",
+      "price": 12000,
+      "area": 60,
+      "guests": 4,
+      "beds": 2,
+      "description": "Роскошный номер с панорамным видом на море и собственной террасой.",
+      "descriptionEn": "Luxury room with panoramic sea view and private terrace.",
+      "amenities": ["wifi", "tv", "ac", "minibar", "balcony", "seaView", "jacuzzi"],
+      "images": [
+        "assets/images/figma/imgInteriorOfGuestRoomInBedAndBreakfastHotel20210826161239Utc1.jpg",
+        "assets/images/rooms/deluxe-2.jpg",
+        "assets/images/rooms/deluxe-3.jpg"
+      ],
+      "available": true
+    },
+    {
+      "id": 4,
+      "name": "Семейный",
+      "nameEn": "Family",
+      "category": "family",
+      "price": 10000,
+      "area": 50,
+      "guests": 6,
+      "beds": 3,
+      "description": "Просторный номер для всей семьи с детской зоной.",
+      "descriptionEn": "Spacious room for the whole family with kids area.",
+      "amenities": ["wifi", "tv", "ac", "minibar", "balcony", "kidsArea"],
+      "images": [
+        "assets/images/rooms/family-1.jpg",
+        "assets/images/rooms/family-2.jpg"
+      ],
+      "available": true
+    },
+    {
+      "id": 5,
+      "name": "Президентский",
+      "nameEn": "Presidential",
+      "category": "presidential",
+      "price": 25000,
+      "area": 100,
+      "guests": 4,
+      "beds": 2,
+      "description": "Эксклюзивный номер с отдельной гостиной и столовой.",
+      "descriptionEn": "Exclusive room with separate living and dining room.",
+      "amenities": ["wifi", "tv", "ac", "minibar", "balcony", "seaView", "jacuzzi", "butler"],
+      "images": [
+        "assets/images/rooms/presidential-1.jpg",
+        "assets/images/rooms/presidential-2.jpg",
+        "assets/images/rooms/presidential-3.jpg",
+        "assets/images/rooms/presidential-4.jpg"
+      ],
+      "available": true
+    },
+    {
+      "id": 6,
+      "name": "Студия",
+      "nameEn": "Studio",
+      "category": "studio",
+      "price": 6500,
+      "area": 35,
+      "guests": 2,
+      "beds": 1,
+      "description": "Современная студия с кухонной зоной.",
+      "descriptionEn": "Modern studio with kitchen area.",
+      "amenities": ["wifi", "tv", "ac", "minibar", "kitchen"],
+      "images": [
+        "assets/images/rooms/studio-1.jpg",
+        "assets/images/rooms/studio-2.jpg"
+      ],
+      "available": true
+    }
+  ],
+
+  "activities": [
+    {
+      "id": 1,
+      "name": "Виндсерфинг",
+      "nameEn": "Windsurfing",
+      "category": "sea",
+      "price": 3000,
+      "duration": 120,
+      "description": "Обучение виндсерфингу с инструктором.",
+      "descriptionEn": "Windsurfing lessons with instructor.",
+      "image": "assets/images/figma/imgStillSeaSurfaceManPracticingWindSurfingAnd20210915062350Utc2.jpg",
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "Кайтсерфинг",
+      "nameEn": "Kitesurfing",
+      "category": "sea",
+      "price": 4000,
+      "duration": 120,
+      "description": "Экстремальный водный спорт с кайтом.",
+      "descriptionEn": "Extreme water sport with kite.",
+      "image": "assets/images/figma/imgKiteSurfing20210826170456Utc12.jpg",
+      "available": true
+    },
+    {
+      "id": 3,
+      "name": "Эндо-тур",
+      "nameEn": "Enduro Tour",
+      "category": "extreme",
+      "price": 5000,
+      "duration": 180,
+      "description": "Мототур по горным тропам Крыма.",
+      "descriptionEn": "Motorcycle tour through Crimean mountain trails.",
+      "image": "assets/images/figma/imgMotocrossRidersTeamRestOnExtremeTrack20220217232133Utc2.jpg",
+      "available": true
+    },
+    {
+      "id": 4,
+      "name": "Сафари на джипах",
+      "nameEn": "Jeep Safari",
+      "category": "extreme",
+      "price": 6000,
+      "duration": 240,
+      "description": "Исследование горных ландшафтов на джипах.",
+      "descriptionEn": "Exploring mountain landscapes on jeeps.",
+      "image": "assets/images/figma/imgDrivingOffRoadCarOnHighAltitudeMountainTop20211216214051Utc2.jpg",
+      "available": true
+    },
+    {
+      "id": 5,
+      "name": "Морская прогулка",
+      "nameEn": "Sea Trip",
+      "category": "sea",
+      "price": 2500,
+      "duration": 90,
+      "description": "Прогулка на яхте вдоль побережья.",
+      "descriptionEn": "Yacht trip along the coast.",
+      "image": "assets/images/activities/sea-trip.jpg",
+      "available": true
+    },
+    {
+      "id": 6,
+      "name": "Рыбалка",
+      "nameEn": "Fishing",
+      "category": "fishing",
+      "price": 3500,
+      "duration": 180,
+      "description": "Рыбалка в открытом море с инструктором.",
+      "descriptionEn": "Sea fishing with instructor.",
+      "image": "assets/images/activities/fishing.jpg",
+      "available": true
+    }
+  ],
+
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@santorini.com",
+      "password": "Admin123!",
+      "phone": "+375291234567",
+      "firstName": "Админ",
+      "lastName": "Админов",
+      "birthDate": "1990-01-01",
+      "role": "admin",
+      "createdAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "email": "user1@example.com",
+      "password": "User123!",
+      "phone": "+375292345678",
+      "firstName": "Иван",
+      "lastName": "Иванов",
+      "birthDate": "1995-05-15",
+      "role": "user",
+      "createdAt": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "email": "user2@example.com",
+      "password": "User456!",
+      "phone": "+375293456789",
+      "firstName": "Анна",
+      "lastName": "Петрова",
+      "birthDate": "1992-08-20",
+      "role": "user",
+      "createdAt": "2024-02-15T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "email": "user3@example.com",
+      "password": "User789!",
+      "phone": "+375294567890",
+      "firstName": "Сергей",
+      "lastName": "Сидоров",
+      "birthDate": "1988-12-10",
+      "role": "user",
+      "createdAt": "2024-03-01T00:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "email": "user4@example.com",
+      "password": "User012!",
+      "phone": "+375295678901",
+      "firstName": "Елена",
+      "lastName": "Козлова",
+      "birthDate": "1993-03-25",
+      "role": "user",
+      "createdAt": "2024-03-15T00:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "email": "user5@example.com",
+      "password": "User345!",
+      "phone": "+375296789012",
+      "firstName": "Дмитрий",
+      "lastName": "Волков",
+      "birthDate": "1991-07-18",
+      "role": "user",
+      "createdAt": "2024-04-01T00:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "email": "user6@example.com",
+      "password": "User678!",
+      "phone": "+375297890123",
+      "firstName": "Ольга",
+      "lastName": "Морозова",
+      "birthDate": "1994-11-05",
+      "role": "user",
+      "createdAt": "2024-04-15T00:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "email": "user7@example.com",
+      "password": "User901!",
+      "phone": "+375298901234",
+      "firstName": "Александр",
+      "lastName": "Новиков",
+      "birthDate": "1989-06-30",
+      "role": "user",
+      "createdAt": "2024-05-01T00:00:00.000Z"
+    },
+    {
+      "id": 9,
+      "email": "user8@example.com",
+      "password": "User234!",
+      "phone": "+375299012345",
+      "firstName": "Наталья",
+      "lastName": "Лебедева",
+      "birthDate": "1996-02-14",
+      "role": "user",
+      "createdAt": "2024-05-15T00:00:00.000Z"
+    },
+    {
+      "id": 10,
+      "email": "user9@example.com",
+      "password": "User567!",
+      "phone": "+375290123456",
+      "firstName": "Максим",
+      "lastName": "Соколов",
+      "birthDate": "1987-09-22",
+      "role": "user",
+      "createdAt": "2024-06-01T00:00:00.000Z"
+    }
+  ],
+
+  "bookings": [
+    {
+      "id": 1,
+      "userId": 2,
+      "roomId": 1,
+      "checkIn": "2025-07-01",
+      "checkOut": "2025-07-07",
+      "guests": 2,
+      "totalPrice": 30000,
+      "status": "confirmed",
+      "createdAt": "2025-01-15T10:30:00.000Z"
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "roomId": 2,
+      "checkIn": "2025-07-10",
+      "checkOut": "2025-07-15",
+      "guests": 4,
+      "totalPrice": 40000,
+      "status": "pending",
+      "createdAt": "2025-01-20T14:45:00.000Z"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "roomId": 3,
+      "checkIn": "2025-08-01",
+      "checkOut": "2025-08-10",
+      "guests": 4,
+      "totalPrice": 108000,
+      "status": "confirmed",
+      "createdAt": "2025-02-01T09:15:00.000Z"
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "roomId": 1,
+      "checkIn": "2025-07-20",
+      "checkOut": "2025-07-25",
+      "guests": 2,
+      "totalPrice": 25000,
+      "status": "cancelled",
+      "createdAt": "2025-02-10T16:20:00.000Z"
+    },
+    {
+      "id": 5,
+      "userId": 5,
+      "roomId": 5,
+      "checkIn": "2025-08-15",
+      "checkOut": "2025-08-25",
+      "guests": 4,
+      "totalPrice": 250000,
+      "status": "confirmed",
+      "createdAt": "2025-02-15T11:00:00.000Z"
+    }
+  ],
+
+  "news": [
+    {
+      "id": 1,
+      "title": "Открытие нового спа-центра",
+      "titleEn": "New Spa Center Opening",
+      "excerpt": "Приглашаем гостей посетить наш новый спа-центр с бассейном и сауной.",
+      "excerptEn": "We invite guests to visit our new spa center with pool and sauna.",
+      "content": "Полный текст новости о спа-центре...",
+      "contentEn": "Full news text about spa center...",
+      "image": "assets/images/news/spa.jpg",
+      "date": "2025-01-15",
+      "category": "hotel"
+    },
+    {
+      "id": 2,
+      "title": "Летние акции 2025",
+      "titleEn": "Summer Promotions 2025",
+      "excerpt": "Специальные предложения на летний сезон. Скидки до 30%.",
+      "excerptEn": "Special offers for summer season. Discounts up to 30%.",
+      "content": "Полный текст новости об акциях...",
+      "contentEn": "Full news text about promotions...",
+      "image": "assets/images/news/summer.jpg",
+      "date": "2025-02-01",
+      "category": "promotion"
+    },
+    {
+      "id": 3,
+      "title": "Новое меню в ресторане",
+      "titleEn": "New Restaurant Menu",
+      "excerpt": "Шеф-повар представил обновленное меню с местными продуктами.",
+      "excerptEn": "Chef presented updated menu with local products.",
+      "content": "Полный текст новости о меню...",
+      "contentEn": "Full news text about menu...",
+      "image": "assets/images/news/restaurant.jpg",
+      "date": "2025-02-15",
+      "category": "restaurant"
+    }
+  ],
+
+  "offers": [
+    {
+      "id": 1,
+      "title": "Скидка на проживание 10% от 5 суток",
+      "titleEn": "10% Discount for 5+ Nights",
+      "description": "Аренда номера Делюкс на 4 человек с видом на море и собственной террасой. Коктейли в подарок единоразово при размещении.",
+      "descriptionEn": "Deluxe room rental for 4 people with sea view and private terrace. Complimentary cocktails upon check-in.",
+      "image": "assets/images/figma/imgCozyPillowsOnComfortableBigKingSizeBedInB20210826154547Utc2.jpg",
+      "discount": 10,
+      "validFrom": "2025-06-01",
+      "validTo": "2025-08-31",
+      "active": true
+    },
+    {
+      "id": 2,
+      "title": "Комплимент молодоженам и 1 сутки в подарок",
+      "titleEn": "Honeymoon Gift + 1 Free Night",
+      "description": "Аренда номера Делюкс на 4 человек с видом на море и собственной террасой. Коктейли в подарок единоразово при размещении.",
+      "descriptionEn": "Deluxe room rental for 4 people with sea view and private terrace. Complimentary cocktails upon check-in.",
+      "image": "assets/images/figma/imgElegantPinkWeddingBouquetWithRingsAtShells20220203003244Utc2.jpg",
+      "discount": 0,
+      "validFrom": "2025-05-01",
+      "validTo": "2025-09-30",
+      "active": true
+    },
+    {
+      "id": 3,
+      "title": "Фотосессия в подарок при оплате 10 суток",
+      "titleEn": "Free Photoshoot for 10+ Nights",
+      "description": "Аренда номера Делюкс на 4 человек с видом на море и собственной террасой. Коктейли в подарок единоразово при размещении.",
+      "descriptionEn": "Deluxe room rental for 4 people with sea view and private terrace. Complimentary cocktails upon check-in.",
+      "image": "assets/images/figma/imgWeddingCeremonyNearTheRocksAndSea20220113210910Utc1.jpg",
+      "discount": 0,
+      "validFrom": "2025-06-01",
+      "validTo": "2025-08-31",
+      "active": true
+    },
+    {
+      "id": 4,
+      "title": "Раннее бронирование -20%",
+      "titleEn": "Early Booking -20%",
+      "description": "Забронируйте номер за 30 дней и получите скидку 20%.",
+      "descriptionEn": "Book 30 days in advance and get 20% discount.",
+      "image": "assets/images/offers/early.jpg",
+      "discount": 20,
+      "validFrom": "2025-01-01",
+      "validTo": "2025-12-31",
+      "active": true
+    },
+    {
+      "id": 5,
+      "title": "Семейный пакет",
+      "titleEn": "Family Package",
+      "description": "Размещение семьи из 4 человек со скидкой 15% и бесплатным завтраком для детей.",
+      "descriptionEn": "Family of 4 accommodation with 15% discount and free breakfast for kids.",
+      "image": "assets/images/offers/family.jpg",
+      "discount": 15,
+      "validFrom": "2025-06-01",
+      "validTo": "2025-08-31",
+      "active": true
+    },
+    {
+      "id": 6,
+      "title": "Длительное проживание",
+      "titleEn": "Long Stay",
+      "description": "При проживании от 14 суток скидка 25% на все номера.",
+      "descriptionEn": "25% discount on all rooms for stays of 14+ nights.",
+      "image": "assets/images/offers/longstay.jpg",
+      "discount": 25,
+      "validFrom": "2025-01-01",
+      "validTo": "2025-12-31",
+      "active": true
+    }
+  ],
+
+  "reviews": [
+    {
+      "id": 1,
+      "userId": 2,
+      "roomId": 1,
+      "rating": 5,
+      "title": "Отличный отель!",
+      "comment": "Очень понравился отдых. Чистые номера, приветливый персонал.",
+      "date": "2025-01-20",
+      "approved": true
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "roomId": 2,
+      "rating": 4,
+      "title": "Хорошо, но есть нюансы",
+      "comment": "В целом всё хорошо, но завтрак мог бы быть разнообразнее.",
+      "date": "2025-02-05",
+      "approved": true
+    },
+    {
+      "id": 3,
+      "userId": 4,
+      "roomId": 3,
+      "rating": 5,
+      "title": "Превосходно!",
+      "comment": "Лучший отель в Крыму! Обязательно вернёмся.",
+      "date": "2025-02-15",
+      "approved": true
+    }
+  ],
+
+  "contacts": {
+    "phone": "+7 (912) 038-80-44",
+    "email": "info@santorini-hotel.ru",
+    "address": "298690, Россия, Крым, г. Ялта, пгт Форос, Форосский спуск, 1",
+    "coordinates": {
+      "lat": 44.3917,
+      "lng": 33.7833
+    },
+    "social": {
+      "vk": "https://vk.com/santorini",
+      "youtube": "https://youtube.com/santorini",
+      "instagram": "https://instagram.com/santorini"
+    }
+  },
+
+  "contactMessages": [
+    {
+      "id": 1,
+      "name": "Иван Иванов",
+      "email": "ivan@example.com",
+      "phone": "+375291234567",
+      "message": "Хочу забронировать номер на июль",
+      "date": "2025-01-15T10:30:00.000Z",
+      "status": "new"
+    },
+    {
+      "id": 2,
+      "name": "Анна Петрова",
+      "email": "anna@example.com",
+      "phone": "+375292345678",
+      "message": "Есть ли у вас номера для семей с детьми?",
+      "date": "2025-01-20T14:45:00.000Z",
+      "status": "answered"
+    }
+  ]
+}

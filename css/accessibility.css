@@ -1,0 +1,328 @@
+﻿/**
+ * Accessibility Styles for Visually Impaired Users
+ */
+
+/* High Contrast Mode */
+.accessibility-high-contrast {
+    --color-text: #000000;
+    --color-bg: #FFFFFF;
+    --color-primary: #000000;
+    --color-border: #000000;
+}
+
+.accessibility-high-contrast .body {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.accessibility-high-contrast a {
+    color: #000000;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+.accessibility-high-contrast .btn {
+    border-width: 3px;
+    border-color: #000000;
+}
+
+/* Black Background with White Text */
+.accessibility-black-white {
+    --color-text: #FFFFFF;
+    --color-bg: #000000;
+    --color-text-light: #CCCCCC;
+    --color-border: #FFFFFF;
+}
+
+.accessibility-black-white .body {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.accessibility-black-white .header,
+.accessibility-black-white .footer,
+.accessibility-black-white .room-card,
+.accessibility-black-white .offer-card {
+    background-color: #000000;
+    border: 2px solid #FFFFFF;
+}
+
+.accessibility-black-white a {
+    color: #FFFFFF;
+}
+
+/* Black Background with Green Text */
+.accessibility-black-green {
+    --color-text: #00FF00;
+    --color-bg: #000000;
+    --color-text-light: #00CC00;
+    --color-border: #00FF00;
+}
+
+.accessibility-black-green .body {
+    background-color: #000000;
+    color: #00FF00;
+}
+
+.accessibility-black-green .header,
+.accessibility-black-green .footer,
+.accessibility-black-green .room-card,
+.accessibility-black-green .offer-card {
+    background-color: #000000;
+    border: 2px solid #00FF00;
+}
+
+.accessibility-black-green a {
+    color: #00FF00;
+}
+
+/* Beige Background with Brown Text */
+.accessibility-beige-brown {
+    --color-text: #654321;
+    --color-bg: #F5F5DC;
+    --color-text-light: #8B7355;
+    --color-border: #654321;
+}
+
+.accessibility-beige-brown .body {
+    background-color: #F5F5DC;
+    color: #654321;
+}
+
+.accessibility-beige-brown .header,
+.accessibility-beige-brown .footer,
+.accessibility-beige-brown .room-card,
+.accessibility-beige-brown .offer-card {
+    background-color: #F5F5DC;
+    border: 2px solid #654321;
+}
+
+.accessibility-beige-brown a {
+    color: #654321;
+}
+
+/* Blue Background with Dark Blue Text */
+.accessibility-blue-darkblue {
+    --color-text: #00008B;
+    --color-bg: #ADD8E6;
+    --color-text-light: #0000CD;
+    --color-border: #00008B;
+}
+
+.accessibility-blue-darkblue .body {
+    background-color: #ADD8E6;
+    color: #00008B;
+}
+
+.accessibility-blue-darkblue .header,
+.accessibility-blue-darkblue .footer,
+.accessibility-blue-darkblue .room-card,
+.accessibility-blue-darkblue .offer-card {
+    background-color: #ADD8E6;
+    border: 2px solid #00008B;
+}
+
+.accessibility-blue-darkblue a {
+    color: #00008B;
+}
+
+/* Font Size Variations */
+.accessibility-font-small {
+    font-size: 100%;
+}
+
+.accessibility-font-medium {
+    font-size: 150%;
+}
+
+.accessibility-font-large {
+    font-size: 200%;
+}
+
+/* Text Formatting */
+.accessibility-mode {
+    line-height: 1.8;
+    max-width: 80ch;
+    text-align: left;
+}
+
+.accessibility-mode p {
+    margin-bottom: 2em;
+    letter-spacing: 0.12em;
+    word-spacing: 0.16em;
+}
+
+.accessibility-mode h1,
+.accessibility-mode h2,
+.accessibility-mode h3,
+.accessibility-mode h4,
+.accessibility-mode h5,
+.accessibility-mode h6 {
+    margin-bottom: 1.5em;
+    line-height: 1.4;
+}
+
+/* Hide Images */
+.accessibility-no-images img,
+.accessibility-no-images .hero__bg,
+.accessibility-no-images .activity-card__img,
+.accessibility-no-images .room-card__image,
+.accessibility-no-images .offer-card__image {
+    display: none;
+}
+
+.accessibility-no-images img[alt]::after {
+    content: attr(alt);
+    display: block;
+    padding: 1rem;
+    background: var(--color-bg-secondary);
+    border: 2px solid var(--color-border);
+    font-style: italic;
+}
+
+/* Remove Animations */
+.accessibility-no-animations *,
+.accessibility-no-animations *::before,
+.accessibility-no-animations *::after {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Focus Indicators */
+.accessibility-mode a:focus,
+.accessibility-mode button:focus,
+.accessibility-mode input:focus,
+.accessibility-mode select:focus,
+.accessibility-mode textarea:focus {
+    outline: 3px solid currentColor;
+    outline-offset: 2px;
+}
+
+/* Skip Link Enhancement */
+.accessibility-mode .skip-link {
+    font-size: 1.2em;
+    padding: 1rem 2rem;
+}
+
+/* Form Enhancements */
+.accessibility-mode label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.accessibility-mode input,
+.accessibility-mode select,
+.accessibility-mode textarea {
+    padding: 1rem;
+    font-size: 1em;
+    border-width: 2px;
+}
+
+/* Navigation Enhancement */
+.accessibility-mode .nav__link,
+.accessibility-mode .footer__link,
+.accessibility-mode .mobile-menu__link {
+    padding: 0.75rem 1rem;
+    display: block;
+}
+
+/* Button Enhancement */
+.accessibility-mode .btn {
+    padding: 1rem 2rem;
+    font-size: 1.1em;
+    min-height: 48px;
+}
+
+/* Table Enhancement */
+.accessibility-mode table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.accessibility-mode th,
+.accessibility-mode td {
+    padding: 1rem;
+    border-width: 2px;
+}
+
+/* Accessibility Panel */
+.accessibility-panel {
+    position: fixed;
+    top: 100px;
+    right: 0;
+    background: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: 8px 0 0 8px;
+    padding: 1rem;
+    z-index: 1000;
+    box-shadow: var(--shadow-lg);
+}
+
+.accessibility-panel__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.accessibility-panel__group {
+    margin-bottom: 1rem;
+}
+
+.accessibility-panel__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.accessibility-panel__btn {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 2px solid var(--color-border);
+    background: var(--color-bg);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.accessibility-panel__btn.active {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.accessibility-panel__toggle {
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Reset Button */
+.accessibility-reset {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--color-error);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.accessibility-reset:hover,
+.accessibility-reset:focus {
+    background: #C82333;
+}

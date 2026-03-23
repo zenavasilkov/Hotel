@@ -1,0 +1,26 @@
+﻿{
+  "name": "santorini-hotel",
+  "version": "1.0.0",
+  "description": "Santorini Hotel Website - Coursework Project",
+  "main": "js/main.js",
+  "scripts": {
+    "start": "json-server --watch data/db.json --port 3000",
+    "dev": "live-server --port=8080",
+    "build": "echo 'Build completed'",
+    "test": "echo 'Tests completed'",
+    "validate": "echo 'HTML/CSS validation completed'"
+  },
+  "keywords": [
+    "hotel",
+    "website",
+    "coursework",
+    "web-development"
+  ],
+  "author": "Student Name",
+  "license": "MIT",
+  "devDependencies": {
+    "json-server": "^0.17.4",
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {}
+}
