@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Forum&family=Hind+Madurai:wght@400;500;600&display=swap');
 
-/* ============================================
-   Santorini Hotel - Main Styles
-   ============================================ */
-
-/* CSS Variables */
 :root {
-    /* Colors - Light Theme */
     --color-primary: #4567AA;
     --color-primary-dark: #395793;
     --color-primary-light: #6584C2;
@@ -24,7 +18,6 @@
     --color-border: #E0E0E0;
     --color-border-light: #F0F0F0;
 
-    /* Typography */
     --font-primary: 'Hind Madurai', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-display: 'Forum', 'Times New Roman', serif;
     --font-size-base: 16px;
@@ -34,7 +27,6 @@
     --font-size-2xl: 32px;
     --font-size-3xl: 48px;
 
-    /* Spacing */
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
@@ -43,25 +35,21 @@
     --spacing-2xl: 3rem;
     --spacing-3xl: 4rem;
 
-    /* Border Radius */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 16px;
     --radius-xl: 24px;
     --radius-full: 9999px;
 
-    /* Shadows */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
     --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
 
-    /* Transitions */
     --transition-fast: 150ms ease;
     --transition-base: 300ms ease;
     --transition-slow: 500ms ease;
 
-    /* Z-index */
     --z-dropdown: 100;
     --z-sticky: 200;
     --z-fixed: 300;
@@ -69,12 +57,10 @@
     --z-modal: 500;
     --z-tooltip: 600;
 
-    /* Container */
     --container-max-width: 1680px;
     --container-padding: 120px;
 }
 
-/* Reset & Base Styles */
 *,
 *::before,
 *::after {
@@ -98,7 +84,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Accessibility */
 .skip-link {
     position: absolute;
     top: -100%;
@@ -130,7 +115,6 @@ body {
     border: 0;
 }
 
-/* Typography */
 h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
     font-weight: 400;
@@ -160,7 +144,6 @@ img {
     display: block;
 }
 
-/* Container */
 .container {
     width: 100%;
     max-width: var(--container-max-width);
@@ -168,9 +151,6 @@ img {
     padding: 0 var(--container-padding);
 }
 
-/* ============================================
-   Preloader
-   ============================================ */
 .preloader {
     position: fixed;
     top: 0;
@@ -203,9 +183,6 @@ img {
     to { transform: rotate(360deg); }
 }
 
-/* ============================================
-   Header
-   ============================================ */
 .header {
     position: absolute;
     top: 0;
@@ -221,16 +198,18 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 128px;
+    height: 70px;
+    margin: 0;
+    max-width: 100% !important;
     gap: var(--spacing-lg);
 }
 
 .logo__image {
-    height: 64px;
+    height: 27px;
     width: auto;
+    align-self: flex-start;
 }
 
-/* Navigation */
 .nav__list {
     display: flex;
     list-style: none;
@@ -266,7 +245,6 @@ img {
     width: 100%;
 }
 
-/* Controls */
 .controls {
     display: flex;
     align-items: center;
@@ -336,26 +314,26 @@ img {
     border-radius: 0;
 }
 
-/* Burger Menu */
 .burger-menu {
-    display: none;
+    display: flex !important;
     flex-direction: column;
     justify-content: space-between;
-    width: 30px;
-    height: 21px;
+    width: 50px;
+    height: 10px;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: calc(var(--z-fixed) + 1);
+    z-index: 1001;
 }
 
 .burger-menu__line {
+    display: block;
     width: 100%;
     height: 3px;
-    background: var(--color-text);
-    border-radius: var(--radius-full);
-    transition: all var(--transition-base);
+    background-color: var(--color-primary, #4a6fa9);
+    border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
 .burger-menu.active .burger-menu__line:nth-child(1) {
@@ -370,9 +348,6 @@ img {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* ============================================
-   Hero Section
-   ============================================ */
 .hero {
     position: relative;
     min-height: 860px;
@@ -395,6 +370,7 @@ img {
 .hero__image {
     width: 100%;
     height: 100%;
+    padding: 0 120px;
     object-fit: cover;
 }
 
@@ -404,7 +380,6 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(19, 36, 82, 0.18) 0%, rgba(19, 36, 82, 0.38) 100%);
 }
 
 .hero__container {
@@ -435,7 +410,6 @@ img {
     }
 }
 
-/* Search Form */
 .search-form {
     display: flex;
     flex-wrap: wrap;
@@ -536,9 +510,6 @@ img {
     transform: scale(1.05);
 }
 
-/* ============================================
-   Figma booking module (1920/1360/768/360)
-   ============================================ */
 .search-form--figma {
     display: grid;
     grid-template-columns: 1fr auto auto auto;
@@ -660,9 +631,6 @@ img {
     background: var(--color-primary-dark);
 }
 
-/* ============================================
-   Sections Common Styles
-   ============================================ */
 .section {
     padding: 88px 0;
 }
@@ -706,9 +674,6 @@ img {
     letter-spacing: 0.08em;
 }
 
-/* ============================================
-   Rooms Section
-   ============================================ */
 .rooms {
     background: var(--color-bg-secondary);
 }
@@ -789,7 +754,6 @@ img {
     margin-top: var(--spacing-xl);
 }
 
-/* Room Card */
 .room-card {
     flex: 0 0 calc(33.333% - var(--spacing-lg));
     margin: 0 calc(var(--spacing-lg) / 2);
@@ -806,7 +770,6 @@ img {
     box-shadow: var(--shadow-xl);
 }
 
-/* Room Card (continued) */
 .room-card__image-wrapper {
     position: relative;
     padding-top: 66.67%;
@@ -876,9 +839,6 @@ img {
     margin-top: 8px;
 }
 
-/* ============================================
-   Amenities Section
-   ============================================ */
 .amenities__container {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
@@ -1004,9 +964,6 @@ img {
     object-fit: cover;
 }
 
-/* ============================================
-   Active Recreation Section
-   ============================================ */
 .active-recreation {
     background: var(--color-bg-secondary);
 }
@@ -1143,9 +1100,6 @@ img {
     transform: translateX(5px);
 }
 
-/* ============================================
-   Special Offers Section
-   ============================================ */
 .offers__header {
     margin-bottom: var(--spacing-2xl);
 }
@@ -1280,9 +1234,6 @@ img {
     text-align: center;
 }
 
-/* ============================================
-   Video Section
-   ============================================ */
 .video-section {
     background: var(--color-bg-secondary);
 }
@@ -1296,7 +1247,7 @@ img {
 
 .video-section__container {
     position: relative;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
+    padding-top: 56.25%;
 }
 
 .video-section__thumb {
@@ -1335,12 +1286,9 @@ img {
 
 .video-section__play-btn svg {
     color: var(--color-primary);
-    margin-left: 8px;
+    margin-left: 1px;
 }
 
-/* ============================================
-   Footer
-   ============================================ */
 .footer {
     background: var(--color-bg-secondary);
     color: var(--color-text);
@@ -1457,9 +1405,6 @@ img {
     color: var(--color-primary);
 }
 
-/* ============================================
-   Mobile Menu
-   ============================================ */
 .mobile-menu {
     position: fixed;
     top: 0;
@@ -1469,7 +1414,6 @@ img {
     height: 100vh;
     background: var(--color-bg);
     z-index: calc(var(--z-fixed) + 10);
-    padding: calc(80px + var(--spacing-xl)) var(--spacing-xl) var(--spacing-xl);
     overflow-y: auto;
     transition: right var(--transition-base);
     box-shadow: var(--shadow-xl);
@@ -1483,13 +1427,12 @@ img {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
     margin-bottom: var(--spacing-2xl);
 }
 
 .mobile-menu__link {
     display: block;
-    padding: var(--spacing-md);
+    padding: 8px;
     color: var(--color-text);
     font-size: var(--font-size-lg);
     font-weight: 500;
@@ -1528,9 +1471,6 @@ img {
     color: var(--color-text-light);
 }
 
-/* ============================================
-   Modal
-   ============================================ */
 .modal {
     position: fixed;
     top: 0;
@@ -1620,9 +1560,6 @@ img {
     height: 100%;
 }
 
-/* ============================================
-   Cookie Banner
-   ============================================ */
 .cookie-banner {
     position: fixed;
     bottom: 0;
@@ -1659,9 +1596,6 @@ img {
     font-size: var(--font-size-sm);
 }
 
-/* ============================================
-   Buttons
-   ============================================ */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -1707,9 +1641,6 @@ img {
     width: 100%;
 }
 
-/* ============================================
-   Utility Classes
-   ============================================ */
 .text-center {
     text-align: center;
 }

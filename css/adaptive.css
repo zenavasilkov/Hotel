@@ -1,18 +1,10 @@
-/* ============================================
-   Adaptive Styles - Tablet (768px)
-   ============================================ */
 @media (max-width: 1024px) {
     :root {
         --container-padding: 70px;
     }
 
-    /* Header */
-    .header__nav {
-        display: none;
-    }
-
     .burger-menu {
-        display: flex;
+        display: flex !important;
     }
 
     .controls__lang,
@@ -21,7 +13,6 @@
         display: none;
     }
 
-    /* Hero */
     .hero__title {
         font-size: clamp(1.75rem, 4vw, 2.5rem);
         margin-bottom: 140px;
@@ -40,18 +31,15 @@
         height: 50px;
     }
 
-    /* Rooms */
     .room-card {
         flex: 0 0 calc(50% - var(--spacing-lg));
     }
 
-    /* Amenities */
     .amenities__container {
         grid-template-columns: 1fr;
         gap: var(--spacing-2xl);
     }
 
-    /* Active Recreation */
     .activities-grid {
         grid-template-columns: 1fr;
     }
@@ -63,12 +51,10 @@
         aspect-ratio: 16/10;
     }
 
-    /* Offers */
     .offer-card {
         grid-template-columns: 250px 1fr;
     }
 
-    /* Footer */
     .footer__container {
         grid-template-columns: 1fr 1fr;
         gap: var(--spacing-2xl);
@@ -79,9 +65,6 @@
     }
 }
 
-/* ============================================
-   1360 layout (Figma Desktop_1360)
-   ============================================ */
 @media (max-width: 1360px) {
     :root {
         --container-max-width: 1221px;
@@ -106,6 +89,10 @@
         margin-bottom: 150px;
     }
 
+    .hero__image {
+        padding: 0 73px;
+    }
+
     .section__title {
         font-size: 40px;
         line-height: 50px;
@@ -113,22 +100,18 @@
     }
 }
 
-/* ============================================
-   Adaptive Styles - Tablet (768px)
-   ============================================ */
 @media (max-width: 768px) {
     :root {
         --container-padding: 45px;
         --spacing-3xl: 2.5rem;
     }
 
-    /* Header */
     .header__container {
         height: 88px;
     }
 
     .logo__image {
-        height: 42px;
+        height: 22px;
     }
 
     .controls__btn {
@@ -136,7 +119,6 @@
         font-size: var(--font-size-sm);
     }
 
-    /* Hero */
     .hero {
         min-height: 680px;
         padding: 130px var(--spacing-lg) var(--spacing-2xl);
@@ -193,7 +175,6 @@
         justify-self: end;
     }
 
-    /* Sections */
     .section {
         padding: var(--spacing-2xl) 0;
     }
@@ -202,7 +183,6 @@
         font-size: var(--font-size-xl);
     }
 
-    /* Rooms */
     .room-card {
         flex: 0 0 100%;
         margin: 0;
@@ -221,7 +201,6 @@
         right: var(--spacing-md);
     }
 
-    /* Amenities */
     .amenities__list {
         order: 2;
     }
@@ -252,7 +231,6 @@
         display: none;
     }
 
-    /* Active Recreation */
     .active-recreation__tabs {
         flex-direction: column;
         align-items: stretch;
@@ -262,7 +240,6 @@
         width: 100%;
     }
 
-    /* Offers */
     .offer-card {
         grid-template-columns: 1fr;
         padding: var(--spacing-lg);
@@ -272,7 +249,6 @@
         height: 180px;
     }
 
-    /* Video Section */
     .video-section__play-btn {
         width: 80px;
         height: 80px;
@@ -283,7 +259,6 @@
         height: 60px;
     }
 
-    /* Footer */
     .footer__container {
         grid-template-columns: 1fr;
         gap: var(--spacing-xl);
@@ -304,7 +279,6 @@
         text-align: center;
     }
 
-    /* Cookie Banner */
     .cookie-banner__container {
         flex-direction: column;
         gap: var(--spacing-md);
@@ -321,9 +295,6 @@
     }
 }
 
-/* ============================================
-   Adaptive Styles - Mobile (360px)
-   ============================================ */
 @media (max-width: 480px) {
     :root {
         --spacing-3xl: 2rem;
@@ -331,18 +302,16 @@
         --spacing-xl: 1.25rem;
     }
 
-    /* Typography */
     h1 { font-size: var(--font-size-2xl); }
     h2 { font-size: var(--font-size-xl); }
     h3 { font-size: var(--font-size-lg); }
 
-    /* Header */
     .header__container {
         height: 76px;
     }
 
     .logo__image {
-        height: 36px;
+        display: none;
     }
 
     .controls__btn {
@@ -350,7 +319,6 @@
         font-size: 12px;
     }
 
-    /* Hero */
     .hero {
         min-height: 560px;
         padding: 110px var(--spacing-md) var(--spacing-xl);
@@ -394,7 +362,6 @@
         font-size: 14px;
     }
 
-    /* Sections */
     .section {
         padding: var(--spacing-xl) 0;
     }
@@ -408,7 +375,6 @@
         height: 8px;
     }
 
-    /* Rooms */
     .room-card__content {
         padding: var(--spacing-md);
     }
@@ -435,7 +401,6 @@
         padding: var(--spacing-sm) var(--spacing-md);
     }
 
-    /* Amenities */
     .amenities__items {
         grid-template-columns: 1fr;
     }
@@ -448,7 +413,6 @@
         font-size: var(--font-size-base);
     }
 
-    /* Active Recreation */
     .activity-card__overlay {
         padding: var(--spacing-md);
     }
@@ -462,7 +426,6 @@
         height: 32px;
     }
 
-    /* Offers */
     .offer-card {
         padding: var(--spacing-md);
     }
@@ -481,13 +444,11 @@
         height: 35px;
     }
 
-    /* Video Section */
     .video-section__play-btn {
         width: 60px;
         height: 60px;
     }
 
-    /* Footer */
     .footer {
         padding: var(--spacing-xl) 0 var(--spacing-lg);
     }
@@ -509,10 +470,8 @@
         height: 35px;
     }
 
-    /* Mobile Menu */
     .mobile-menu {
         max-width: 100%;
-        padding: calc(60px + var(--spacing-lg)) var(--spacing-md) var(--spacing-md);
     }
 
     .mobile-menu__link {
@@ -520,7 +479,6 @@
         padding: var(--spacing-sm);
     }
 
-    /* Modal */
     .modal__container {
         max-width: 95%;
         margin: var(--spacing-md);
@@ -533,16 +491,12 @@
         height: 35px;
     }
 
-    /* Buttons */
     .btn {
         padding: var(--spacing-sm) var(--spacing-lg);
         font-size: var(--font-size-sm);
     }
 }
 
-/* ============================================
-   360 layout (Figma Mobile_360)
-   ============================================ */
 @media (max-width: 360px) {
     :root {
         --container-padding: 15px;
@@ -560,15 +514,11 @@
     }
 }
 
-/* ============================================
-   Extra Small Devices (320px)
-   ============================================ */
 @media (max-width: 360px) {
     :root {
         --container-padding: 15px;
     }
 
-    /* Hero */
     .hero__title {
         font-size: 1.25rem;
     }
@@ -577,21 +527,16 @@
         width: 40px;
     }
 
-    /* Rooms */
     .room-card__header {
         flex-direction: column;
         gap: var(--spacing-sm);
     }
 
-    /* Footer */
     .footer__social {
         justify-content: center;
     }
 }
 
-/* ============================================
-   Large Screens (>1440px)
-   ============================================ */
 @media (min-width: 1441px) {
     .container {
         max-width: 1400px;
@@ -600,7 +545,7 @@
 
 @media (min-width: 1920px) {
     .container {
-        max-width: 1800px;
+        max-width: 1920px;
     }
 
     .section {
@@ -608,9 +553,6 @@
     }
 }
 
-/* ============================================
-   Print Styles
-   ============================================ */
 @media print {
     .header,
     .footer,
@@ -642,9 +584,6 @@
     }
 }
 
-/* ============================================
-   Reduced Motion
-   ============================================ */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -653,25 +592,5 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
-    }
-}
-
-/* ============================================
-   High Contrast Mode
-   ============================================ */
-@media (prefers-contrast: high) {
-    :root {
-        --color-border: #000000;
-        --color-text: #000000;
-        --color-primary: #000080;
-    }
-
-    .btn {
-        border-width: 3px;
-    }
-
-    a {
-        text-decoration: underline;
-        text-decoration-thickness: 2px;
     }
 }

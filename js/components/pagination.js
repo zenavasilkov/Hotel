@@ -73,12 +73,10 @@ class Pagination {
         let startPage = Math.max(1, this.options.currentPage - Math.floor(maxPages / 2));
         let endPage = Math.min(this.totalPages, startPage + maxPages - 1);
 
-        // Adjust start if we're near the end
         if (endPage - startPage + 1 < maxPages) {
             startPage = Math.max(1, endPage - maxPages + 1);
         }
 
-        // Add first page if not visible
         if (startPage > 1) {
             pages.push(1);
             if (startPage > 2) {
@@ -86,12 +84,10 @@ class Pagination {
             }
         }
 
-        // Add visible pages
         for (let i = startPage; i <= endPage; i++) {
             pages.push(i);
         }
 
-        // Add last page if not visible
         if (endPage < this.totalPages) {
             if (endPage < this.totalPages - 1) {
                 pages.push('...');
@@ -135,7 +131,6 @@ class Pagination {
     }
 }
 
-// Export for module usage
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = Pagination;
 }

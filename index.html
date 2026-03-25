@@ -9,12 +9,14 @@
     <link rel="preload" href="assets/fonts/ofont.ru_Montserrat.ttf" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="css/style.css" as="style">
 
+
+    <link rel="stylesheet" href="css/accessibility.css" id="accessibility-style" disabled>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/adaptive.css">
     <link rel="stylesheet" href="css/themes/light-theme.css" id="theme-style">
-    <link rel="stylesheet" href="css/accessibility.css" id="accessibility-style" disabled>
+    <link rel="stylesheet" href="css/components/mobile-menu.css">
 
-    <link rel="icon" type="image/png" href="assets/favicons/favicon.jpg" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/favicons/favicon.ico">
 </head>
 
 <body class="body">
@@ -25,23 +27,11 @@
         <button class="burger-menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
             <span class="burger-menu__line"></span>
             <span class="burger-menu__line"></span>
-            <span class="burger-menu__line"></span>
         </button>
 
         <a href="index.html" class="header__logo logo" aria-label="Santorini - на главную">
             <img src="assets/images/logo.svg" alt="Santorini" class="logo__image" width="150" height="40">
         </a>
-
-        <nav class="header__nav nav" id="main-nav" role="navigation" aria-label="Главная навигация">
-            <ul class="nav__list">
-                <li class="nav__item"><a href="rooms.html" class="nav__link">Номера и цены</a></li>
-                <li class="nav__item"><a href="#about" class="nav__link">Об отеле</a></li>
-                <li class="nav__item"><a href="active-recreation.html" class="nav__link">Активный отдых</a></li>
-                <li class="nav__item"><a href="special-offers.html" class="nav__link">Спецпредложения</a></li>
-                <li class="nav__item"><a href="news.html" class="nav__link">Новости</a></li>
-                <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
-            </ul>
-        </nav>
 
         <div class="header__controls controls">
             <button class="controls__theme" aria-label="Сменить тему" id="theme-toggle">
@@ -454,32 +444,86 @@
 </footer>
 
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__header">
+        <a href="index.html" class="mobile-menu__logo">
+            <img src="assets/images/logo.svg" alt="Santorini" width="150" height="40">
+        </a>
+        <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Закрыть меню">
+            <svg width="24" height="24" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#close"></use>
+            </svg>
+        </button>
+    </div>
+
     <nav class="mobile-menu__nav" role="navigation" aria-label="Мобильная навигация">
         <ul class="mobile-menu__list">
-            <li><a href="rooms.html" class="mobile-menu__link" data-i18n="navRooms">Номера и цены</a></li>
-            <li><a href="about.html" class="mobile-menu__link" data-i18n="navAbout">Об отеле</a></li>
-            <li><a href="services.html" class="mobile-menu__link" data-i18n="navServices">Услуги</a></li>
-            <li><a href="active-recreation.html" class="mobile-menu__link" data-i18n="navActive">Активный отдых</a></li>
-            <li><a href="special-offers.html" class="mobile-menu__link" data-i18n="navOffers">Спецпредложения</a></li>
-            <li><a href="news.html" class="mobile-menu__link" data-i18n="navNews">Новости</a></li>
-            <li><a href="contacts.html" class="mobile-menu__link" data-i18n="navContacts">Контакты</a></li>
-            <li><a href="photos.html" class="mobile-menu__link" data-i18n="navPhotos">Фото отеля</a></li>
-            <li><a href="how-to-get.html" class="mobile-menu__link" data-i18n="navHowToGet">Как добраться</a></li>
-            <li><a href="reviews.html" class="mobile-menu__link" data-i18n="navReviews">Отзывы гостей</a></li>
+            <li class="mobile-menu__item">
+                <a href="rooms.html" class="mobile-menu__link">НОМЕРА И ЦЕНЫ</a>
+            </li>
+            <li class="mobile-menu__item mobile-menu__item--has-dropdown">
+                <button class="mobile-menu__link mobile-menu__link--dropdown"
+                        aria-expanded="false"
+                        aria-controls="about-submenu">
+                    ОБ ОТЕЛЕ
+                    <svg class="mobile-menu__arrow" width="12" height="12" aria-hidden="true">
+                        <use href="assets/icons/sprite.svg#chevron-down"></use>
+                    </svg>
+                </button>
+                <ul class="mobile-menu__submenu" id="about-submenu">
+                    <li><a href="about.html" class="mobile-menu__submenu-link">О компании</a></li>
+                    <li><a href="advantages.html" class="mobile-menu__submenu-link">Преимущества</a></li>
+                    <li><a href="partners.html" class="mobile-menu__submenu-link">Наши партнеры</a></li>
+                </ul>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="photos.html" class="mobile-menu__link">ФОТО ОТЕЛЯ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="how-to-get.html" class="mobile-menu__link">КАК ДОБРАТЬСЯ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="reviews.html" class="mobile-menu__link">ОТЗЫВЫ ГОСТЕЙ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="attractions.html" class="mobile-menu__link">ДОСТОПРИМЕЧАТЕЛЬНОСТИ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="pasta-bar.html" class="mobile-menu__link">ПАСТА-БАР</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="active-recreation.html" class="mobile-menu__link">АКТИВНЫЙ ОТДЫХ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="special-offers.html" class="mobile-menu__link">СПЕЦПРЕДЛОЖЕНИЯ</a>
+            </li>
         </ul>
     </nav>
 
     <div class="mobile-menu__footer">
-        <a href="booking.html" class="btn btn--primary btn--full" data-i18n="bookNow">Забронировать</a>
+        <a href="booking.html" class="mobile-menu__btn">ЗАБРОНИРОВАТЬ</a>
+
         <div class="mobile-menu__contacts">
-            <a href="tel:+79120388044" class="mobile-menu__phone">8 (912) 038-80-44</a>
-            <p class="mobile-menu__address" data-i18n="address">298690, Россия, Крым, г. Ялта, пгт Форос, Форосский спуск, 1</p>
+            <a href="tel:+79120388044" class="mobile-menu__phone">
+                <svg class="mobile-menu__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#phone"></use>
+                </svg>
+                8(912) 038-80-44
+            </a>
+            <p class="mobile-menu__address">
+                298690, РОССИЯ, КРЫМ, Г. ЯЛТА, ПГТ ФОРОС,<br>
+                ФОРОССКИЙ СПУСК, 1
+            </p>
         </div>
-        <div class="mobile-menu__social social">
-            <!-- Social links same as footer -->
+
+        <div class="mobile-menu__social">
+            <img src="assets/icons/VK.png" alt="VK" class="mobile-menu__social-link" height="40">
+            <img src="assets/icons/YouTube.png" alt="YouTube" class="mobile-menu__social-link" height="40">
+            <img src="assets/icons/zen.png" alt="Zen" class="mobile-menu__social-link" height="40">
         </div>
     </div>
 </div>
+
+<div class="mobile-menu__overlay" id="mobile-menu-overlay"></div>
 
 <div class="modal" id="video-modal" role="dialog" aria-modal="true" aria-labelledby="video-modal-title" aria-hidden="true">
     <div class="modal__overlay" data-modal-close></div>

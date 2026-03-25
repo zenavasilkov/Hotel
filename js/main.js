@@ -1,24 +1,13 @@
-/**
- * Main Application Entry Point
- */
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all components
     Preloader.init();
     I18n.init();
     ThemeSwitcher.init();
     BurgerMenu.init();
     Modal.init();
 
-    // Initialize page-specific scripts
     initializePageScripts();
-
-    // Setup accessibility
     setupAccessibility();
-
-    // Setup cookie banner
     setupCookieBanner();
-
-    // Setup reset settings button
     setupResetSettings();
 
     console.log('Santorini Hotel website initialized');
@@ -30,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializePageScripts() {
     const path = window.location.pathname;
 
-    // Initialize sliders on pages that need them
     if (path.includes('index.html') || path === '/') {
         initializeHomePage();
     } else if (path.includes('rooms.html')) {
@@ -44,7 +32,6 @@ function initializePageScripts() {
 function initializeHomePage() {
     setupRoomsSlider();
 
-    // Initialize amenities slider
     new Slider('.amenities__slider', {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -55,16 +42,9 @@ function initializeHomePage() {
         arrows: false
     });
 
-    // Load rooms data
     loadRoomsData();
-
-    // Load offers data
     loadOffersData();
-
-    // Initialize tabs
     initializeTabs();
-
-    // Initialize Figma booking module counter (homepage)
     initializeHeroBookingCounter();
 }
 
@@ -79,7 +59,7 @@ function setupRoomsSlider() {
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 10000,
         infinite: true,
         dots: true,
         arrows: true
@@ -174,7 +154,6 @@ function renderRooms(rooms) {
         </article>
     `).join('');
 
-    // Re-initialize slider after dynamic content render
     setupRoomsSlider();
 }
 
@@ -184,7 +163,7 @@ function renderRooms(rooms) {
 async function loadOffersData() {
     try {
         const offers = await FetchAPI.get(API_ENDPOINTS.OFFERS);
-        renderOffers(offers.slice(0, 3)); // Show first 3 on homepage
+        renderOffers(offers.slice(0, 3));
     } catch (error) {
         console.error('Failed to load offers:', error);
     }
@@ -226,7 +205,6 @@ function initializeTabs() {
         tab.addEventListener('click', () => {
             const target = tab.getAttribute('aria-controls');
 
-            // Update tabs
             tabs.forEach(t => {
                 t.setAttribute('aria-selected', 'false');
                 t.classList.remove('active');
@@ -237,7 +215,6 @@ function initializeTabs() {
             tab.classList.add('active');
             tab.setAttribute('tabindex', '0');
 
-            // Update panels
             panels.forEach(panel => {
                 panel.classList.remove('active');
                 panel.setAttribute('hidden', '');
@@ -250,11 +227,9 @@ function initializeTabs() {
             }
         });
 
-        // Keyboard navigation
         tab.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
                 e.preventDefault();
-                // Handle arrow key navigation
             }
         });
     });
@@ -273,7 +248,6 @@ function setupAccessibility() {
         applyAccessibilitySettings(!isAccessible);
     });
 
-    // Apply saved settings
     const isAccessible = StorageUtils.get(APP_CONFIG.STORAGE_KEYS.ACCESSIBILITY, false);
     if (isAccessible) {
         applyAccessibilitySettings(true);
@@ -309,7 +283,6 @@ function setupCookieBanner() {
         banner.hidden = false;
     }
 
-    // Accept button
     const acceptBtn = document.querySelector('[data-cookie-accept]');
     if (acceptBtn) {
         acceptBtn.addEventListener('click', () => {
@@ -318,7 +291,6 @@ function setupCookieBanner() {
         });
     }
 
-    // Decline button
     const declineBtn = document.querySelector('[data-cookie-decline]');
     if (declineBtn) {
         declineBtn.addEventListener('click', () => {
@@ -332,7 +304,6 @@ function setupCookieBanner() {
  * Setup reset settings button
  */
 function setupResetSettings() {
-    // Can be triggered from settings panel or footer
     const resetBtn = document.querySelector('[data-reset-settings]');
     if (resetBtn) {
         resetBtn.addEventListener('click', () => {
@@ -360,11 +331,9 @@ function formatDate(dateString) {
  * Show error message
  */
 function showErrorMessage(message) {
-    // Implement error notification system
     console.error(message);
 }
 
-// Export functions for page-specific scripts
 window.SantoriniApp = {
     loadRoomsData,
     renderRooms,

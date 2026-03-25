@@ -41,7 +41,6 @@ class Slider {
             this.startAutoplay();
         }
 
-        // Handle resize
         window.addEventListener('resize', () => {
             this.updateSlideWidth();
             this.updateSliderPosition();
@@ -52,7 +51,6 @@ class Slider {
         const width = this.slider.offsetWidth;
         let slidesToShow = this.options.slidesToShow;
 
-        // Responsive breakpoints
         if (width <= 480) {
             slidesToShow = 1;
         } else if (width <= 768) {
@@ -89,13 +87,11 @@ class Slider {
             this.nextBtn.addEventListener('click', () => this.next());
         }
 
-        // Keyboard navigation
         this.slider.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') this.prev();
             if (e.key === 'ArrowRight') this.next();
         });
 
-        // Touch support
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -108,7 +104,6 @@ class Slider {
             this.handleSwipe(touchStartX, touchEndX);
         }, { passive: true });
 
-        // Pause autoplay on hover
         this.slider.addEventListener('mouseenter', () => this.stopAutoplay());
         this.slider.addEventListener('mouseleave', () => this.startAutoplay());
     }
@@ -200,7 +195,6 @@ class Slider {
     }
 }
 
-// Export for module usage
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = Slider;
 }

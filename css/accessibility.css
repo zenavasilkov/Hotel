@@ -1,8 +1,6 @@
 ﻿/**
  * Accessibility Styles for Visually Impaired Users
  */
-
-/* High Contrast Mode */
 .accessibility-high-contrast {
     --color-text: #000000;
     --color-bg: #FFFFFF;
@@ -26,7 +24,6 @@
     border-color: #000000;
 }
 
-/* Black Background with White Text */
 .accessibility-black-white {
     --color-text: #FFFFFF;
     --color-bg: #000000;
@@ -51,7 +48,6 @@
     color: #FFFFFF;
 }
 
-/* Black Background with Green Text */
 .accessibility-black-green {
     --color-text: #00FF00;
     --color-bg: #000000;
@@ -76,7 +72,6 @@
     color: #00FF00;
 }
 
-/* Beige Background with Brown Text */
 .accessibility-beige-brown {
     --color-text: #654321;
     --color-bg: #F5F5DC;
@@ -101,7 +96,6 @@
     color: #654321;
 }
 
-/* Blue Background with Dark Blue Text */
 .accessibility-blue-darkblue {
     --color-text: #00008B;
     --color-bg: #ADD8E6;
@@ -126,7 +120,6 @@
     color: #00008B;
 }
 
-/* Font Size Variations */
 .accessibility-font-small {
     font-size: 100%;
 }
@@ -139,7 +132,6 @@
     font-size: 200%;
 }
 
-/* Text Formatting */
 .accessibility-mode {
     line-height: 1.8;
     max-width: 80ch;
@@ -162,7 +154,6 @@
     line-height: 1.4;
 }
 
-/* Hide Images */
 .accessibility-no-images img,
 .accessibility-no-images .hero__bg,
 .accessibility-no-images .activity-card__img,
@@ -180,7 +171,6 @@
     font-style: italic;
 }
 
-/* Remove Animations */
 .accessibility-no-animations *,
 .accessibility-no-animations *::before,
 .accessibility-no-animations *::after {
@@ -188,7 +178,6 @@
     transition: none !important;
 }
 
-/* Focus Indicators */
 .accessibility-mode a:focus,
 .accessibility-mode button:focus,
 .accessibility-mode input:focus,
@@ -198,13 +187,11 @@
     outline-offset: 2px;
 }
 
-/* Skip Link Enhancement */
 .accessibility-mode .skip-link {
     font-size: 1.2em;
     padding: 1rem 2rem;
 }
 
-/* Form Enhancements */
 .accessibility-mode label {
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -219,7 +206,6 @@
     border-width: 2px;
 }
 
-/* Navigation Enhancement */
 .accessibility-mode .nav__link,
 .accessibility-mode .footer__link,
 .accessibility-mode .mobile-menu__link {
@@ -227,14 +213,12 @@
     display: block;
 }
 
-/* Button Enhancement */
 .accessibility-mode .btn {
     padding: 1rem 2rem;
     font-size: 1.1em;
     min-height: 48px;
 }
 
-/* Table Enhancement */
 .accessibility-mode table {
     border-collapse: separate;
     border-spacing: 0;
@@ -246,7 +230,6 @@
     border-width: 2px;
 }
 
-/* Accessibility Panel */
 .accessibility-panel {
     position: fixed;
     top: 100px;
@@ -309,7 +292,6 @@
     justify-content: center;
 }
 
-/* Reset Button */
 .accessibility-reset {
     width: 100%;
     padding: 0.75rem;

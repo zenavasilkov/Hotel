@@ -9,12 +9,10 @@ const Preloader = {
         this.preloader = document.getElementById('preloader');
         if (!this.preloader) return;
 
-        // Hide when page is loaded
         window.addEventListener('load', () => {
             this.hide();
         });
 
-        // Minimum display time (for smooth UX)
         this.minDisplayTime = 500;
         this.startTime = Date.now();
     },
@@ -29,7 +27,6 @@ const Preloader = {
         setTimeout(() => {
             this.preloader.classList.add('hidden');
 
-            // Remove from DOM after animation
             setTimeout(() => {
                 this.preloader.style.display = 'none';
             }, 500);
@@ -46,7 +43,6 @@ const Preloader = {
     }
 };
 
-// Export for module usage
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = Preloader;
 }

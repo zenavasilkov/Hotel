@@ -2,65 +2,54 @@
  * Dark Theme Styles
  */
 :root {
-    /* Primary Colors */
     --color-primary: #6B8FC7;
     --color-primary-dark: #4A6FA5;
     --color-primary-light: #8FA8D5;
 
-    /* Secondary Colors */
     --color-secondary: #FFA96B;
     --color-secondary-dark: #FF8C42;
     --color-secondary-light: #FFC494;
 
-    /* Text Colors */
     --color-text: #E0E0E0;
     --color-text-light: #B0B0B0;
     --color-text-muted: #808080;
     --color-text-inverse: #1A1A1A;
 
-    /* Background Colors */
     --color-bg: #1A1A1A;
     --color-bg-secondary: #2D2D2D;
     --color-bg-dark: #0D0D0D;
     --color-bg-overlay: rgba(26, 26, 26, 0.95);
 
-    /* Border Colors */
     --color-border: #404040;
     --color-border-light: #333333;
     --color-border-dark: #505050;
 
-    /* Shadow Colors */
     --shadow-color: rgba(0, 0, 0, 0.3);
     --shadow-sm: 0 1px 2px var(--shadow-color);
     --shadow-md: 0 4px 6px var(--shadow-color);
     --shadow-lg: 0 10px 15px var(--shadow-color);
     --shadow-xl: 0 20px 25px var(--shadow-color);
 
-    /* Link Colors */
     --color-link: #6B8FC7;
     --color-link-hover: #8FA8D5;
     --color-link-visited: #9B7EBD;
 
-    /* Status Colors */
     --color-success: #4CAF50;
     --color-warning: #FFD54F;
     --color-error: #EF5350;
     --color-info: #26C6DA;
 }
 
-/* Body */
 .body {
     background-color: var(--color-bg);
     color: var(--color-text);
 }
 
-/* Header */
 .header {
     background-color: var(--color-bg-secondary);
     box-shadow: var(--shadow-md);
 }
 
-/* Buttons */
 .btn--primary {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
@@ -85,7 +74,6 @@
     color: var(--color-text-inverse);
 }
 
-/* Cards */
 .room-card,
 .offer-card,
 .activity-card {
@@ -93,7 +81,6 @@
     box-shadow: var(--shadow-md);
 }
 
-/* Forms */
 input,
 select,
 textarea {
@@ -109,7 +96,6 @@ textarea:focus {
     box-shadow: 0 0 0 3px rgba(107, 143, 199, 0.2);
 }
 
-/* Tables */
 table {
     background-color: var(--color-bg-secondary);
     border-color: var(--color-border);
@@ -125,7 +111,6 @@ td {
     color: var(--color-text);
 }
 
-/* Footer */
 .footer {
     background-color: var(--color-bg-dark);
     color: var(--color-text);
@@ -140,7 +125,6 @@ td {
     color: var(--color-text);
 }
 
-/* Modal */
 .modal__container {
     background-color: var(--color-bg-secondary);
     box-shadow: var(--shadow-xl);
@@ -150,13 +134,11 @@ td {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Cookie Banner */
 .cookie-banner {
     background-color: var(--color-bg-dark);
     color: var(--color-text);
 }
 
-/* Validation Messages */
 .validation-message {
     color: var(--color-error);
 }
@@ -169,7 +151,6 @@ input.invalid {
     border-color: var(--color-error);
 }
 
-/* Pagination */
 .pagination__number {
     background-color: var(--color-bg-secondary);
     border-color: var(--color-border);
@@ -184,7 +165,6 @@ input.invalid {
     color: var(--color-text-inverse);
 }
 
-/* Tabs */
 .tabs__btn {
     background-color: var(--color-bg-secondary);
     border-color: var(--color-border);
@@ -204,7 +184,6 @@ input.invalid {
     color: var(--color-text-inverse);
 }
 
-/* Slider Dots */
 .slider__dot {
     background-color: var(--color-border);
 }
@@ -213,7 +192,6 @@ input.invalid {
     background-color: var(--color-primary);
 }
 
-/* Mobile Menu */
 .mobile-menu {
     background-color: var(--color-bg-secondary);
     box-shadow: var(--shadow-xl);
@@ -229,7 +207,6 @@ input.invalid {
     color: var(--color-primary);
 }
 
-/* Search Form */
 .search-form {
     background-color: var(--color-bg-overlay);
     box-shadow: var(--shadow-xl);
@@ -252,22 +229,18 @@ input.invalid {
     color: var(--color-text-muted);
 }
 
-/* Section Backgrounds */
 .section--alternate {
     background-color: var(--color-bg-dark);
 }
 
-/* Hero Overlay */
 .hero__overlay {
     background: linear-gradient(135deg, rgba(107, 143, 199, 0.7) 0%, rgba(13, 13, 13, 0.7) 100%);
 }
 
-/* Activity Card Overlay */
 .activity-card__overlay {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -286,7 +259,6 @@ input.invalid {
     background: var(--color-primary-light);
 }
 
-/* Selection */
 ::selection {
     background-color: var(--color-primary);
     color: var(--color-text-inverse);

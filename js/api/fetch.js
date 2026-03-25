@@ -13,7 +13,6 @@ const FetchAPI = {
         try {
             const url = new URL(`${APP_CONFIG.API_BASE_URL}${endpoint}`);
 
-            // Add query parameters
             Object.keys(params).forEach(key => {
                 if (params[key] !== undefined && params[key] !== null) {
                     url.searchParams.append(key, params[key]);
@@ -33,7 +32,6 @@ const FetchAPI = {
 
             return await response.json();
         } catch (error) {
-            // Fallback for static mode without local API server
             return await this.getFromLocalDb(endpoint, params);
         }
     },
@@ -198,7 +196,6 @@ const FetchAPI = {
     }
 };
 
-// Export for module usage
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = FetchAPI;
 }
