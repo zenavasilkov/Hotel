@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="zen-new-icon 2" clip-path="url(#clip0_0_247)">
+<path id="Vector" d="M0 22.5C0 10.0736 10.0736 0 22.5 0C34.9264 0 45 10.0736 45 22.5C45 34.9264 34.9264 45 22.5 45C10.0736 45 0 34.9264 0 22.5Z" fill="var(--fill-0, #4567AA)"/>
+<path id="Vector_2" fill-rule="evenodd" clip-rule="evenodd" d="M22.0447 0C21.9384 9.25666 21.3331 14.4371 17.8851 17.8851C14.4371 21.3331 9.25666 21.9384 0 22.0447V23.388C9.25666 23.4943 14.4371 24.0996 17.8851 27.5476C21.279 30.9414 21.9187 36.0139 22.0393 45H23.3934C23.5139 36.0139 24.1537 30.9414 27.5476 27.5476C30.9414 24.1537 36.0139 23.5139 45 23.3934V22.0392C36.0139 21.9187 30.9414 21.279 27.5476 17.8851C24.0996 14.4371 23.4943 9.25666 23.388 0H22.0447Z" fill="var(--fill-0, white)"/>
+</g>
+<defs>
+<clipPath id="clip0_0_247">
+<rect width="45" height="45" fill="white"/>
+</clipPath>
+</defs>
+</svg>

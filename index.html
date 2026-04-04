@@ -1,10 +1,556 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Отель Santorini - комфортный отдых в Крыму. Уютные номера, активный отдых, специальные предложения.">
+    <title>Santorini - Комфортный отдых в Крыму</title>
 
+    <link rel="preload" href="assets/fonts/ofont.ru_Montserrat.ttf" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="css/style.css" as="style">
+
+    <link rel="stylesheet" href="css/accessibility.css" id="accessibility-style" disabled>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/adaptive.css">
+    <link rel="stylesheet" href="css/themes/light-theme.css" id="theme-style">
+    <link rel="stylesheet" href="css/components/mobile-menu.css">
+
+    <link rel="icon" type="image/png" href="assets/favicons/favicon.ico">
+</head>
+
+<body class="body">
+<a href="#main-content" class="skip-link">Перейти к основному контенту</a>
+
+<header class="header" role="banner">
+    <div class="container header__container">
+        <div class="container header__container header__group">
+            <button class="burger-menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+            </button>
+
+            <a href="index.html" class="header__logo logo" aria-label="Santorini - на главную">
+                <img src="assets/images/logo.svg" alt="Santorini" class="logo__image" width="150" height="40">
+            </a>
+        </div>
+
+        <div class="controls header__controls">
+            <button class="controls__theme" aria-label="Сменить тему" id="theme-toggle">
+                <svg class="controls__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#moon"></use>
+                </svg>
+            </button>
+
+            <button class="controls__accessibility" aria-label="Версия для слабовидящих" id="accessibility-toggle">
+                <svg class="controls__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#eye"></use>
+                </svg>
+            </button>
+
+            <div class="controls__lang lang-switcher">
+                <button class="lang-switcher__btn active" data-lang="ru" aria-label="Русский язык">RU</button>
+                <button class="lang-switcher__btn" data-lang="en" aria-label="English">EN</button>
+            </div>
+
+            <a href="booking.html" class="controls__btn btn btn--primary book__btn">
+                <span class="controls__btn-text" data-i18n="bookNow">Забронировать</span>
+                <svg class="controls__icon controls__icon-arrow" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#arrow-up-right"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main id="main-content" class="main" role="main">
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__bg">
+            <img src="assets/images/figma/imgGirlInASwimmingPoolWithSeaViews20210826182458Utc2.jpg" alt="" class="hero__image" loading="eager" fetchpriority="high">
+            <div class="hero__overlay"></div>
+        </div>
+
+        <div class="container hero__container">
+            <h1 id="hero-title" class="hero__title" data-i18n="heroTitle">Комфортный отдых в Крыму</h1>
+
+            <form class="hero__search search-form search-form--figma" role="search" aria-label="Поиск номеров">
+                <div class="search-form__date">
+                    <svg class="search-form__icon" width="20" height="20">
+                        <use href="assets/icons/sprite.svg#calendar"></use>
+                    </svg>
+                    <label for="date-range" class="visually-hidden">Дата заезда - дата выезда</label>
+                    <input type="text" id="date-range" class="search-form__input" placeholder="ДАТА ЗАЕЗДА - ДАТА ВЫЕЗДА">
+                    <button type="button" class="search-form__pill" aria-label="Открыть выбор дат">
+                        <svg width="18" height="18">
+                            <use href="assets/icons/sprite.svg#chevron-down"></use>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="search-form__divider"></div>
+
+                <div class="search-form__people">
+                    <svg class="search-form__icon" width="20" height="20">
+                        <use href="assets/icons/sprite.svg#guests"></use>
+                    </svg>
+                    <span class="search-form__label">КОЛ-ВО ЧЕЛОВЕК</span>
+                </div>
+
+                <div class="search-form__divider" aria-hidden="true"></div>
+
+                <div class="search-form__counterWrap" aria-label="Количество человек">
+                    <button type="button" class="search-form__counterBtn" data-action="decrease" aria-label="Уменьшить">−</button>
+                    <output class="search-form__counterValue" id="guests-value" aria-live="polite">02</output>
+                    <button type="button" class="search-form__counterBtn" data-action="increase" aria-label="Увеличить">+</button>
+                </div>
+
+                <button type="submit" class="search-form__submit" aria-label="Найти номера">
+                    <svg width="18" height="18" aria-hidden="true">
+                        <use href="assets/icons/sprite.svg#search"></use>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <section class="rooms section" aria-labelledby="rooms-title">
+        <div class="container">
+            <div class="section__header rooms__header">
+                <div class="section__decor">
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                </div>
+                <h2 id="rooms-title" class="section__title" data-i18n="roomsTitle">Номера</h2>
+                <p class="section__subtitle" data-i18n="roomsSubtitle">Выбери свой номер</p>
+                <div class="section__decor">
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                </div>
+            </div>
+
+            <div class="rooms__slider slider" role="region" aria-label="Карусель номеров" aria-roledescription="carousel">
+                <button class="slider__btn slider__btn--prev" aria-label="Предыдущий слайд" aria-controls="rooms-track">
+                    <svg width="24" height="24" aria-hidden="true">
+                        <use href="assets/icons/sprite.svg#arrow-left"></use>
+                    </svg>
+                </button>
+
+                <div class="slider__track" id="rooms-track">
+                    <div class="slider__container">
+                        <div class="rooms__loading" role="status" aria-live="polite">
+                            <div class="spinner"></div>
+                            <span data-i18n="loading">Загрузка...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="slider__btn slider__btn--next" aria-label="Следующий слайд" aria-controls="rooms-track">
+                    <svg width="24" height="24" aria-hidden="true">
+                        <use href="assets/icons/sprite.svg#arrow-right"></use>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="slider__pagination rooms__pagination" role="tablist" aria-label="Навигация по слайдам"></div>
+        </div>
+    </section>
+
+    <section class="amenities section" aria-labelledby="amenities-title">
+        <div class="container amenities__container">
+            <div class="amenities__list">
+                <h2 id="amenities-title" class="visually-hidden" data-i18n="amenitiesTitle">Вам понравится у нас</h2>
+                <ul class="amenities__items" role="list">
+                    <li class="amenities__item">
+                        <a href="pasta-bar.html" class="amenities__link">
+                            <span class="amenities__number">01</span>
+                            <span class="amenities__name" data-i18n="pastaBar">Паста бар</span>
+                            <svg class="amenities__arrow" width="16" height="16" aria-hidden="true">
+                                <use href="assets/icons/sprite.svg#arrow-right"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="amenities__item">
+                        <a href="aroma-garden.html" class="amenities__link">
+                            <span class="amenities__number">02</span>
+                            <span class="amenities__name" data-i18n="aromaGarden">Арома-сад</span>
+                            <svg class="amenities__arrow" width="16" height="16" aria-hidden="true">
+                                <use href="assets/icons/sprite.svg#arrow-right"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="amenities__item">
+                        <a href="beach.html" class="amenities__link">
+                            <span class="amenities__number">03</span>
+                            <span class="amenities__name" data-i18n="beach">Пляж</span>
+                            <svg class="amenities__arrow" width="16" height="16" aria-hidden="true">
+                                <use href="assets/icons/sprite.svg#arrow-right"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="amenities__item">
+                        <a href="territory.html" class="amenities__link">
+                            <span class="amenities__number">04</span>
+                            <span class="amenities__name" data-i18n="territory">Территория отеля</span>
+                            <svg class="amenities__arrow" width="16" height="16" aria-hidden="true">
+                                <use href="assets/icons/sprite.svg#arrow-right"></use>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="amenities__slider-controls">
+                    <button class="amenities__nav-btn amenities__nav-btn--prev" aria-label="Предыдущий слайд">
+                        <svg width="24" height="24" aria-hidden="true">
+                            <use href="assets/icons/sprite.svg#arrow-left"></use>
+                        </svg>
+                    </button>
+                    <span class="amenities__counter" aria-live="polite">01/06</span>
+                    <button class="amenities__nav-btn amenities__nav-btn--next" aria-label="Следующий слайд">
+                        <svg width="24" height="24" aria-hidden="true">
+                            <use href="assets/icons/sprite.svg#arrow-right"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="amenities__image-wrapper">
+                <div class="amenities__slider">
+                    <figure class="amenities__slide active">
+                        <img src="assets/images/figma/imgCocktailOnTheBeach20220112073550Utc1.jpg" alt="Коктейли у моря" class="amenities__img" loading="lazy">
+                        <figcaption class="visually-hidden">Напитки на пляже</figcaption>
+                    </figure>
+                    <!-- More slides will be added via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="active-recreation section" aria-labelledby="active-title">
+        <div class="container">
+            <div class="section__header">
+                <h2 id="active-title" class="section__title" data-i18n="activeTitle">Активный отдых в отеле Santorini</h2>
+            </div>
+
+            <div class="active-recreation__tabs tabs" role="tablist" aria-label="Категории активного отдыха">
+                <button class="tabs__btn active" role="tab" aria-selected="true" aria-controls="tab-sea" id="tab-sea-trigger" data-category="sea">
+                    <span data-i18n="seaTrips">Морские прогулки</span>
+                </button>
+                <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="tab-fishing" id="tab-fishing-trigger" data-category="fishing" tabindex="-1">
+                    <span data-i18n="fishing">Рыбалка</span>
+                </button>
+                <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="tab-extreme" id="tab-extreme-trigger" data-category="extreme" tabindex="-1">
+                    <span data-i18n="extreme">Экстрим</span>
+                </button>
+            </div>
+
+            <div class="active-recreation__content">
+                <div class="active-recreation__panel active" role="tabpanel" id="tab-sea" aria-labelledby="tab-sea-trigger">
+                    <div class="activities-grid">
+                        <article class="activity-card">
+                            <div class="activity-card__image-wrapper">
+                                <img src="assets/images/figma/imgStillSeaSurfaceManPracticingWindSurfingAnd20210915062350Utc2.jpg" alt="Виндсерфинг на закате" class="activity-card__img" loading="lazy">
+                                <div class="activity-card__overlay">
+                                    <h3 class="activity-card__title" data-i18n="windsurfing">Виндсерфинг</h3>
+                                    <a href="activity-detail.html#windsurfing" class="activity-card__link" aria-label="Подробнее о виндсерфинге">
+                                        <svg width="20" height="20" aria-hidden="true">
+                                            <use href="assets/icons/sprite.svg#arrow-right"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="activity-card">
+                            <div class="activity-card__image-wrapper">
+                                <img src="assets/images/figma/imgKiteSurfing20210826170456Utc12.jpg" alt="Кайтсерфинг" class="activity-card__img" loading="lazy">
+                                <div class="activity-card__overlay">
+                                    <h3 class="activity-card__title" data-i18n="kitesurfing">Кайтсерфинг</h3>
+                                    <a href="activity-detail.html#kitesurfing" class="activity-card__link" aria-label="Подробнее о кайтсерфинге">
+                                        <svg width="20" height="20" aria-hidden="true">
+                                            <use href="assets/icons/sprite.svg#arrow-right"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="activity-card activity-card--large">
+                            <div class="activity-card__image-wrapper">
+                                <img src="assets/images/figma/imgMotocrossRidersTeamRestOnExtremeTrack20220217232133Utc2.jpg" alt="Эндо-тур на мотоциклах" class="activity-card__img" loading="lazy">
+                                <div class="activity-card__overlay">
+                                    <h3 class="activity-card__title" data-i18n="endoTour">Эндо-тур</h3>
+                                    <a href="activity-detail.html#endo" class="activity-card__link" aria-label="Подробнее о эндо-туре">
+                                        <svg width="20" height="20" aria-hidden="true">
+                                            <use href="assets/icons/sprite.svg#arrow-right"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="activity-card activity-card--wide">
+                            <div class="activity-card__image-wrapper">
+                                <img src="assets/images/figma/imgDrivingOffRoadCarOnHighAltitudeMountainTop20211216214051Utc2.jpg" alt="Сафари на джипах" class="activity-card__img" loading="lazy">
+                                <div class="activity-card__overlay">
+                                    <h3 class="activity-card__title" data-i18n="safari">Сафари на джипах</h3>
+                                    <a href="activity-detail.html#safari" class="activity-card__link" aria-label="Подробнее о сафари">
+                                        <svg width="20" height="20" aria-hidden="true">
+                                            <use href="assets/icons/sprite.svg#arrow-right"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Other tabs content will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <section class="offers section" aria-labelledby="offers-title">
+        <div class="container">
+            <div class="section__header offers__header">
+                <div class="section__decor">
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                </div>
+                <h2 id="offers-title" class="section__title" data-i18n="offersTitle">Наши спецпредложения</h2>
+                <div class="section__decor">
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                </div>
+            </div>
+
+            <div class="offers__list" role="list" aria-label="Список специальных предложений">
+                <!-- Offers will be loaded via JavaScript -->
+                <div class="offers__loading" role="status" aria-live="polite">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+
+            <div class="offers__pagination pagination">
+                <button class="pagination__btn pagination__btn--prev" disabled aria-label="Предыдущая страница">
+                    <svg width="20" height="20" aria-hidden="true">
+                        <use href="assets/icons/sprite.svg#arrow-left"></use>
+                    </svg>
+                </button>
+                <div class="pagination__numbers" role="group" aria-label="Номера страниц"></div>
+                <button class="pagination__btn pagination__btn--next" aria-label="Следующая страница">
+                    <svg width="20" height="20" aria-hidden="true">
+                        <use href="assets/icons/sprite.svg#arrow-right"></use>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="offers__actions">
+                <button class="btn btn--outline" data-i18n="viewAll" aria-label="Смотреть все предложения">Смотреть все</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section section" aria-labelledby="video-title">
+        <div class="container">
+            <div class="section__header">
+                <div class="section__decor">
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                </div>
+                <h2 id="video-title" class="section__title" data-i18n="videoTitle">Посмотрите обзорное видео о нашем отеле</h2>
+                <div class="section__decor">
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                </div>
+            </div>
+
+            <div class="video-section__wrapper">
+                <div class="video-section__container">
+                    <button class="video-section__play-btn" aria-label="Воспроизвести видео" data-modal-trigger="video-modal">
+                        <svg width="80" height="80" aria-hidden="true">
+                            <use href="assets/icons/sprite.svg#play"></use>
+                        </svg>
+                    </button>
+                    <img src="assets/images/figma/imgAerialViewOfLuxuryYachtsInTransparentBlueS20220202034855Utc2.jpg" alt="" class="video-section__thumb" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+    <div class="container footer__container">
+        <div class="footer__main">
+            <div class="footer__logo">
+                <img src="assets/images/logo.svg" alt="Santorini" width="150" height="40">
+            </div>
+
+            <address class="footer__contacts contacts">
+                <a href="tel:+79120388044" class="contacts__phone">8 (912) 038-80-44</a>
+                <p class="contacts__address" data-i18n="address">
+                    298690, Россия, Крым, г. Ялта, пгт Форос, Форосский спуск, 1
+                </p>
+            </address>
+        </div>
+
+        <nav class="footer__nav" aria-label="Навигация по сайту">
+            <div class="footer__nav-column">
+                <ul class="footer__list">
+                    <li><a href="rooms.html" class="footer__link" data-i18n="navRooms">Номера и цены</a></li>
+                    <li><a href="about.html" class="footer__link" data-i18n="navAbout">Об отеле</a></li>
+                    <li><a href="services.html" class="footer__link" data-i18n="navServices">Услуги</a></li>
+                    <li><a href="conditions.html" class="footer__link" data-i18n="navConditions">Условия проживания</a></li>
+                    <li><a href="news.html" class="footer__link" data-i18n="navNews">Новости</a></li>
+                    <li><a href="contacts.html" class="footer__link" data-i18n="navContacts">Контакты</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__nav-column">
+                <ul class="footer__list">
+                    <li><a href="photos.html" class="footer__link" data-i18n="navPhotos">Фото отеля</a></li>
+                    <li><a href="how-to-get.html" class="footer__link" data-i18n="navHowToGet">Как добраться</a></li>
+                    <li><a href="reviews.html" class="footer__link" data-i18n="navReviews">Отзывы гостей</a></li>
+                    <li><a href="attractions.html" class="footer__link" data-i18n="navAttractions">Достопримечательности</a></li>
+                    <li><a href="pasta-bar.html" class="footer__link" data-i18n="navPastaBar">Паста-бар</a></li>
+                    <li><a href="active-recreation.html" class="footer__link" data-i18n="navActive">Активный отдых</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="footer__social social">
+            <a href="https://vk.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+                <svg width="24" height="24" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#vk"></use>
+                </svg>
+            </a>
+            <a href="https://youtube.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <svg width="24" height="24" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#youtube"></use>
+                </svg>
+            </a>
+            <a href="https://instagram.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg width="24" height="24" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#instagram"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer__bottom">
+        <div class="container footer__bottom-container">
+            <p class="footer__copyright" data-i18n="copyright">© 2022 Santorini. Все права защищены.</p>
+            <a href="privacy.html" class="footer__privacy" data-i18n="privacy">Политика конфиденциальности</a>
+        </div>
+    </div>
+</footer>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__header">
+        <a href="index.html" class="mobile-menu__logo">
+            <img src="assets/images/logo.svg" alt="Santorini" width="150" height="40">
+        </a>
+        <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Закрыть меню">
+            <svg width="24" height="24" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#close"></use>
+            </svg>
+        </button>
+    </div>
+
+    <nav class="mobile-menu__nav" role="navigation" aria-label="Мобильная навигация">
+        <ul class="mobile-menu__list">
+            <li class="mobile-menu__item">
+                <a href="rooms.html" class="mobile-menu__link">НОМЕРА</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="how-to-get.html" class="mobile-menu__link">КАК ДОБРАТЬСЯ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="reviews.html" class="mobile-menu__link">ОТЗЫВЫ ГОСТЕЙ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="news.html" class="mobile-menu__link">НОВОСТИ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="contacts.html" class="mobile-menu__link">КОНТАКТЫ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="active-recreation.html" class="mobile-menu__link">АКТИВНЫЙ ОТДЫХ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="special-offers.html" class="mobile-menu__link">СПЕЦПРЕДЛОЖЕНИЯ</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="mobile-menu__footer">
+        <a href="booking.html" class="mobile-menu__btn">ЗАБРОНИРОВАТЬ</a>
+
+        <div class="mobile-menu__contacts">
+            <a href="tel:+79120388044" class="mobile-menu__phone">
+                <svg class="mobile-menu__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#phone"></use>
+                </svg>
+                8(912) 038-80-44
+            </a>
+            <p class="mobile-menu__address">
+                298690, РОССИЯ, КРЫМ, Г. ЯЛТА, ПГТ ФОРОС,<br>
+                ФОРОССКИЙ СПУСК, 1
+            </p>
+        </div>
+
+        <div class="mobile-menu__social">
+            <img src="assets/icons/VK.png" alt="VK" class="mobile-menu__social-link" height="40">
+            <img src="assets/icons/YouTube.png" alt="YouTube" class="mobile-menu__social-link" height="40">
+            <img src="assets/icons/zen.png" alt="Zen" class="mobile-menu__social-link" height="40">
+        </div>
+    </div>
+</div>
+
+<div class="mobile-menu__overlay" id="mobile-menu-overlay"></div>
+
+<div class="modal" id="video-modal" role="dialog" aria-modal="true" aria-labelledby="video-modal-title" aria-hidden="true">
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__container modal__container--video">
+        <button class="modal__close" data-modal-close aria-label="Закрыть">
+            <svg width="24" height="24" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#close"></use>
+            </svg>
+        </button>
+        <h3 id="video-modal-title" class="visually-hidden" data-i18n="videoModalTitle">Видео об отеле</h3>
+        <div class="modal__video-wrapper">
+            <div id="video-player" class="video-player"></div>
+        </div>
+    </div>
+</div>
+
+<div class="cookie-banner" id="cookie-banner" role="alert" aria-live="polite" hidden>
+    <div class="container cookie-banner__container">
+        <p class="cookie-banner__text" data-i18n="cookieText">
+            Мы используем файлы cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с нашей политикой конфиденциальности.
+        </p>
+        <div class="cookie-banner__actions">
+            <button class="btn btn--primary cookie-banner__btn" data-cookie-accept data-i18n="cookieAccept">Принять</button>
+            <button class="btn btn--outline cookie-banner__btn" data-cookie-decline data-i18n="cookieDecline">Отклонить</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/config/constants.js" defer></script>
+<script src="js/utils/storage.js" defer></script>
+<script src="js/utils/i18n.js" defer></script>
+<script src="js/utils/theme-switcher.js" defer></script>
+<script src="js/api/fetch.js" defer></script>
+<script src="js/api/endpoints.js" defer></script>
+<script src="js/components/preloader.js" defer></script>
+<script src="js/components/burger-menu.js" defer></script>
+<script src="js/components/slider.js" defer></script>
+<script src="js/components/modal.js" defer></script>
+<script src="js/components/pagination.js" defer></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>

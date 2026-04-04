@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="calendar" viewBox="0 0 24 24">
+    <rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+    <line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="2"/>
+    <line x1="8" y1="3" x2="8" y2="7" stroke="currentColor" stroke-width="2"/>
+    <line x1="16" y1="3" x2="16" y2="7" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="guests" viewBox="0 0 24 24">
+    <circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+    <circle cx="16" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M13 20c.2-2.4 2.2-4.3 4.6-4.3 2.5 0 3.9 1.4 4.4 4.3" fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="search" viewBox="0 0 24 24">
+    <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+    <line x1="16.6" y1="16.6" x2="21" y2="21" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="chevron-down" viewBox="0 0 24 24">
+    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="arrow-left" viewBox="0 0 24 24">
+    <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="arrow-right" viewBox="0 0 24 24">
+    <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="play" viewBox="0 0 80 80">
+    <circle cx="40" cy="40" r="38" fill="#fff" stroke="currentColor" stroke-width="2"/>
+    <polygon points="33,26 58,40 33,54" fill="currentColor"/>
+  </symbol>
+  <symbol id="close" viewBox="0 0 24 24">
+    <line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2"/>
+    <line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="vk" viewBox="0 0 24 24">
+    <text x="2" y="17" font-size="12" font-family="Arial" fill="currentColor">vk</text>
+  </symbol>
+  <symbol id="youtube" viewBox="0 0 24 24">
+    <rect x="2" y="6" width="20" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+    <polygon points="10,9 16,12 10,15" fill="currentColor"/>
+  </symbol>
+  <symbol id="instagram" viewBox="0 0 24 24">
+    <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+    <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+  </symbol>
+  <symbol id="moon" viewBox="0 0 24 24">
+    <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="sun" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+    <line x1="12" y1="1.5" x2="12" y2="4" stroke="currentColor" stroke-width="2"/>
+    <line x1="12" y1="20" x2="12" y2="22.5" stroke="currentColor" stroke-width="2"/>
+    <line x1="1.5" y1="12" x2="4" y2="12" stroke="currentColor" stroke-width="2"/>
+    <line x1="20" y1="12" x2="22.5" y2="12" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="eye" viewBox="0 0 24 24">
+    <path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6-10-6-10-6z" fill="none" stroke="currentColor" stroke-width="2"/>
+    <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="area" viewBox="0 0 24 24">
+    <rect x="4" y="4" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M8 8h8v8H8z" fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="phone" viewBox="0 0 24 24">
+    <path d="M7 3h4l2 5-2 2c1 2 3 4 5 5l2-2 5 2v4c0 1-1 2-2 2C11 21 3 13 3 5c0-1 1-2 2-2h2z" fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="email" viewBox="0 0 24 24">
+    <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="location" viewBox="0 0 24 24">
+    <path d="M12 22s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/>
+    <circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="clock" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M12 7v6l4 2" fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="arrow-up-right" viewBox="0 0 16 15">
+    <path d="M0.224162 13.3881C-0.0743406 13.6752 -0.0743406 14.1409 0.224162 14.428C0.522664 14.7152 1.00663 14.7152 1.30513 14.428L0.224162 13.3881ZM15.2213 0.735342C15.2213 0.329217 14.8791 -1.35694e-05 14.457 -1.40859e-05L7.5777 -1.3838e-05C7.15556 -1.3838e-05 6.81334 0.329216 6.81334 0.735342C6.81334 1.14147 7.15556 1.4707 7.5777 1.4707L13.6926 1.4707L13.6926 7.35355C13.6926 7.75967 14.0348 8.0889 14.457 8.0889C14.8791 8.0889 15.2213 7.75967 15.2213 7.35355L15.2213 0.735342ZM1.30513 14.428L14.9975 1.25532L13.9165 0.215367L0.224162 13.3881L1.30513 14.428Z" fill="currentColor"/>
+  </symbol>
+</svg>
