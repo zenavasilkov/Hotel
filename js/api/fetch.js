@@ -1,6 +1,3 @@
-/**
- * Fetch API Utility
- */
 const FetchAPI = {
     _dbCache: null,
     /**

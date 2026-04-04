@@ -1,7 +1,4 @@
-﻿/**
- * API Endpoints Configuration
- */
-const API_ENDPOINTS = {
+﻿const API_ENDPOINTS = {
     ROOMS: '/rooms',
     ROOM_BY_ID: (id) => `/rooms/${id}`,
     ROOMS_BY_CATEGORY: (category) => `/rooms?category=${category}`,

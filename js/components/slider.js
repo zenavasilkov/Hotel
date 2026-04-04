@@ -1,7 +1,4 @@
-﻿/**
- * Slider/Carousel Component
- */
-class Slider {
+﻿class Slider {
     constructor(selector, options = {}) {
         this.slider = document.querySelector(selector);
         if (!this.slider) return;

@@ -13,9 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Santorini Hotel website initialized');
 });
 
-/**
- * Initialize page-specific scripts
- */
 function initializePageScripts() {
     const path = window.location.pathname;
 
@@ -26,9 +23,6 @@ function initializePageScripts() {
     }
 }
 
-/**
- * Initialize home page components
- */
 function initializeHomePage() {
     setupRoomsSlider();
 
@@ -98,9 +92,6 @@ function initializeHeroBookingCounter() {
     render();
 }
 
-/**
- * Load rooms data from API
- */
 async function loadRoomsData() {
     try {
         const rooms = await FetchAPI.get(API_ENDPOINTS.ROOMS);
@@ -111,9 +102,6 @@ async function loadRoomsData() {
     }
 }
 
-/**
- * Render rooms cards
- */
 function renderRooms(rooms) {
     const container = document.querySelector('.rooms__slider .slider__container');
     if (!container) return;
@@ -157,9 +145,6 @@ function renderRooms(rooms) {
     setupRoomsSlider();
 }
 
-/**
- * Load offers data from API
- */
 async function loadOffersData() {
     try {
         const offers = await FetchAPI.get(API_ENDPOINTS.OFFERS);
@@ -169,9 +154,6 @@ async function loadOffersData() {
     }
 }
 
-/**
- * Render offers cards
- */
 function renderOffers(offers) {
     const container = document.querySelector('.offers__list');
     if (!container) return;
@@ -194,9 +176,6 @@ function renderOffers(offers) {
     `).join('');
 }
 
-/**
- * Initialize tabs functionality
- */
 function initializeTabs() {
     const tabs = document.querySelectorAll('.tabs__btn');
     const panels = document.querySelectorAll('.active-recreation__panel');
@@ -235,9 +214,6 @@ function initializeTabs() {
     });
 }
 
-/**
- * Setup accessibility features
- */
 function setupAccessibility() {
     const accessibilityToggle = document.getElementById('accessibility-toggle');
     if (!accessibilityToggle) return;
@@ -254,9 +230,6 @@ function setupAccessibility() {
     }
 }
 
-/**
- * Apply accessibility settings
- */
 function applyAccessibilitySettings(enabled) {
     const accessibilityStyle = document.getElementById('accessibility-style');
     if (accessibilityStyle) {
@@ -270,9 +243,6 @@ function applyAccessibilitySettings(enabled) {
     }
 }
 
-/**
- * Setup cookie banner
- */
 function setupCookieBanner() {
     const banner = document.getElementById('cookie-banner');
     if (!banner) return;
@@ -300,9 +270,6 @@ function setupCookieBanner() {
     }
 }
 
-/**
- * Setup reset settings button
- */
 function setupResetSettings() {
     const resetBtn = document.querySelector('[data-reset-settings]');
     if (resetBtn) {
@@ -315,9 +282,6 @@ function setupResetSettings() {
     }
 }
 
-/**
- * Format date for display
- */
 function formatDate(dateString) {
     const date = new Date(dateString);
     return date.toLocaleDateString('ru-RU', {
@@ -327,9 +291,6 @@ function formatDate(dateString) {
     });
 }
 
-/**
- * Show error message
- */
 function showErrorMessage(message) {
     console.error(message);
 }
