@@ -1,10 +1,4 @@
-﻿/**
- * Preloader Component
- */
-const Preloader = {
-    /**
-     * Initialize preloader
-     */
+﻿const Preloader = {
     init() {
         this.preloader = document.getElementById('preloader');
         if (!this.preloader) return;
@@ -17,9 +11,6 @@ const Preloader = {
         this.startTime = Date.now();
     },
 
-    /**
-     * Hide preloader
-     */
     hide() {
         const elapsedTime = Date.now() - this.startTime;
         const remainingTime = Math.max(0, this.minDisplayTime - elapsedTime);
@@ -33,9 +24,6 @@ const Preloader = {
         }, remainingTime);
     },
 
-    /**
-     * Show preloader
-     */
     show() {
         this.preloader.style.display = 'flex';
         this.preloader.classList.remove('hidden');

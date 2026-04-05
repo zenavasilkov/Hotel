@@ -104,10 +104,15 @@ async function loadRoomsData() {
 
 function renderRooms(rooms) {
     const container = document.querySelector('.rooms__slider .slider__container');
-    if (!container) return;
+    if (!container || !Array.isArray(rooms)) return;
 
-    container.innerHTML = rooms.map(room => `
-        <article class="room-card">
+    container.textContent = '';
+
+    rooms.forEach(room => {
+        const article = document.createElement('article');
+        article.className = 'room-card';
+
+        article.innerHTML = `
             <div class="room-card__image-wrapper">
                 <img src="${room.images[0]}" alt="${room.name}" class="room-card__image" loading="lazy">
             </div>
@@ -139,8 +144,9 @@ function renderRooms(rooms) {
                     <a href="room-detail.html?id=${room.id}" class="btn btn--outline">Подробнее</a>
                 </div>
             </div>
-        </article>
-    `).join('');
+        `;
+        container.appendChild(article);
+    });
 
     setupRoomsSlider();
 }
@@ -156,10 +162,14 @@ async function loadOffersData() {
 
 function renderOffers(offers) {
     const container = document.querySelector('.offers__list');
-    if (!container) return;
+    if (!container || !Array.isArray(offers)) return;
 
-    container.innerHTML = offers.map(offer => `
-        <article class="offer-card">
+    container.textContent = '';
+
+    offers.forEach(offer => {
+        const article = document.createElement('article');
+        article.className = 'offer-card';
+        article.innerHTML = `
             <img src="${offer.image}" alt="${offer.title}" class="offer-card__image" loading="lazy">
             <div class="offer-card__content">
                 <time class="offer-card__date" datetime="${offer.validFrom}">${formatDate(offer.validFrom)}</time>
@@ -172,8 +182,9 @@ function renderOffers(offers) {
                     </svg>
                 </a>
             </div>
-        </article>
-    `).join('');
+        `;
+        container.appendChild(article);
+    });
 }
 
 function initializeTabs() {
