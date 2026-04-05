@@ -63,7 +63,8 @@
     createPagination() {
         if (!this.options.dots || !this.pagination) return;
 
-        this.pagination.innerHTML = '';
+        this.pagination.replaceChildren();
+
         const pageCount = Math.ceil(this.totalSlides / this.options.slidesToShow);
 
         for (let i = 0; i < pageCount; i++) {
@@ -131,7 +132,6 @@
         if (!this.pagination) return;
 
         const dots = this.pagination.querySelectorAll('.slider__dot');
-        const pageCount = Math.ceil(this.totalSlides / this.options.slidesToShow);
         const currentDot = Math.floor(this.currentIndex / this.options.slidesToShow);
 
         dots.forEach((dot, index) => {
@@ -190,8 +190,4 @@
         this.container = null;
         this.slides = null;
     }
-}
-
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = Slider;
 }
