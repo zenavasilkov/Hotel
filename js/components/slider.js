@@ -45,13 +45,15 @@
     }
 
     updateSlideWidth() {
+        if (!this.slider) return;
+
         const width = this.slider.offsetWidth;
         let slidesToShow = this.options.slidesToShow;
 
         if (width <= 480) {
-            slidesToShow = 1;
+            slidesToShow = Math.min(this.options.slidesToShow, 1);
         } else if (width <= 768) {
-            slidesToShow = 2;
+            slidesToShow = Math.min(this.options.slidesToShow, 2);
         }
 
         this.slideWidth = width / slidesToShow;

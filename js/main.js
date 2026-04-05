@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupAccessibility();
     setupCookieBanner();
     setupResetSettings();
+    setupAmenitiesSync()
 
     console.log('Santorini Hotel website initialized');
 });
@@ -31,15 +32,18 @@ function initializePageScripts() {
 function initializeHomePage() {
     setupRoomsSlider();
 
-    new Slider('.amenities__slider', {
+    const amenitiesSlider = new Slider('.amenities__slider', {
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 4000,
+        autoplay: false,
         infinite: true,
         dots: false,
         arrows: false
     });
+
+    setupAmenitiesSync(amenitiesSlider);
+
+    syncAmenitiesUI(0);
 
     loadRoomsData();
     loadOffersData();
@@ -57,8 +61,7 @@ function setupRoomsSlider() {
     roomsSliderInstance = new Slider('.rooms__slider', {
         slidesToShow: 3,
         slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 10000,
+        autoplay: false,
         infinite: true,
         dots: true,
         arrows: true
@@ -132,43 +135,43 @@ function renderRooms(rooms) {
 
         const header = document.createElement('div');
         header.className = 'room-card__header';
-        const titleWrap = document.createElement('div');
 
-        const h3 = document.createElement('h3');
-        h3.className = 'room-card__title';
-        h3.textContent = room.name;
+        const title = document.createElement('h3');
+        title.className = 'room-card__title';
+        title.textContent = room.name;
 
-        const price = document.createElement('p');
-        price.className = 'room-card__price';
-        price.textContent = `${room.price.toLocaleString()} ₽ `;
-
+        const price = document.createElement('div');
+        price.className = 'room-card__price-wrapper';
+        const priceValue = document.createElement('span');
+        priceValue.className = 'room-card__price';
+        priceValue.textContent = `${room.price.toLocaleString()} ₽`;
         const period = document.createElement('span');
         period.className = 'room-card__price-period';
-        period.textContent = '/ ночь';
+        period.textContent = ' / ночь';
+        price.append(priceValue, period);
 
-        price.appendChild(period);
-        titleWrap.append(h3, price);
-        header.appendChild(titleWrap);
+        header.append(title, price);
         content.appendChild(header);
 
         const meta = document.createElement('div');
         meta.className = 'room-card__meta';
 
-        const addMeta = (iconId, text) => {
-            const span = document.createElement('span');
-            span.className = 'room-card__meta-item';
+        const createMeta = (icon, text) => {
+            const item = document.createElement('div');
+            item.className = 'room-card__meta-item';
             const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            svg.setAttribute('width', '16');
-            svg.setAttribute('height', '16');
-            svg.setAttribute('aria-hidden', 'true');
+            svg.setAttribute('width', '18');
+            svg.setAttribute('height', '18');
             const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-            use.setAttribute('href', `assets/icons/sprite.svg#${iconId}`);
+            use.setAttribute('href', `assets/icons/sprite.svg#${icon}`);
             svg.appendChild(use);
-            span.append(svg, document.createTextNode(` ${text}`));
-            return span;
+            const span = document.createElement('span');
+            span.textContent = text;
+            item.append(svg, span);
+            return item;
         };
 
-        meta.append(addMeta('area', `${room.area} м²`), addMeta('guests', `${room.guests} гостей`));
+        meta.append(createMeta('area', `${room.area} м²`), createMeta('guests', `${room.guests} чел`));
         content.appendChild(meta);
 
         const actions = document.createElement('div');
@@ -176,15 +179,15 @@ function renderRooms(rooms) {
 
         const bookBtn = document.createElement('a');
         bookBtn.href = `booking.html?roomId=${room.id}`;
-        bookBtn.className = 'btn btn--primary';
+        bookBtn.className = 'btn btn--primary btn--full';
         bookBtn.textContent = 'Забронировать';
 
-        const detailBtn = document.createElement('a');
-        detailBtn.href = `room-detail.html?id=${room.id}`;
-        detailBtn.className = 'btn btn--outline';
-        detailBtn.textContent = 'Подробнее';
+        const infoBtn = document.createElement('a');
+        infoBtn.href = `room-detail.html?id=${room.id}`;
+        infoBtn.className = 'btn btn--outline btn--full';
+        infoBtn.textContent = 'Подробнее';
 
-        actions.append(bookBtn, detailBtn);
+        actions.append(bookBtn, infoBtn);
         content.appendChild(actions);
 
         article.appendChild(content);
@@ -253,7 +256,6 @@ async function loadOffersData() {
         console.error('Failed to load offers:', error);
     }
 }
-
 
 function initializeTabs() {
     const tabs = document.querySelectorAll('.tabs__btn');
@@ -372,6 +374,46 @@ function formatDate(dateString) {
 
 function showErrorMessage(message) {
     console.error(message);
+}
+
+function setupAmenitiesSync(sliderInstance) {
+    const listItems = document.querySelectorAll('.amenities__item');
+    const prevBtn = document.getElementById('amenities-prev');
+    const nextBtn = document.getElementById('amenities-next');
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            sliderInstance.prev();
+            syncAmenitiesUI(sliderInstance.currentIndex);
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            sliderInstance.next();
+            syncAmenitiesUI(sliderInstance.currentIndex);
+        });
+    }
+
+    listItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            sliderInstance.goToSlide(index);
+            syncAmenitiesUI(index);
+        });
+    });
+}
+
+function syncAmenitiesUI(index) {
+    const items = document.querySelectorAll('.amenities__item');
+    const counter = document.getElementById('amenities-current');
+
+    items.forEach((item, i) => {
+        item.classList.toggle('active', i === index);
+    });
+
+    if (counter) {
+        counter.textContent = String(index + 1).padStart(2, '0');
+    }
 }
 
 window.SantoriniApp = {

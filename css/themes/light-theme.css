@@ -1,7 +1,4 @@
-﻿/**
- * Light Theme Styles
- */
-:root {
+﻿:root {
     --color-primary: #4A6FA5;
     --color-primary-dark: #3A5A8F;
     --color-primary-light: #6B8FC7;
@@ -108,20 +105,6 @@ th {
 td {
     border-color: var(--color-border-light);
     color: var(--color-text);
-}
-
-.footer {
-    background-color: var(--color-bg-dark);
-    color: var(--color-text-inverse);
-}
-
-.footer__link {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.footer__link:hover,
-.footer__link:focus {
-    color: var(--color-text-inverse);
 }
 
 .modal__container {

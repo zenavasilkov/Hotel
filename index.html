@@ -6,7 +6,6 @@
     <meta name="description" content="Отель Santorini - комфортный отдых в Крыму. Уютные номера, активный отдых, специальные предложения.">
     <title>Santorini - Комфортный отдых в Крыму</title>
 
-    <link rel="preload" href="assets/fonts/ofont.ru_Montserrat.ttf" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="css/style.css" as="style">
 
     <link rel="stylesheet" href="css/accessibility.css" id="accessibility-style" disabled>
@@ -157,70 +156,56 @@
     </section>
 
     <section class="amenities section" aria-labelledby="amenities-title">
-        <div class="container amenities__container">
-            <div class="amenities__list">
-                <h2 id="amenities-title" class="visually-hidden" data-i18n="amenitiesTitle">Вам понравится у нас</h2>
-                <ul class="amenities__items" role="list">
-                    <li class="amenities__item">
-                        <a href="pasta-bar.html" class="amenities__link">
-                            <span class="amenities__number">01</span>
-                            <span class="amenities__name" data-i18n="pastaBar">Паста бар</span>
-                            <svg class="amenities__arrow" width="16" height="16" aria-hidden="true">
-                                <use href="assets/icons/sprite.svg#arrow-right"></use>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="amenities__item">
-                        <a href="aroma-garden.html" class="amenities__link">
-                            <span class="amenities__number">02</span>
-                            <span class="amenities__name" data-i18n="aromaGarden">Арома-сад</span>
-                            <svg class="amenities__arrow" width="16" height="16" aria-hidden="true">
-                                <use href="assets/icons/sprite.svg#arrow-right"></use>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="amenities__item">
-                        <a href="beach.html" class="amenities__link">
-                            <span class="amenities__number">03</span>
-                            <span class="amenities__name" data-i18n="beach">Пляж</span>
-                            <svg class="amenities__arrow" width="16" height="16" aria-hidden="true">
-                                <use href="assets/icons/sprite.svg#arrow-right"></use>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="amenities__item">
-                        <a href="territory.html" class="amenities__link">
-                            <span class="amenities__number">04</span>
-                            <span class="amenities__name" data-i18n="territory">Территория отеля</span>
-                            <svg class="amenities__arrow" width="16" height="16" aria-hidden="true">
-                                <use href="assets/icons/sprite.svg#arrow-right"></use>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
+        <div class="container">
+            <h2 id="amenities-title" class="amenities__title">Вам понравится у нас</h2>
 
-                <div class="amenities__slider-controls">
-                    <button class="amenities__nav-btn amenities__nav-btn--prev" aria-label="Предыдущий слайд">
-                        <svg width="24" height="24" aria-hidden="true">
-                            <use href="assets/icons/sprite.svg#arrow-left"></use>
-                        </svg>
-                    </button>
-                    <span class="amenities__counter" aria-live="polite">01/06</span>
-                    <button class="amenities__nav-btn amenities__nav-btn--next" aria-label="Следующий слайд">
-                        <svg width="24" height="24" aria-hidden="true">
-                            <use href="assets/icons/sprite.svg#arrow-right"></use>
-                        </svg>
-                    </button>
+            <div class="amenities__container">
+                <div class="amenities__image-wrapper">
+                    <div class="amenities__slider slider">
+                        <div class="slider__track">
+                            <div class="slider__container">
+                                <div class="slider__slide"><img src="assets/images/figma/imgCocktailOnTheBeach20220112073550Utc1.jpg" alt="Паста бар" class="amenities__img"></div>
+                                <div class="slider__slide"><img src="assets/images/figma/imgAromaGarden.jpg" alt="Арома-сад" class="amenities__img"></div>
+                                <div class="slider__slide"><img src="assets/images/figma/imgBeach.jpg" alt="Пляж" class="amenities__img"></div>
+                                <div class="slider__slide"><img src="assets/images/figma/imgTerritory.jpg" alt="Территория отеля" class="amenities__img"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="amenities__image-wrapper">
-                <div class="amenities__slider">
-                    <figure class="amenities__slide active">
-                        <img src="assets/images/figma/imgCocktailOnTheBeach20220112073550Utc1.jpg" alt="Коктейли у моря" class="amenities__img" loading="lazy">
-                        <figcaption class="visually-hidden">Напитки на пляже</figcaption>
-                    </figure>
-                    <!-- More slides will be added via JS -->
+                <div class="amenities__content">
+                    <ul class="amenities__list" role="list">
+                        <li class="amenities__item active" data-slide-to="0">
+                            <span class="amenities__number">01</span>
+                            <span class="amenities__name">Паста бар</span>
+                            <span class="amenities__more">ПОДРОБНЕЕ</span>
+                        </li>
+                        <li class="amenities__item" data-slide-to="1">
+                            <span class="amenities__number">02</span>
+                            <span class="amenities__name">Арома-сад</span>
+                            <span class="amenities__more">ПОДРОБНЕЕ</span>
+                        </li>
+                        <li class="amenities__item" data-slide-to="2">
+                            <span class="amenities__number">03</span>
+                            <span class="amenities__name">Пляж</span>
+                            <span class="amenities__more">ПОДРОБНЕЕ</span>
+                        </li>
+                        <li class="amenities__item" data-slide-to="3">
+                            <span class="amenities__number">04</span>
+                            <span class="amenities__name">Территория отеля</span>
+                            <span class="amenities__more">ПОДРОБНЕЕ</span>
+                        </li>
+                    </ul>
+
+                    <div class="amenities__controls">
+                        <button class="amenities__nav-btn" id="amenities-prev" aria-label="Назад">
+                            <svg width="24" height="24"><use href="assets/icons/sprite.svg#arrow-left"></use></svg>
+                        </button>
+                        <span class="amenities__counter"><span id="amenities-current">01</span>/04</span>
+                        <button class="amenities__nav-btn" id="amenities-next" aria-label="Вперед">
+                            <svg width="24" height="24"><use href="assets/icons/sprite.svg#arrow-right"></use></svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -385,15 +370,15 @@
 
 <footer class="footer" role="contentinfo">
     <div class="container footer__container">
-        <div class="footer__main">
+        <div class="footer__info">
             <div class="footer__logo">
                 <img src="assets/images/logo.svg" alt="Santorini" width="150" height="40">
             </div>
-
-            <address class="footer__contacts contacts">
-                <a href="tel:+79120388044" class="contacts__phone">8 (912) 038-80-44</a>
-                <p class="contacts__address" data-i18n="address">
-                    298690, Россия, Крым, г. Ялта, пгт Форос, Форосский спуск, 1
+            <address class="footer__contacts">
+                <a href="tel:+79120388044" class="footer__phone">8 (912) 038-80-44</a>
+                <p class="footer__address" data-i18n="address">
+                    298690, Россия, Крым, г. Ялта,<br>
+                    пгт Форос, Форосский спуск, 1
                 </p>
             </address>
         </div>
@@ -409,7 +394,6 @@
                     <li><a href="contacts.html" class="footer__link" data-i18n="navContacts">Контакты</a></li>
                 </ul>
             </div>
-
             <div class="footer__nav-column">
                 <ul class="footer__list">
                     <li><a href="photos.html" class="footer__link" data-i18n="navPhotos">Фото отеля</a></li>
@@ -424,19 +408,13 @@
 
         <div class="footer__social social">
             <a href="https://vk.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
-                <svg width="24" height="24" aria-hidden="true">
-                    <use href="assets/icons/sprite.svg#vk"></use>
-                </svg>
+                <img src="assets/icons/VK.png" alt="" width="24" height="24">
             </a>
             <a href="https://youtube.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                <svg width="24" height="24" aria-hidden="true">
-                    <use href="assets/icons/sprite.svg#youtube"></use>
-                </svg>
+                <img src="assets/icons/YouTube.png" alt="" width="24" height="24">
             </a>
-            <a href="https://instagram.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <svg width="24" height="24" aria-hidden="true">
-                    <use href="assets/icons/sprite.svg#instagram"></use>
-                </svg>
+            <a href="https://dzen.ru/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Zen">
+                <img src="assets/icons/zen.png" alt="" width="24" height="24">
             </a>
         </div>
     </div>
