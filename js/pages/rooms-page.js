@@ -30,7 +30,7 @@
                             <span>${room.beds > 1 ? 'Терраса' : 'Балкон'}</span>
                         </div>
                         <div class="room-card-alt__actions">
-                            <a href="booking.html?id=${room.id}" class="btn btn--primary">ЗАБРОНИРОВАТЬ</a>
+                            <a href="booking.html?roomId=${room.id}" class="btn btn--primary">ЗАБРОНИРОВАТЬ</a>
                             <a href="room-detail.html?id=${room.id}" class="btn btn--outline">ПОДРОБНЕЕ</a>
                         </div>
                     </div>

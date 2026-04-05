@@ -151,7 +151,7 @@
     .rooms-hero__wrapper { height: 400px; }
 
     .search-form {
-        display: none; !important;
+        display: none !important;
     }
 
     .rooms-grid {
