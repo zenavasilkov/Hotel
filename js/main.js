@@ -16,10 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializePageScripts() {
     const path = window.location.pathname;
 
-    if (path.includes('index.html') || path === '/') {
+    const isHomePage = path.endsWith('/') || path.includes('index.html');
+    const isRoomsPage = path.includes('rooms.html');
+
+    if (isHomePage) {
         initializeHomePage();
-    } else if (path.includes('rooms.html')) {
-        initializeRoomsPage();
+    } else if (isRoomsPage) {
+        if (typeof initializeRoomsPage === 'function') {
+            initializeRoomsPage();
+        }
     }
 }
 
