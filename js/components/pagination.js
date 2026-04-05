@@ -1,7 +1,4 @@
-﻿/**
- * Pagination Component
- */
-class Pagination {
+﻿class Pagination {
     constructor(selector, options = {}) {
         this.container = document.querySelector(selector);
         if (!this.container) return;
@@ -46,7 +43,8 @@ class Pagination {
         }
 
         if (numbersContainer) {
-            numbersContainer.innerHTML = '';
+            numbersContainer.replaceChildren();
+
             const pages = this.getVisiblePages();
 
             pages.forEach(page => {
@@ -129,8 +127,4 @@ class Pagination {
         this.options.currentPage = 1;
         this.render();
     }
-}
-
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = Pagination;
 }

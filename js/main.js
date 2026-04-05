@@ -104,45 +104,140 @@ async function loadRoomsData() {
 
 function renderRooms(rooms) {
     const container = document.querySelector('.rooms__slider .slider__container');
-    if (!container) return;
+    if (!container || !Array.isArray(rooms)) return;
 
-    container.innerHTML = rooms.map(room => `
-        <article class="room-card">
-            <div class="room-card__image-wrapper">
-                <img src="${room.images[0]}" alt="${room.name}" class="room-card__image" loading="lazy">
-            </div>
-            <div class="room-card__content">
-                <div class="room-card__header">
-                    <div>
-                        <h3 class="room-card__title">${room.name}</h3>
-                        <p class="room-card__price">${room.price.toLocaleString()} ₽ 
-                            <span class="room-card__price-period">/ ночь</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="room-card__meta">
-                    <span class="room-card__meta-item">
-                        <svg width="16" height="16" aria-hidden="true">
-                            <use href="assets/icons/sprite.svg#area"></use>
-                        </svg>
-                        ${room.area} м²
-                    </span>
-                    <span class="room-card__meta-item">
-                        <svg width="16" height="16" aria-hidden="true">
-                            <use href="assets/icons/sprite.svg#guests"></use>
-                        </svg>
-                        ${room.guests} гостей
-                    </span>
-                </div>
-                <div class="room-card__actions">
-                    <a href="booking.html?roomId=${room.id}" class="btn btn--primary">Забронировать</a>
-                    <a href="room-detail.html?id=${room.id}" class="btn btn--outline">Подробнее</a>
-                </div>
-            </div>
-        </article>
-    `).join('');
+    container.replaceChildren();
+
+    rooms.forEach(room => {
+        const article = document.createElement('article');
+        article.className = 'room-card';
+
+        const imgWrapper = document.createElement('div');
+        imgWrapper.className = 'room-card__image-wrapper';
+        const img = document.createElement('img');
+        img.src = room.images[0];
+        img.alt = room.name;
+        img.className = 'room-card__image';
+        img.loading = 'lazy';
+        imgWrapper.appendChild(img);
+        article.appendChild(imgWrapper);
+
+        const content = document.createElement('div');
+        content.className = 'room-card__content';
+
+        const header = document.createElement('div');
+        header.className = 'room-card__header';
+        const titleWrap = document.createElement('div');
+
+        const h3 = document.createElement('h3');
+        h3.className = 'room-card__title';
+        h3.textContent = room.name;
+
+        const price = document.createElement('p');
+        price.className = 'room-card__price';
+        price.textContent = `${room.price.toLocaleString()} ₽ `;
+
+        const period = document.createElement('span');
+        period.className = 'room-card__price-period';
+        period.textContent = '/ ночь';
+
+        price.appendChild(period);
+        titleWrap.append(h3, price);
+        header.appendChild(titleWrap);
+        content.appendChild(header);
+
+        const meta = document.createElement('div');
+        meta.className = 'room-card__meta';
+
+        const addMeta = (iconId, text) => {
+            const span = document.createElement('span');
+            span.className = 'room-card__meta-item';
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('width', '16');
+            svg.setAttribute('height', '16');
+            svg.setAttribute('aria-hidden', 'true');
+            const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+            use.setAttribute('href', `assets/icons/sprite.svg#${iconId}`);
+            svg.appendChild(use);
+            span.append(svg, document.createTextNode(` ${text}`));
+            return span;
+        };
+
+        meta.append(addMeta('area', `${room.area} м²`), addMeta('guests', `${room.guests} гостей`));
+        content.appendChild(meta);
+
+        const actions = document.createElement('div');
+        actions.className = 'room-card__actions';
+
+        const bookBtn = document.createElement('a');
+        bookBtn.href = `booking.html?roomId=${room.id}`;
+        bookBtn.className = 'btn btn--primary';
+        bookBtn.textContent = 'Забронировать';
+
+        const detailBtn = document.createElement('a');
+        detailBtn.href = `room-detail.html?id=${room.id}`;
+        detailBtn.className = 'btn btn--outline';
+        detailBtn.textContent = 'Подробнее';
+
+        actions.append(bookBtn, detailBtn);
+        content.appendChild(actions);
+
+        article.appendChild(content);
+        container.appendChild(article);
+    });
 
     setupRoomsSlider();
+}
+
+function renderOffers(offers) {
+    const container = document.querySelector('.offers__list');
+    if (!container || !Array.isArray(offers)) return;
+
+    container.replaceChildren();
+
+    offers.forEach(offer => {
+        const article = document.createElement('article');
+        article.className = 'offer-card';
+
+        const img = document.createElement('img');
+        img.src = offer.image;
+        img.alt = offer.title;
+        img.className = 'offer-card__image';
+        img.loading = 'lazy';
+
+        const content = document.createElement('div');
+        content.className = 'offer-card__content';
+
+        const time = document.createElement('time');
+        time.className = 'offer-card__date';
+        time.setAttribute('datetime', offer.validFrom);
+        time.textContent = formatDate(offer.validFrom);
+
+        const h3 = document.createElement('h3');
+        h3.className = 'offer-card__title';
+        h3.textContent = offer.title;
+
+        const p = document.createElement('p');
+        p.className = 'offer-card__description';
+        p.textContent = offer.description;
+
+        const link = document.createElement('a');
+        link.href = 'special-offers.html';
+        link.className = 'offer-card__link';
+        link.textContent = 'Подробнее';
+
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('width', '16');
+        svg.setAttribute('height', '16');
+        const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+        use.setAttribute('href', 'assets/icons/sprite.svg#arrow-right');
+        svg.appendChild(use);
+        link.appendChild(svg);
+
+        content.append(time, h3, p, link);
+        article.append(img, content);
+        container.appendChild(article);
+    });
 }
 
 async function loadOffersData() {
@@ -154,27 +249,6 @@ async function loadOffersData() {
     }
 }
 
-function renderOffers(offers) {
-    const container = document.querySelector('.offers__list');
-    if (!container) return;
-
-    container.innerHTML = offers.map(offer => `
-        <article class="offer-card">
-            <img src="${offer.image}" alt="${offer.title}" class="offer-card__image" loading="lazy">
-            <div class="offer-card__content">
-                <time class="offer-card__date" datetime="${offer.validFrom}">${formatDate(offer.validFrom)}</time>
-                <h3 class="offer-card__title">${offer.title}</h3>
-                <p class="offer-card__description">${offer.description}</p>
-                <a href="special-offers.html" class="offer-card__link">
-                    Подробнее
-                    <svg width="16" height="16" aria-hidden="true">
-                        <use href="assets/icons/sprite.svg#arrow-right"></use>
-                    </svg>
-                </a>
-            </div>
-        </article>
-    `).join('');
-}
 
 function initializeTabs() {
     const tabs = document.querySelectorAll('.tabs__btn');
