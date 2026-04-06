@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/adaptive.css">
     <link rel="stylesheet" href="css/themes/light-theme.css" id="theme-style">
     <link rel="stylesheet" href="css/accessibility.css" >
+    <link rel="stylesheet" href="css/components/mobile-menu.css">
 </head>
 <body class="body">
 
@@ -143,9 +144,82 @@
     </div>
 </footer>
 
-<script src="js/config/constants.js"></script>
-<script src="js/api/endpoints.js"></script>
-<script src="js/api/fetch.js"></script>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__header">
+        <a href="index.html" class="mobile-menu__logo">
+            <img src="assets/images/logo.svg" alt="Santorini" width="150" height="40">
+        </a>
+        <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Закрыть меню">
+            <svg width="24" height="24" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#close"></use>
+            </svg>
+        </button>
+    </div>
+
+    <nav class="mobile-menu__nav" role="navigation" aria-label="Мобильная навигация">
+        <ul class="mobile-menu__list">
+            <li class="mobile-menu__item">
+                <a href="rooms.html" class="mobile-menu__link">НОМЕРА</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="how-to-get.html" class="mobile-menu__link">КАК ДОБРАТЬСЯ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="reviews.html" class="mobile-menu__link">ОТЗЫВЫ ГОСТЕЙ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="news.html" class="mobile-menu__link">НОВОСТИ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="contacts.html" class="mobile-menu__link">КОНТАКТЫ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="active-recreation.html" class="mobile-menu__link">АКТИВНЫЙ ОТДЫХ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="special-offers.html" class="mobile-menu__link">СПЕЦПРЕДЛОЖЕНИЯ</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="mobile-menu__footer">
+        <a href="booking.html" class="mobile-menu__btn">ЗАБРОНИРОВАТЬ</a>
+
+        <div class="mobile-menu__contacts">
+            <a href="tel:+79120388044" class="mobile-menu__phone">
+                <svg class="mobile-menu__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#phone"></use>
+                </svg>
+                8(912) 038-80-44
+            </a>
+            <p class="mobile-menu__address">
+                298690, РОССИЯ, КРЫМ, Г. ЯЛТА, ПГТ ФОРОС,<br>
+                ФОРОССКИЙ СПУСК, 1
+            </p>
+        </div>
+
+        <div class="mobile-menu__social">
+            <img src="assets/icons/VK.png" alt="VK" class="mobile-menu__social-link" height="40">
+            <img src="assets/icons/YouTube.png" alt="YouTube" class="mobile-menu__social-link" height="40">
+            <img src="assets/icons/zen.png" alt="Zen" class="mobile-menu__social-link" height="40">
+        </div>
+    </div>
+</div>
+
+<div class="mobile-menu__overlay" id="mobile-menu-overlay"></div>
+
+<script src="js/config/constants.js" defer></script>
+<script src="js/utils/storage.js" defer></script>
+<script src="js/utils/i18n.js" defer></script>
+<script src="js/utils/theme-switcher.js" defer></script>
+<script src="js/api/fetch.js" defer></script>
+<script src="js/api/endpoints.js" defer></script>
+<script src="js/components/preloader.js" defer></script>
+<script src="js/components/burger-menu.js" defer></script>
+<script src="js/components/slider.js" defer></script>
+<script src="js/components/modal.js" defer></script>
+<script src="js/components/pagination.js" defer></script>
+<script src="js/main.js" defer></script>
 <script src="js/pages/active-recreation.js" defer></script>
 </body>
 </html>
