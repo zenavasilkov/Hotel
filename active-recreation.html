@@ -1,10 +1,151 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Активный отдых - Santorini Hotel</title>
 
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages/active-recreation.css">
+    <link rel="stylesheet" href="css/adaptive.css">
+    <link rel="stylesheet" href="css/themes/light-theme.css" id="theme-style">
+    <link rel="stylesheet" href="css/accessibility.css" >
+</head>
+<body class="body">
+
+<header class="header" role="banner">
+    <div class="container header__container">
+        <div class="container header__container header__group">
+            <button class="burger-menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+            </button>
+
+            <a href="index.html" class="header__logo logo" aria-label="Santorini - на главную">
+                <img src="assets/images/logo.svg" alt="Santorini" class="logo__image" width="150" height="40">
+            </a>
+        </div>
+
+        <div class="controls header__controls">
+            <button class="controls__theme" aria-label="Сменить тему" id="theme-toggle">
+                <svg class="controls__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#moon"></use>
+                </svg>
+            </button>
+
+            <button class="controls__accessibility" aria-label="Версия для слабовидящих" id="accessibility-toggle">
+                <svg class="controls__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#eye"></use>
+                </svg>
+            </button>
+
+            <div class="controls__lang lang-switcher">
+                <button class="lang-switcher__btn active" data-lang="ru" aria-label="Русский язык">RU</button>
+                <button class="lang-switcher__btn" data-lang="en" aria-label="English">EN</button>
+            </div>
+
+            <a href="booking.html" class="controls__btn btn btn--primary book__btn">
+                <span class="controls__btn-text" data-i18n="bookNow">Забронировать</span>
+                <svg class="controls__icon controls__icon-arrow" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#arrow-up-right"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main class="main">
+    <section class="active-hero">
+        <div class="container">
+            <div class="active-hero__wrapper">
+                <div class="active-hero__bg">
+                    <img src="assets/images/figma/a-man-stands-on-top-of-a-mountain-and-looks-at-the-2021-09-04-13-04-53-utc 1.jpg" alt="Активный отдых">
+                    <div class="hero__overlay"></div>
+                </div>
+                <h1 class="active-hero__title">Активный отдых</h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="active-catalog">
+        <div class="container">
+            <div class="active-tabs-wrapper">
+                <div class="active-recreation__tabs" id="active-tabs">
+                    <button class="tabs__btn active" data-category="all">Все</button>
+                    <button class="tabs__btn" data-category="sea">Морские прогулки</button>
+                    <button class="tabs__btn" data-category="fishing">Рыбалка</button>
+                    <button class="tabs__btn" data-category="extreme">Экстрим</button>
+                </div>
+            </div>
+
+            <div class="activities-grid" id="activities-container">
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+    <div class="container footer__container active_footer_container">
+        <div class="footer__info">
+            <div class="footer__logo">
+                <img src="assets/images/logo.svg" alt="Santorini" width="150" height="40">
+            </div>
+            <address class="footer__contacts">
+                <a href="tel:+79120388044" class="footer__phone">8 (912) 038-80-44</a>
+                <p class="footer__address" data-i18n="address">
+                    298690, Россия, Крым, г. Ялта,<br>
+                    пгт Форос, Форосский спуск, 1
+                </p>
+            </address>
+        </div>
+
+        <nav class="footer__nav active_footer_nav" aria-label="Навигация по сайту">
+            <div class="footer__nav-column">
+                <ul class="footer__list">
+                    <li><a href="rooms.html" class="footer__link" data-i18n="navRooms">Номера и цены</a></li>
+                    <li><a href="about.html" class="footer__link" data-i18n="navAbout">Об отеле</a></li>
+                    <li><a href="services.html" class="footer__link" data-i18n="navServices">Услуги</a></li>
+                    <li><a href="conditions.html" class="footer__link" data-i18n="navConditions">Условия проживания</a></li>
+                    <li><a href="news.html" class="footer__link" data-i18n="navNews">Новости</a></li>
+                    <li><a href="contacts.html" class="footer__link" data-i18n="navContacts">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer__nav-column">
+                <ul class="footer__list">
+                    <li><a href="photos.html" class="footer__link" data-i18n="navPhotos">Фото отеля</a></li>
+                    <li><a href="how-to-get.html" class="footer__link" data-i18n="navHowToGet">Как добраться</a></li>
+                    <li><a href="reviews.html" class="footer__link" data-i18n="navReviews">Отзывы гостей</a></li>
+                    <li><a href="attractions.html" class="footer__link" data-i18n="navAttractions">Достопримечательности</a></li>
+                    <li><a href="pasta-bar.html" class="footer__link" data-i18n="navPastaBar">Паста-бар</a></li>
+                    <li><a href="active-recreation.html" class="footer__link" data-i18n="navActive">Активный отдых</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="footer__social social">
+            <a href="https://vk.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+                <img src="assets/icons/VK.png" alt="" width="24" height="24">
+            </a>
+            <a href="https://youtube.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <img src="assets/icons/YouTube.png" alt="" width="24" height="24">
+            </a>
+            <a href="https://dzen.ru/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Zen">
+                <img src="assets/icons/zen.png" alt="" width="24" height="24">
+            </a>
+        </div>
+    </div>
+
+    <div class="footer__bottom">
+        <div class="container footer__bottom-container">
+            <p class="footer__copyright" data-i18n="copyright">© 2022 Santorini. Все права защищены.</p>
+            <a href="privacy.html" class="footer__privacy" data-i18n="privacy">Политика конфиденциальности</a>
+        </div>
+    </div>
+</footer>
+
+<script src="js/config/constants.js"></script>
+<script src="js/api/endpoints.js"></script>
+<script src="js/api/fetch.js"></script>
+<script src="js/pages/active-recreation.js" defer></script>
 </body>
 </html>
