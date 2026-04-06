@@ -123,10 +123,11 @@
       "category": "sea",
       "price": 3000,
       "duration": 120,
-      "description": "Обучение виндсерфингу с инструктором.",
-      "descriptionEn": "Windsurfing lessons with instructor.",
+      "layout": "wide",
+      "available": true,
       "image": "assets/images/figma/imgStillSeaSurfaceManPracticingWindSurfingAnd20210915062350Utc2.jpg",
-      "available": true
+      "description": "Почувствуйте силу ветра и энергию моря, осваивая искусство управления парусом на доске. Наши профессиональные инструкторы помогут вам сделать первые шаги или отточить мастерство в идеальных условиях крымского побережья. Это отличный способ укрепить тело и получить незабываемый заряд адреналина. Мы предоставляем всё необходимое современное оборудование для вашей безопасности и комфорта. Насладитесь ощущением полета над водной гладью в лучах заходящего солнца.",
+      "descriptionEn": "Feel the power of the wind and the energy of the sea as you master the art of sailing on a board. Our professional instructors will help you take your first steps or hone your skills in the ideal conditions of the Crimean coast. It is a great way to strengthen your body and get an unforgettable adrenaline rush. We provide all the necessary modern equipment for your safety and comfort. Enjoy the feeling of flying over the water surface in the rays of the setting sun."
     },
     {
       "id": 2,
@@ -135,22 +136,24 @@
       "category": "sea",
       "price": 4000,
       "duration": 120,
-      "description": "Экстремальный водный спорт с кайтом.",
-      "descriptionEn": "Extreme water sport with kite.",
+      "layout": "small",
+      "available": true,
       "image": "assets/images/figma/imgKiteSurfing20210826170456Utc12.jpg",
-      "available": true
+      "description": "Покорите две стихии одновременно, используя мощь воздушного змея для скольжения по волнам. Кайтсерфинг — это уникальное сочетание серфинга, парапланеризма и гимнастики, которое дарит невероятное чувство свободы. Наши курсы рассчитаны на любой уровень подготовки, от абсолютных новичков до опытных райдеров. Вы научитесь контролировать кайт, выполнять прыжки и наслаждаться скоростью. Прозрачная вода и стабильный ветер сделают ваше обучение максимально эффективным и приятным.",
+      "descriptionEn": "Conquer two elements at once by using the power of a kite to glide across the waves. Kitesurfing is a unique combination of surfing, paragliding, and gymnastics that gives an incredible sense of freedom. Our courses are designed for all skill levels, from absolute beginners to experienced riders. You will learn to control the kite, perform jumps, and enjoy the speed. Clear water and steady wind will make your training as effective and pleasant as possible."
     },
     {
       "id": 3,
-      "name": "Эндо-тур",
+      "name": "Эндуро-тур",
       "nameEn": "Enduro Tour",
       "category": "extreme",
       "price": 5000,
       "duration": 180,
-      "description": "Мототур по горным тропам Крыма.",
-      "descriptionEn": "Motorcycle tour through Crimean mountain trails.",
+      "layout": "small",
+      "available": true,
       "image": "assets/images/figma/imgMotocrossRidersTeamRestOnExtremeTrack20220217232133Utc2.jpg",
-      "available": true
+      "description": "Отправьтесь в захватывающее путешествие по пересеченной местности на мощных мотоциклах. Вас ждут живописные горные тропы, крутые подъемы и техничные спуски, скрытые от обычных туристов. Это испытание на выносливость и отличная возможность увидеть дикую природу полуострова с совершенно нового ракурса. Мы подбираем маршруты индивидуально, учитывая ваш опыт вождения и пожелания. В стоимость тура входит полная экипировка и сопровождение опытного гида-механика.",
+      "descriptionEn": "Embark on an exciting off-road journey on powerful motorcycles. Picturesque mountain trails, steep climbs, and technical descents hidden from ordinary tourists await you. This is a test of endurance and a great opportunity to see the wild nature of the peninsula from a completely new perspective. We select routes individually, taking into account your driving experience and wishes. The tour price includes full equipment and accompaniment by an experienced guide-mechanic."
     },
     {
       "id": 4,
@@ -159,34 +162,63 @@
       "category": "extreme",
       "price": 6000,
       "duration": 240,
-      "description": "Исследование горных ландшафтов на джипах.",
-      "descriptionEn": "Exploring mountain landscapes on jeeps.",
+      "layout": "wide",
+      "available": true,
       "image": "assets/images/figma/imgDrivingOffRoadCarOnHighAltitudeMountainTop20211216214051Utc2.jpg",
-      "available": true
+      "description": "Насладитесь мощью внедорожников в туре по самым труднодоступным и красивым уголкам региона. Вы посетите панорамные площадки на вершинах скал, проедете через реликтовые леса и увидите заброшенные исторические объекты. Это идеальное приключение для всей семьи или большой компании друзей, ищущих острых ощущений. Наши водители — настоящие знатоки истории и географии края, которые сделают поездку познавательной. В середине пути вас ждет уютный пикник с видом на море на одной из диких стоянок.",
+      "descriptionEn": "Enjoy the power of SUVs on a tour of the most inaccessible and beautiful corners of the region. You will visit panoramic platforms on top of cliffs, drive through ancient forests, and see abandoned historical sites. This is the perfect adventure for the whole family or a large group of friends looking for thrills. Our drivers are true experts in the history and geography of the region, making the trip informative. In the middle of the way, a cozy picnic with a sea view awaits you at one of the wild stops."
     },
     {
       "id": 5,
-      "name": "Морская прогулка",
+      "name": "Прогулка на яхте",
       "nameEn": "Sea Trip",
       "category": "sea",
       "price": 2500,
       "duration": 90,
-      "description": "Прогулка на яхте вдоль побережья.",
-      "descriptionEn": "Yacht trip along the coast.",
-      "image": "assets/images/activities/sea-trip.jpg",
-      "available": true
+      "layout": "wide",
+      "available": true,
+      "image": "assets/images/figma/yacht-sailing-near-the-rocky-coast-in-turkey-luxu-2021-09-01-07-24-54-utc 1.jpg",
+      "description": "Отдохните от суеты на борту белоснежной яхты в открытом море. Это время для спокойного созерцания прибрежных скал, купания в кристально чистых бухтах и наблюдения за дельфинами. Вы сможете почувствовать себя настоящим капитаном, помогая экипажу управлять парусами или просто расслабиться с бокалом прохладного напитка. Прогулка идеально подходит для романтического свидания или тихого семейного вечера. Встреча заката в море станет одним из самых ярких впечатлений вашего отпуска.",
+      "descriptionEn": "Take a break from the hustle and bustle on board a snow-white yacht in the open sea. This is a time for calm contemplation of coastal cliffs, swimming in crystal clear bays, and dolphin watching. You can feel like a real captain by helping the crew manage the sails or simply relax with a glass of cool drink. The trip is ideal for a romantic date or a quiet family evening. Watching the sunset at sea will be one of the most vivid impressions of your vacation."
     },
     {
       "id": 6,
-      "name": "Рыбалка",
-      "nameEn": "Fishing",
+      "name": "Катамаран",
+      "nameEn": "Catamaran",
+      "category": "sea",
+      "price": 1500,
+      "duration": 60,
+      "layout": "small",
+      "available": true,
+      "image": "assets/images/figma/a-family-on-a-catamaran-2021-08-26-15-31-18-utc 1.jpg",
+      "description": "Легкое и веселое водное приключение, доступное каждому гостю нашего отеля. Прогулка на катамаране позволяет неспешно исследовать ближайшие пляжи и насладиться тишиной вдали от шумного берега. Это безопасный способ провести время на воде даже с маленькими детьми. Вы сможете загорать на палубе, прыгать в воду в самых чистых местах и устраивать небольшие соревнования. Простое управление не требует специальных навыков, а море впечатлений гарантировано каждому.",
+      "descriptionEn": "A light and fun water adventure available to every guest of our hotel. A catamaran trip allows you to leisurely explore the nearby beaches and enjoy the silence away from the noisy shore. This is a safe way to spend time on the water even with small children. You can sunbathe on deck, jump into the water in the cleanest places, and organize small competitions. Simple controls do not require special skills, and a sea of impressions is guaranteed to everyone."
+    },
+    {
+      "id": 7,
+      "name": "Морская рыбалка",
+      "nameEn": "Sea Fishing",
       "category": "fishing",
       "price": 3500,
       "duration": 180,
-      "description": "Рыбалка в открытом море с инструктором.",
-      "descriptionEn": "Sea fishing with instructor.",
-      "image": "assets/images/activities/fishing.jpg",
-      "available": true
+      "layout": "small",
+      "available": true,
+      "image": "assets/images/figma/man-holding-fresh-caught-mahi-mahi-on-ocean-boat-2022-06-14-02-05-10-utc 1.jpg",
+      "description": "Испытайте свою удачу и мастерство в настоящей морской рыбалке с борта катера. Опытный капитан отвезет вас на проверенные места, где гарантирован отличный клев местной рыбы. Мы предоставляем профессиональные снасти и наживку, а также делимся секретами успешной ловли в местных водах. Это не только азартное хобби, но и возможность насладиться морскими пейзажами в утренней тишине. Весь улов можно приготовить прямо на берегу по традиционным рецептам.",
+      "descriptionEn": "Test your luck and skill in real sea fishing from aboard a boat. An experienced captain will take you to proven spots where a great catch of local fish is guaranteed. We provide professional gear and bait, as well as share the secrets of successful fishing in local waters. This is not only an exciting hobby but also an opportunity to enjoy sea landscapes in the morning silence. The entire catch can be cooked right on the shore according to traditional recipes."
+    },
+    {
+      "id": 8,
+      "name": "Ночная рыбалка",
+      "nameEn": "Night Fishing",
+      "category": "fishing",
+      "price": 4500,
+      "duration": 180,
+      "layout": "wide",
+      "available": true,
+      "image": "assets/images/figma/fishing-boats-in-a-harbor-in-nicaragua-at-sunset-2021-08-26-20-15-02-utc 1.jpg",
+      "description": "Погрузитесь в мистическую атмосферу ночного моря в поисках глубоководных трофеев. Ночная рыбалка — это совершенно иной опыт, требующий концентрации и особого оборудования, которое мы с радостью предоставим. В свете прожекторов морская жизнь выглядит завораживающе, а шансы поймать редкую рыбу значительно возрастают. Тишина ночи и шум волн создают неповторимый уют и позволяют полностью отключиться от повседневных забот. Каждое приключение сопровождается горячим чаем и увлекательными морскими историями от экипажа.",
+      "descriptionEn": "Immerse yourself in the mystical atmosphere of the night sea in search of deep-sea trophies. Night fishing is a completely different experience that requires concentration and special equipment, which we are happy to provide. In the light of floodlights, marine life looks mesmerizing, and the chances of catching rare fish increase significantly. The silence of the night and the sound of waves create a unique comfort and allow you to completely disconnect from everyday worries. Every adventure is accompanied by hot tea and fascinating sea stories from the crew."
     }
   ],
 
