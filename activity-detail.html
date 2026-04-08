@@ -1,10 +1,139 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуга - Santorini Hotel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages/activity-detail.css">
+    <link rel="stylesheet" href="css/pages/active-recreation.css">
+    <link rel="stylesheet" href="css/adaptive.css">
 </head>
-<body>
+<body class="body">
 
+<header class="header" id="header-placeholder"></header>
+
+<main class="main">
+    <section class="activity-hero">
+        <div class="activity-hero__bg">
+            <img src="" alt="" id="activity-hero-img">
+            <div class="hero__overlay"></div>
+        </div>
+    </section>
+
+    <section class="activity-content section">
+        <div class="container activity-container">
+            <div class="activity-content__grid">
+                <div class="activity-content__main">
+                    <h1 class="activity-content__title" id="activity-title"></h1>
+                    <p class="activity-content__description" id="activity-desc"></p>
+                </div>
+
+                <div class="activity-content__sidebar">
+                    <ul class="activity-info-list">
+                        <li><strong>Длительность:</strong> <span id="activity-duration"></span> мин.</li>
+                        <li><strong>Стоимость:</strong> <span id="activity-price"></span> ₽</li>
+                        <li><strong>Категория:</strong> <span id="activity-cat"></span></li>
+                        <li><strong>Доступность:</strong> <span id="activity-status"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="activity-include section">
+        <div class="container activity-container">
+            <h2 class="section__title text-center">Что входит</h2>
+            <div class="include-grid">
+                <div class="include-item"><div class="include-circle"></div><span>Инструктаж</span></div>
+                <div class="include-item"><div class="include-circle"></div><span>Экипировка</span></div>
+                <div class="include-item"><div class="include-circle"></div><span>Страховка</span></div>
+                <div class="include-item"><div class="include-circle"></div><span>Трансфер</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="activity-booking section">
+        <div class="container activity-container">
+            <div class="booking-card">
+                <h3>Проживаете у нас? <br> Закажите услугу</h3>
+                <form class="booking-mini-form">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="tel" placeholder="Номер телефона" required>
+                    <button type="submit" class="btn btn--primary">Забронировать</button>
+                    <p class="form-note">Нажимая кнопку, вы соглашаетесь с правилами отеля</p>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+    <div class="container footer__container active_footer_container">
+        <div class="footer__info">
+            <div class="footer__logo">
+                <a href="index.html" class="header__logo logo" aria-label="Santorini - на главную">
+                    <img src="assets/images/logo.svg" alt="Santorini" width="150" height="40">
+                </a>
+            </div>
+            <address class="footer__contacts">
+                <a href="tel:+79120388044" class="footer__phone">8 (912) 038-80-44</a>
+                <p class="footer__address" data-i18n="address">
+                    298690, Россия, Крым, г. Ялта,<br>
+                    пгт Форос, Форосский спуск, 1
+                </p>
+            </address>
+        </div>
+
+        <nav class="footer__nav active_footer_nav" aria-label="Навигация по сайту">
+            <div class="footer__nav-column">
+                <ul class="footer__list">
+                    <li><a href="rooms.html" class="footer__link" data-i18n="navRooms">Номера и цены</a></li>
+                    <li><a href="about.html" class="footer__link" data-i18n="navAbout">Об отеле</a></li>
+                    <li><a href="services.html" class="footer__link" data-i18n="navServices">Услуги</a></li>
+                    <li><a href="conditions.html" class="footer__link" data-i18n="navConditions">Условия проживания</a></li>
+                    <li><a href="news.html" class="footer__link" data-i18n="navNews">Новости</a></li>
+                    <li><a href="contacts.html" class="footer__link" data-i18n="navContacts">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer__nav-column">
+                <ul class="footer__list">
+                    <li><a href="photos.html" class="footer__link" data-i18n="navPhotos">Фото отеля</a></li>
+                    <li><a href="how-to-get.html" class="footer__link" data-i18n="navHowToGet">Как добраться</a></li>
+                    <li><a href="reviews.html" class="footer__link" data-i18n="navReviews">Отзывы гостей</a></li>
+                    <li><a href="attractions.html" class="footer__link" data-i18n="navAttractions">Достопримечательности</a></li>
+                    <li><a href="pasta-bar.html" class="footer__link" data-i18n="navPastaBar">Паста-бар</a></li>
+                    <li><a href="active-recreation.html" class="footer__link" data-i18n="navActive">Активный отдых</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="footer__social social">
+            <a href="https://vk.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+                <img src="assets/icons/VK.png" alt="" width="24" height="24">
+            </a>
+            <a href="https://youtube.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <img src="assets/icons/YouTube.png" alt="" width="24" height="24">
+            </a>
+            <a href="https://dzen.ru/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Zen">
+                <img src="assets/icons/zen.png" alt="" width="24" height="24">
+            </a>
+        </div>
+    </div>
+
+    <div class="footer__bottom">
+        <div class="container footer__bottom-container">
+            <p class="footer__copyright" data-i18n="copyright">© 2022 Santorini. Все права защищены.</p>
+            <a href="privacy.html" class="footer__privacy" data-i18n="privacy">Политика конфиденциальности</a>
+        </div>
+    </div>
+</footer>
+
+<script src="js/config/constants.js"></script>
+<script src="js/api/endpoints.js"></script>
+<script src="js/api/fetch.js"></script>
+<script src="js/main.js"></script>
+<script src="js/pages/activity-detail.js"></script>
 </body>
 </html>
+
