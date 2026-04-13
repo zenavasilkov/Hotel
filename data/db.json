@@ -559,6 +559,21 @@
       "totalPrice": 250000,
       "status": "confirmed",
       "createdAt": "2025-02-15T11:00:00.000Z"
+    },
+    {
+      "userId": 11,
+      "roomId": 1,
+      "roomName": "Стандарт",
+      "userName": "Evgeny Vasilkov",
+      "userPhone": "+375 (29) 829-10-68",
+      "checkIn": "2026-11-02",
+      "checkOut": "2026-11-03",
+      "adults": 3,
+      "kids": 0,
+      "totalPrice": 5000,
+      "status": "pending",
+      "createdAt": "2026-04-13T19:03:55.226Z",
+      "id": 6
     }
   ],
   "news": [

@@ -1,10 +1,265 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление бронирования - Santorini</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages/booking.css">
+    <link rel="stylesheet" href="css/adaptive.css">
+    <link rel="stylesheet" href="css/themes/light-theme.css" id="theme-style">
+    <link rel="stylesheet" href="css/components/mobile-menu.css">
 </head>
-<body>
+<body class="body auth-page">
 
+<header class="header" role="banner">
+    <div class="container header__container">
+        <div class="container header__container header__group">
+            <button class="burger-menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+            </button>
+
+            <a href="index.html" class="header__logo logo" aria-label="Santorini - на главную">
+                <img src="assets/images/logo.svg" alt="Santorini" class="logo__image" width="150" height="40">
+            </a>
+        </div>
+
+        <div class="controls header__controls">
+            <button class="controls__theme" aria-label="Сменить тему" id="theme-toggle">
+                <svg class="controls__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#moon"></use>
+                </svg>
+            </button>
+
+            <button class="controls__accessibility" aria-label="Версия для слабовидящих" id="accessibility-toggle">
+                <svg class="controls__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#eye"></use>
+                </svg>
+            </button>
+
+            <div class="controls__lang lang-switcher">
+                <button class="lang-switcher__btn active" data-lang="ru" aria-label="Русский язык">RU</button>
+                <button class="lang-switcher__btn" data-lang="en" aria-label="English">EN</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="main">
+    <section class="booking-container">
+        <div class="container">
+            <div class="auth-card">
+                <h1 class="auth-title">Бронирование номера</h1>
+
+                <div class="booking-room-preview">
+                    <img src="" alt="Номер" id="room-img" class="booking-room-img">
+                    <div class="booking-room-info">
+                        <h2 id="room-name">Загрузка...</h2>
+                        <p><span id="room-price-val">0</span> ₽ / ночь</p>
+                    </div>
+                </div>
+
+                <form id="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Имя *</label>
+                            <input type="text" id="user-name" placeholder="Иван" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Фамилия *</label>
+                            <input type="text" id="user-surname" placeholder="Иванов" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Телефон *</label>
+                        <input type="tel" id="user-phone" placeholder="+375 (__) ___-__-__" maxlength="19" required>
+                    </div>
+
+                    <div class="form-row data-input">
+                        <div class="form-group">
+                            <label>Дата заезда *</label>
+                            <input type="date" id="check-in" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Дата выезда *</label>
+                            <input type="date" id="check-out" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Взрослые</label>
+                            <select id="guests-adults">
+                                <option value="1">1 человек</option>
+                                <option value="2" selected>2 человека</option>
+                                <option value="3">3 человека</option>
+                                <option value="4">4 человека</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Дети до 12 лет</label>
+                            <select id="guests-kids">
+                                <option value="0" selected>0 детей</option>
+                                <option value="1">1 ребенок</option>
+                                <option value="2">2 детей</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="booking-result">
+                        <div class="booking-result__item">
+                            <span>Количество ночей:</span>
+                            <span id="nights-count">0</span>
+                        </div>
+                        <div class="booking-result__item total">
+                            <span>Итого к оплате:</span>
+                            <span id="total-price">0 ₽</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--full" id="submit-booking">Забронировать</button>
+                    <span class="error-msg" id="date-error" style="display: none;">Дата выезда должна быть позже даты заезда!</span>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+    <div class="container footer__container active_footer_container">
+        <div class="footer__info">
+            <div class="footer__logo">
+                <img src="assets/images/logo.svg" alt="Santorini" width="150" height="40">
+            </div>
+            <address class="footer__contacts">
+                <a href="tel:+79120388044" class="footer__phone">8 (912) 038-80-44</a>
+                <p class="footer__address">
+                    298690, Россия, Крым, г. Ялта,<br>
+                    пгт Форос, Форосский спуск, 1
+                </p>
+            </address>
+        </div>
+
+        <nav class="footer__nav active_footer_nav" aria-label="Навигация по сайту">
+            <div class="footer__nav-column">
+                <ul class="footer__list">
+                    <li><a href="rooms.html" class="footer__link" data-i18n="navRooms">Номера и цены</a></li>
+                    <li><a href="about.html" class="footer__link" data-i18n="navAbout">Об отеле</a></li>
+                    <li><a href="services.html" class="footer__link" data-i18n="navServices">Услуги</a></li>
+                    <li><a href="conditions.html" class="footer__link" data-i18n="navConditions">Условия проживания</a></li>
+                    <li><a href="news.html" class="footer__link" data-i18n="navNews">Новости</a></li>
+                    <li><a href="contacts.html" class="footer__link" data-i18n="navContacts">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer__nav-column">
+                <ul class="footer__list">
+                    <li><a href="photos.html" class="footer__link" data-i18n="navPhotos">Фото отеля</a></li>
+                    <li><a href="how-to-get.html" class="footer__link" data-i18n="navHowToGet">Как добраться</a></li>
+                    <li><a href="reviews.html" class="footer__link" data-i18n="navReviews">Отзывы гостей</a></li>
+                    <li><a href="attractions.html" class="footer__link" data-i18n="navAttractions">Достопримечательности</a></li>
+                    <li><a href="pasta-bar.html" class="footer__link" data-i18n="navPastaBar">Паста-бар</a></li>
+                    <li><a href="active-recreation.html" class="footer__link" data-i18n="navActive">Активный отдых</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="footer__social social">
+            <a href="https://vk.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+                <img src="assets/icons/VK.png" alt="" width="24" height="24">
+            </a>
+            <a href="https://youtube.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <img src="assets/icons/YouTube.png" alt="" width="24" height="24">
+            </a>
+            <a href="https://dzen.ru/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Zen">
+                <img src="assets/icons/zen.png" alt="" width="24" height="24">
+            </a>
+        </div>
+    </div>
+
+    <div class="footer__bottom">
+        <div class="container footer__bottom-container">
+            <p class="footer__copyright" data-i18n="copyright">© 2022 Santorini. Все права защищены.</p>
+            <a href="privacy.html" class="footer__privacy" data-i18n="privacy">Политика конфиденциальности</a>
+        </div>
+    </div>
+</footer>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__header">
+        <a href="index.html" class="mobile-menu__logo">
+            <img src="assets/images/logo.svg" alt="Santorini" width="150" height="40">
+        </a>
+        <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Закрыть меню">
+            <svg width="24" height="24" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#close"></use>
+            </svg>
+        </button>
+    </div>
+
+    <nav class="mobile-menu__nav" role="navigation" aria-label="Мобильная навигация">
+        <ul class="mobile-menu__list">
+            <li class="mobile-menu__item">
+                <a href="rooms.html" class="mobile-menu__link">НОМЕРА</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="how-to-get.html" class="mobile-menu__link">КАК ДОБРАТЬСЯ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="reviews.html" class="mobile-menu__link">ОТЗЫВЫ ГОСТЕЙ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="news.html" class="mobile-menu__link">НОВОСТИ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="contacts.html" class="mobile-menu__link">КОНТАКТЫ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="active-recreation.html" class="mobile-menu__link">АКТИВНЫЙ ОТДЫХ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="special-offers.html" class="mobile-menu__link">СПЕЦПРЕДЛОЖЕНИЯ</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="mobile-menu__footer">
+        <a href="booking.html" class="mobile-menu__btn">ЗАБРОНИРОВАТЬ</a>
+
+        <div class="mobile-menu__contacts">
+            <a href="tel:+79120388044" class="mobile-menu__phone">
+                <svg class="mobile-menu__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#phone"></use>
+                </svg>
+                8(912) 038-80-44
+            </a>
+            <p class="mobile-menu__address">
+                298690, РОССИЯ, КРЫМ, Г. ЯЛТА, ПГТ ФОРОС,<br>
+                ФОРОССКИЙ СПУСК, 1
+            </p>
+        </div>
+
+        <div class="mobile-menu__social">
+            <img src="assets/icons/VK.png" alt="VK" class="mobile-menu__social-link" height="40">
+            <img src="assets/icons/YouTube.png" alt="YouTube" class="mobile-menu__social-link" height="40">
+            <img src="assets/icons/zen.png" alt="Zen" class="mobile-menu__social-link" height="40">
+        </div>
+    </div>
+</div>
+
+<div class="mobile-menu__overlay" id="mobile-menu-overlay"></div>
+
+<script src="js/config/constants.js"></script>
+<script src="js/api/endpoints.js"></script>
+<script src="js/api/fetch.js"></script>
+<script src="js/pages/booking.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/utils/storage.js" defer></script>
+<script src="js/utils/i18n.js" defer></script>
+<script src="js/utils/theme-switcher.js" defer></script>
+<script src="js/components/burger-menu.js" defer></script>
+<script src="js/components/modal.js" defer></script>
+<script src="js/components/preloader.js" defer></script>
 </body>
 </html>
