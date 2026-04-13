@@ -1,0 +1,105 @@
+﻿.auth-page {
+    background: #f8faff;
+    padding: 120px 0 80px;
+    min-height: 100vh;
+}
+
+.auth-card {
+    max-width: 550px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(69, 103, 170, 0.08);
+}
+
+.auth-tabs {
+    display: flex;
+    background: #f1f3f7;
+    padding: 5px;
+    border-radius: 100px;
+    margin-bottom: 35px;
+}
+
+.auth-tab {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: 0.3s;
+    color: #8a94a6;
+}
+
+.auth-tab.active {
+    background: #fff;
+    color: var(--color-primary);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.auth-form { display: none; }
+.auth-form.active { display: block; }
+
+.auth-title {
+    font-family: 'Forum', serif;
+    font-size: 32px;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 14px; margin-bottom: 6px; font-weight: 500; }
+
+.form-group input:not([type="checkbox"]):not([type="radio"]),
+.form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e1e4e8;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.input-with-btn { display: flex; gap: 10px; }
+.btn-action {
+    background: #f1f3f7;
+    border: none;
+    padding: 0 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.error-msg { color: #ff4d4d; font-size: 12px; margin-top: 4px; display: block; }
+.success-msg { color: #2ecc71; font-size: 12px; margin-top: 4px; display: block; }
+
+.password-checklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    background: #f9fafb;
+    border-radius: 8px;
+}
+
+@media (max-width: 480px) {
+    .auth-title { font-size: 28px; }
+}
+
+.req-item { font-size: 11px; padding-left: 15px; position: relative; }
+.req-item::before { content: '•'; position: absolute; left: 0; }
+.req-item.valid { color: #2ecc71; }
+.req-item.invalid { color: #8a94a6; }
+
+.btn--full { width: 100%; height: 50px; margin-top: 20px; }
+.btn:disabled { background: #cbd5e0; cursor: not-allowed; transform: none; }
