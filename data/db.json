@@ -9,8 +9,8 @@
       "area": 25,
       "guests": 2,
       "beds": 1,
-      "description": "Уютный номер с видом на сад. Идеально подходит для пар.",
-      "descriptionEn": "Cozy room with garden view. Perfect for couples.",
+      "description": "Насладитесь тишиной и уютом в нашем стандартном номере, выполненном в классических светлых тонах. Окна выходят на живописный внутренний сад отеля, наполняя комнату ароматами хвои и морского бриза. Номер идеально подходит для пар, предлагая удобную кровать королевского размера и современную ванную комнату. Здесь есть всё необходимое для полноценного отдыха после активного дня на пляже. Мягкое освещение и продуманный дизайн создают атмосферу спокойствия и домашнего тепла.",
+      "descriptionEn": "Enjoy peace and comfort in our standard room, decorated in classic light colors. The windows overlook the hotel's picturesque inner garden, filling the room with the scents of pine and sea breeze. The room is perfect for couples, offering a comfortable king-size bed and a modern bathroom. There is everything you need for a full rest after an active day at the beach. Soft lighting and thoughtful design create an atmosphere of tranquility and home warmth.",
       "amenities": ["wifi", "tv", "ac", "minibar"],
       "images": [
         "assets/images/figma/imgCozyPillowsOnComfortableBigKingSizeBedInB20210826154547Utc2.jpg",
@@ -28,8 +28,8 @@
       "area": 40,
       "guests": 4,
       "beds": 2,
-      "description": "Просторный номер с видом на море. Включает гостиную зону.",
-      "descriptionEn": "Spacious room with sea view. Includes living area.",
+      "description": "Наш номер категории Люкс предлагает новый уровень комфорта и эстетики. Просторная планировка включает в себя элегантную спальню и уютную гостиную зону для вашего отдыха. Из больших панорамных окон открывается захватывающий вид на Черное море, которым можно любоваться бесконечно. Номер оснащен премиальной мебелью и высокотехнологичным оборудованием. Это идеальное пространство для тех, кто ценит стиль, простор и безупречный сервис в каждой детали своего отпуска.",
+      "descriptionEn": "Our Lux suite offers a new level of comfort and aesthetics. The spacious layout includes an elegant bedroom and a cozy living area for your relaxation. Large panoramic windows offer breathtaking views of the Black Sea, which can be admired endlessly. The room is equipped with premium furniture and high-tech equipment. It is an ideal space for those who appreciate style, space, and impeccable service in every detail of their vacation.",
       "amenities": ["wifi", "tv", "ac", "minibar", "balcony", "seaView"],
       "images": [
         "assets/images/figma/imgVacationRoomWithSeaViewAndTableWithBottle20220509233953Utc1.jpg",
@@ -47,8 +47,8 @@
       "area": 60,
       "guests": 4,
       "beds": 2,
-      "description": "Роскошный номер с панорамным видом на море и собственной террасой.",
-      "descriptionEn": "Luxury room with panoramic sea view and private terrace.",
+      "description": "Роскошный Делюкс — это жемчужина нашего номерного фонда. Главная особенность номера — огромная частная терраса, где вы сможете завтракать под шум прибоя или провожать закаты. Интерьер выполнен по авторскому дизайн-проекту с использованием натуральных материалов. В ванной комнате вас ждет персональное джакузи с видом на побережье. Мы продумали каждую мелочь, чтобы ваше пребывание здесь превратилось в настоящую морскую сказку, наполненную роскошью и уединением.",
+      "descriptionEn": "The luxurious Deluxe is the jewel of our room collection. The main feature of the room is a huge private terrace where you can have breakfast to the sound of the surf or watch the sunsets. The interior is designed according to a unique project using natural materials. A personal jacuzzi overlooking the coast awaits you in the bathroom. We have thought through every little detail so that your stay here turns into a real sea fairy tale, filled with luxury and privacy.",
       "amenities": ["wifi", "tv", "ac", "minibar", "balcony", "seaView", "jacuzzi"],
       "images": [
         "assets/images/figma/imgInteriorOfGuestRoomInBedAndBreakfastHotel20210826161239Utc1.jpg",
@@ -66,8 +66,8 @@
       "area": 50,
       "guests": 6,
       "beds": 3,
-      "description": "Просторный номер для всей семьи с детской зоной.",
-      "descriptionEn": "Spacious room for the whole family with kids area.",
+      "description": "Созданный специально для больших семей, этот номер обеспечивает комфорт и приватность для каждого гостя. Пространство разделено на основную спальню для родителей и яркую, безопасную детскую зону. Три удобные кровати и вместительные шкафы позволят с легкостью разместить всех членов семьи. Номер оборудован современными системами безопасности и дополнительными удобствами для детей. Наслаждайтесь общим временем на просторном балконе, обсуждая планы на следующий день в Santorini.",
+      "descriptionEn": "Created specifically for large families, this room provides comfort and privacy for every guest. The space is divided into a master bedroom for parents and a bright, safe children's area. Three comfortable beds and spacious wardrobes will easily accommodate all family members. The room is equipped with modern security systems and additional amenities for children. Enjoy quality time together on the spacious balcony, discussing plans for the next day at Santorini.",
       "amenities": ["wifi", "tv", "ac", "minibar", "balcony", "kidsArea"],
       "images": [
         "assets/images/rooms/family-1.jpg",
@@ -84,14 +84,13 @@
       "area": 100,
       "guests": 4,
       "beds": 2,
-      "description": "Эксклюзивный номер с отдельной гостиной и столовой.",
-      "descriptionEn": "Exclusive room with separate living and dining room.",
+      "description": "Президентский люкс — это воплощение абсолютной роскоши и эксклюзивности на 100 квадратных метрах. Номер включает в себя великолепную гостиную для приемов, отдельную столовую и кабинет. Гостям этого номера предоставляются услуги персонального батлера, готового исполнить любое ваше пожелание 24/7. Панорамное остекление открывает лучший вид в отеле на бесконечный морской горизонт. Это идеальный выбор для самых взыскательных гостей, ищущих безупречный комфорт, статус и полную конфиденциальность.",
+      "descriptionEn": "The Presidential Suite is the embodiment of absolute luxury and exclusivity on 100 square meters. The suite includes a magnificent living room for receptions, a separate dining room, and a study. Guests of this room are provided with the services of a personal butler, ready to fulfill any wish 24/7. Panoramic windows offer the best view in the hotel of the endless sea horizon. It is the perfect choice for the most demanding guests looking for impeccable comfort, status, and total privacy.",
       "amenities": ["wifi", "tv", "ac", "minibar", "balcony", "seaView", "jacuzzi", "butler"],
       "images": [
         "assets/images/rooms/presidential-1.jpg",
         "assets/images/rooms/presidential-2.jpg",
-        "assets/images/rooms/presidential-3.jpg",
-        "assets/images/rooms/presidential-4.jpg"
+        "assets/images/rooms/presidential-3.jpg"
       ],
       "available": true
     },
@@ -104,8 +103,8 @@
       "area": 35,
       "guests": 2,
       "beds": 1,
-      "description": "Современная студия с кухонной зоной.",
-      "descriptionEn": "Modern studio with kitchen area.",
+      "description": "Стильная и современная студия идеально подойдет для независимых путешественников или пар. Открытая планировка создает ощущение свободы, а полноценная кухонная зона позволяет готовить любимые блюда самостоятельно. Интерьер выполнен в стиле минимализма с яркими акцентами, вдохновленными природой Крыма. В номере организовано удобное рабочее место с высокоскоростным интернетом. Это функциональное и эстетичное жилье, где комфорт проживания сочетается с современным ритмом жизни.",
+      "descriptionEn": "A stylish and modern studio, perfect for independent travelers or couples. The open layout creates a sense of freedom, and a full kitchen area allows you to cook your favorite dishes yourself. The interior is designed in a minimalist style with bright accents inspired by the nature of Crimea. The room features a comfortable workspace with high-speed internet. This is functional and aesthetic housing where living comfort is combined with the modern pace of life.",
       "amenities": ["wifi", "tv", "ac", "minibar", "kitchen"],
       "images": [
         "assets/images/rooms/studio-1.jpg",
