@@ -506,112 +506,155 @@
   ],
   "bookings": [
     {
-      "id": 1,
-      "userId": 2,
-      "roomId": 1,
-      "checkIn": "2025-07-01",
-      "checkOut": "2025-07-07",
-      "guests": 2,
-      "totalPrice": 30000,
-      "status": "confirmed",
-      "createdAt": "2025-01-15T10:30:00.000Z"
-    },
-    {
-      "id": 2,
-      "userId": 3,
-      "roomId": 2,
-      "checkIn": "2025-07-10",
-      "checkOut": "2025-07-15",
-      "guests": 4,
-      "totalPrice": 40000,
-      "status": "pending",
-      "createdAt": "2025-01-20T14:45:00.000Z"
-    },
-    {
-      "id": 3,
-      "userId": 2,
-      "roomId": 3,
-      "checkIn": "2025-08-01",
-      "checkOut": "2025-08-10",
-      "guests": 4,
-      "totalPrice": 108000,
-      "status": "confirmed",
-      "createdAt": "2025-02-01T09:15:00.000Z"
-    },
-    {
-      "id": 4,
-      "userId": 4,
-      "roomId": 1,
-      "checkIn": "2025-07-20",
-      "checkOut": "2025-07-25",
-      "guests": 2,
-      "totalPrice": 25000,
-      "status": "cancelled",
-      "createdAt": "2025-02-10T16:20:00.000Z"
-    },
-    {
-      "id": 5,
-      "userId": 5,
-      "roomId": 5,
-      "checkIn": "2025-08-15",
-      "checkOut": "2025-08-25",
-      "guests": 4,
-      "totalPrice": 250000,
-      "status": "confirmed",
-      "createdAt": "2025-02-15T11:00:00.000Z"
-    },
-    {
-      "userId": 11,
-      "roomId": 1,
-      "roomName": "Стандарт",
       "userName": "Evgeny Vasilkov",
       "userPhone": "+375 (29) 829-10-68",
       "checkIn": "2026-11-02",
       "checkOut": "2026-11-03",
       "adults": 3,
       "kids": 0,
-      "totalPrice": 5000,
+      "roomName": "Стандарт",
       "status": "pending",
-      "createdAt": "2026-04-13T19:03:55.226Z",
+      "totalPrice": 5000,
       "id": 6
+    },
+    {
+      "userId": 2,
+      "roomId": 2,
+      "roomName": "Люкс",
+      "userName": "Иванов Иван",
+      "userPhone": "+375 (33) 222-22-22",
+      "checkIn": "2026-05-10",
+      "checkOut": "2026-05-15",
+      "adults": 2,
+      "kids": 1,
+      "totalPrice": 40000,
+      "status": "confirmed",
+      "createdAt": "2026-04-01T10:15:00.000Z",
+      "id": 7
+    },
+    {
+      "userId": 3,
+      "roomId": 3,
+      "roomName": "Делюкс",
+      "userName": "Петрова Анна",
+      "userPhone": "+375 (44) 333-33-33",
+      "checkIn": "2026-05-20",
+      "checkOut": "2026-05-25",
+      "adults": 2,
+      "kids": 0,
+      "totalPrice": 60000,
+      "status": "confirmed",
+      "createdAt": "2026-04-05T14:30:00.000Z",
+      "id": 8
+    },
+    {
+      "userId": 4,
+      "roomId": 1,
+      "roomName": "Стандарт",
+      "userName": "Волков Сергей",
+      "userPhone": "+375 (25) 444-44-44",
+      "checkIn": "2026-06-01",
+      "checkOut": "2026-06-05",
+      "adults": 1,
+      "kids": 0,
+      "totalPrice": 20000,
+      "status": "pending",
+      "createdAt": "2026-04-10T09:00:00.000Z",
+      "id": 9
+    },
+    {
+      "userId": 5,
+      "roomId": 4,
+      "roomName": "Семейный",
+      "userName": "Маркова Елена",
+      "userPhone": "+375 (29) 555-55-55",
+      "checkIn": "2026-06-10",
+      "checkOut": "2026-06-20",
+      "adults": 4,
+      "kids": 2,
+      "totalPrice": 100000,
+      "status": "confirmed",
+      "createdAt": "2026-04-08T16:45:00.000Z",
+      "id": 10
+    },
+    {
+      "userId": 6,
+      "roomId": 5,
+      "roomName": "Президентский",
+      "userName": "Кузнецов Дмитрий",
+      "userPhone": "+375 (33) 666-66-66",
+      "checkIn": "2026-07-01",
+      "checkOut": "2026-07-10",
+      "adults": 2,
+      "kids": 0,
+      "totalPrice": 225000,
+      "status": "pending",
+      "createdAt": "2026-04-12T11:20:00.000Z",
+      "id": 11
+    },
+    {
+      "userId": 7,
+      "roomId": 6,
+      "roomName": "Студия",
+      "userName": "Смирнова Ольга",
+      "userPhone": "+375 (44) 777-77-77",
+      "checkIn": "2026-05-15",
+      "checkOut": "2026-05-18",
+      "adults": 2,
+      "kids": 0,
+      "totalPrice": 19500,
+      "status": "cancelled",
+      "createdAt": "2026-04-02T13:10:00.000Z",
+      "id": 12
+    },
+    {
+      "userId": 8,
+      "roomId": 2,
+      "roomName": "Люкс",
+      "userName": "Новиков Владимир",
+      "userPhone": "+375 (25) 888-88-88",
+      "checkIn": "2026-06-15",
+      "checkOut": "2026-06-20",
+      "adults": 2,
+      "kids": 1,
+      "totalPrice": 40000,
+      "status": "confirmed",
+      "createdAt": "2026-04-11T15:30:00.000Z",
+      "id": 13
     }
   ],
-  "news": [
+  "contacts": {
+    "phone": "+7 (912) 038-80-44",
+    "email": "info@santorini-hotel.ru",
+    "address": "298690, Россия, Крым, г. Ялта, пгт Форос, Форосский спуск, 1",
+    "coordinates": {
+      "lat": 44.3917,
+      "lng": 33.7833
+    },
+    "social": {
+      "vk": "https://vk.com/santorini",
+      "youtube": "https://youtube.com/santorini",
+      "instagram": "https://instagram.com/santorini"
+    }
+  },
+  "contactMessages": [
     {
       "id": 1,
-      "title": "Открытие нового спа-центра",
-      "titleEn": "New Spa Center Opening",
-      "excerpt": "Приглашаем гостей посетить наш новый спа-центр с бассейном и сауной.",
-      "excerptEn": "We invite guests to visit our new spa center with pool and sauna.",
-      "content": "Полный текст новости о спа-центре...",
-      "contentEn": "Full news text about spa center...",
-      "image": "assets/images/news/spa.jpg",
-      "date": "2025-01-15",
-      "category": "hotel"
+      "name": "Иван Иванов",
+      "email": "ivan@example.com",
+      "phone": "+375291234567",
+      "message": "Хочу забронировать номер на июль",
+      "date": "2025-01-15T10:30:00.000Z",
+      "status": "new"
     },
     {
       "id": 2,
-      "title": "Летние акции 2025",
-      "titleEn": "Summer Promotions 2025",
-      "excerpt": "Специальные предложения на летний сезон. Скидки до 30%.",
-      "excerptEn": "Special offers for summer season. Discounts up to 30%.",
-      "content": "Полный текст новости об акциях...",
-      "contentEn": "Full news text about promotions...",
-      "image": "assets/images/news/summer.jpg",
-      "date": "2025-02-01",
-      "category": "promotion"
-    },
-    {
-      "id": 3,
-      "title": "Новое меню в ресторане",
-      "titleEn": "New Restaurant Menu",
-      "excerpt": "Шеф-повар представил обновленное меню с местными продуктами.",
-      "excerptEn": "Chef presented updated menu with local products.",
-      "content": "Полный текст новости о меню...",
-      "contentEn": "Full news text about menu...",
-      "image": "assets/images/news/restaurant.jpg",
-      "date": "2025-02-15",
-      "category": "restaurant"
+      "name": "Анна Петрова",
+      "email": "anna@example.com",
+      "phone": "+375292345678",
+      "message": "Есть ли у вас номера для семей с детьми?",
+      "date": "2025-01-20T14:45:00.000Z",
+      "status": "answered"
     }
   ],
   "offers": [
@@ -686,40 +729,6 @@
       "validFrom": "2025-01-01",
       "validTo": "2025-12-31",
       "active": true
-    }
-  ],
-  "contacts": {
-    "phone": "+7 (912) 038-80-44",
-    "email": "info@santorini-hotel.ru",
-    "address": "298690, Россия, Крым, г. Ялта, пгт Форос, Форосский спуск, 1",
-    "coordinates": {
-      "lat": 44.3917,
-      "lng": 33.7833
-    },
-    "social": {
-      "vk": "https://vk.com/santorini",
-      "youtube": "https://youtube.com/santorini",
-      "instagram": "https://instagram.com/santorini"
-    }
-  },
-  "contactMessages": [
-    {
-      "id": 1,
-      "name": "Иван Иванов",
-      "email": "ivan@example.com",
-      "phone": "+375291234567",
-      "message": "Хочу забронировать номер на июль",
-      "date": "2025-01-15T10:30:00.000Z",
-      "status": "new"
-    },
-    {
-      "id": 2,
-      "name": "Анна Петрова",
-      "email": "anna@example.com",
-      "phone": "+375292345678",
-      "message": "Есть ли у вас номера для семей с детьми?",
-      "date": "2025-01-20T14:45:00.000Z",
-      "status": "answered"
     }
   ]
 }

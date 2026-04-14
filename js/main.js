@@ -416,6 +416,90 @@ function syncAmenitiesUI(index) {
     }
 }
 
+(function initAdminQuickAccess() {
+    const panel = document.getElementById('adminQuickAccess');
+    if (!panel) return;
+
+    const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    const isAdmin = user.role === 'admin' && user.email;
+
+    if (!isAdmin) {
+        panel.hidden = true;
+        panel.remove?.();
+        return;
+    }
+
+    panel.hidden = false;
+    panel.setAttribute('data-visible', 'true');
+
+    const greetingEl = document.getElementById('adminGreeting');
+    if (greetingEl) {
+        greetingEl.textContent = user.fullName?.split(' ')[0] || user.nickname || user.email.split('@')[0] || 'Админ';
+    }
+
+    const toggleBtn = panel.querySelector('.admin-quick-access__toggle');
+    const closeBtn = panel.querySelector('.admin-quick-access__close');
+    const panelContent = panel.querySelector('.admin-quick-access__panel');
+    const logoutBtn = document.getElementById('adminQuickLogout');
+
+    let isOpen = false;
+
+    function togglePanel() {
+        isOpen = !isOpen;
+        panelContent.classList.toggle('active', isOpen);
+        toggleBtn.setAttribute('aria-expanded', isOpen);
+        panelContent.setAttribute('aria-hidden', !isOpen);
+
+        if (isOpen) {
+            document.addEventListener('click', closeOnOutsideClick);
+        } else {
+            document.removeEventListener('click', closeOnOutsideClick);
+        }
+    }
+
+    function closePanel() {
+        isOpen = false;
+        panelContent.classList.remove('active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        panelContent.setAttribute('aria-hidden', 'true');
+        document.removeEventListener('click', closeOnOutsideClick);
+    }
+
+    function closeOnOutsideClick(e) {
+        if (!panel.contains(e.target) && !toggleBtn.contains(e.target)) {
+            closePanel();
+        }
+    }
+
+    toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        togglePanel();
+    });
+
+    closeBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closePanel();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isOpen) {
+            closePanel();
+            toggleBtn.focus();
+        }
+    });
+
+    logoutBtn?.addEventListener('click', () => {
+        localStorage.removeItem('user');
+        window.location.href = 'auth.html';
+    });
+
+    panel.querySelectorAll('.admin-quick-access__link').forEach(link => {
+        link.addEventListener('click', closePanel);
+    });
+
+    console.log('✅ Admin Quick Access Panel initialized');
+})();
+
 window.SantoriniApp = {
     loadRoomsData,
     renderRooms,

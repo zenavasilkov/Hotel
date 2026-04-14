@@ -1,0 +1,504 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель | Отель Santorini</title>
+
+    <link rel="icon" href="assets/favicons/favicon.ico" sizes="any">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages/admin.css">
+
+</head>
+<body>
+<div id="preloader" class="preloader" role="status" aria-label="Загрузка сайта">
+    <div class="preloader__content">
+        <div class="preloader__spinner" aria-hidden="true"></div>
+        <div class="preloader__logo">
+            <img src="assets/images/logo.svg" alt="Santorini Hotel" width="150" height="27">
+        </div>
+    </div>
+</div>
+
+<header class="admin-header">
+    <div class="admin-header__container">
+        <a href="index.html" class="admin-header__logo">
+            <img src="assets/images/logo.svg" alt="Santorini" width="150" height="27">
+            <span class="admin-header__badge">Панель управления</span>
+        </a>
+
+        <nav class="admin-nav" role="tablist">
+            <button class="admin-nav__link active" data-tab="bookings" role="tab" aria-selected="true">Бронирования</button>
+            <button class="admin-nav__link" data-tab="rooms" role="tab" aria-selected="false">Номера</button>
+            <button class="admin-nav__link" data-tab="clients" role="tab" aria-selected="false">Клиенты</button>
+            <button class="admin-nav__link" data-tab="reports" role="tab" aria-selected="false">Отчёты</button>
+        </nav>
+
+        <div class="admin-header__user">
+            <span class="admin-header__name" id="adminName">Загрузка...</span>
+            <button class="btn btn--outline btn--sm" type="button" id="logoutBtn">Выйти</button>
+        </div>
+    </div>
+</header>
+
+<main class="admin-main">
+    <div class="container">
+
+        <section id="tab-bookings" class="admin-tab active" role="tabpanel">
+            <div class="admin-stats" id="bookingsStats">
+                <div class="stat-card">
+                    <div class="stat-card__icon stat-card__icon--primary">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 7V3M16 7V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="stat-card__content">
+                        <div class="stat-card__value" id="statTotalBookings">0</div>
+                        <div class="stat-card__label">Всего бронирований</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__icon stat-card__icon--success">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="stat-card__content">
+                        <div class="stat-card__value" id="statConfirmed">0</div>
+                        <div class="stat-card__label">Подтверждено</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__icon stat-card__icon--warning">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="stat-card__content">
+                        <div class="stat-card__value" id="statPending">0</div>
+                        <div class="stat-card__label">Ожидают</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__icon stat-card__icon--info">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="stat-card__content">
+                        <div class="stat-card__value" id="statRevenue">₽0</div>
+                        <div class="stat-card__label">Выручка</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section">
+                <div class="section-header">
+                    <h2 class="section-title">Управление бронированиями</h2>
+                    <div class="section-actions">
+                        <button class="btn btn--outline" type="button" id="exportBookingsBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            Экспорт CSV
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="bookings-table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Гость</th>
+                            <th>Телефон</th>
+                            <th>Номер</th>
+                            <th>Заезд</th>
+                            <th>Выезд</th>
+                            <th>Гостей</th>
+                            <th>Сумма</th>
+                            <th>Статус</th>
+                            <th>Действия</th>
+                        </tr>
+                        </thead>
+                        <tbody id="bookingsTableBody">
+                        <tr><td colspan="10" class="table-loading">Загрузка данных...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-rooms" class="admin-tab" role="tabpanel" hidden>
+            <div class="admin-section">
+                <div class="section-header">
+                    <h2 class="section-title">Управление номерами</h2>
+                    <button class="btn btn--primary" type="button" id="addRoomBtn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4v16m8-8H4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        Добавить номер
+                    </button>
+                </div>
+
+                <div class="rooms-grid" id="roomsGrid"></div>
+            </div>
+        </section>
+
+        <section id="tab-clients" class="admin-tab" role="tabpanel" hidden>
+            <div class="admin-stats" id="clientsStats">
+                <div class="stat-card">
+                    <div class="stat-card__icon stat-card__icon--primary">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="stat-card__content">
+                        <div class="stat-card__value" id="statTotalClients">0</div>
+                        <div class="stat-card__label">Всего клиентов</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__icon stat-card__icon--success">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="stat-card__content">
+                        <div class="stat-card__value" id="statAdmins">0</div>
+                        <div class="stat-card__label">Администраторов</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section">
+                <div class="section-header">
+                    <h2 class="section-title">База клиентов</h2>
+                    <div class="section-actions">
+                        <input type="text" class="search-input" id="clientsSearch" placeholder="Поиск по имени или email...">
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="clients-table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Имя</th>
+                            <th>Email</th>
+                            <th>Телефон</th>
+                            <th>Никнейм</th>
+                            <th>Роль</th>
+                            <th>Дата регистрации</th>
+                            <th>Действия</th>
+                        </tr>
+                        </thead>
+                        <tbody id="clientsTableBody">
+                        <tr><td colspan="8" class="table-loading">Загрузка данных...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-reports" class="admin-tab" role="tabpanel" hidden>
+            <div class="admin-section">
+                <div class="section-header">
+                    <h2 class="section-title">Отчёты и статистика</h2>
+                    <div class="section-actions">
+                        <select class="form-select" id="reportPeriod">
+                            <option value="week">За неделю</option>
+                            <option value="month" selected>За месяц</option>
+                            <option value="year">За год</option>
+                        </select>
+                        <button class="btn btn--primary" type="button" id="generateReportBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            Скачать отчёт
+                        </button>
+                    </div>
+                </div>
+
+                <div class="reports-grid">
+                    <div class="report-card">
+                        <h3 class="report-card__title">Загрузка номеров</h3>
+                        <div class="report-card__chart" id="occupancyChart">
+                            <div class="chart-placeholder">График загрузки</div>
+                        </div>
+                        <div class="report-card__stats">
+                            <div class="report-stat">
+                                <span class="report-stat__label">Средняя загрузка:</span>
+                                <span class="report-stat__value" id="avgOccupancy">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <h3 class="report-card__title">Популярные номера</h3>
+                        <div class="report-card__list" id="popularRooms"></div>
+                    </div>
+
+                    <div class="report-card">
+                        <h3 class="report-card__title">Финансовые показатели</h3>
+                        <div class="report-card__stats">
+                            <div class="report-stat">
+                                <span class="report-stat__label">Общая выручка:</span>
+                                <span class="report-stat__value" id="totalRevenue">₽0</span>
+                            </div>
+                            <div class="report-stat">
+                                <span class="report-stat__label">Средний чек:</span>
+                                <span class="report-stat__value" id="avgCheck">₽0</span>
+                            </div>
+                            <div class="report-stat">
+                                <span class="report-stat__label">Бронирований:</span>
+                                <span class="report-stat__value" id="totalBookingsReport">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<div id="bookingModal" class="modal" role="dialog" aria-labelledby="bookingModalTitle" aria-hidden="true">
+    <div class="modal__overlay" data-close-modal></div>
+    <div class="modal__container">
+        <div class="modal__header">
+            <h3 id="bookingModalTitle" class="modal__title">Бронирование #---</h3>
+            <button class="modal__close" type="button" data-close-modal aria-label="Закрыть">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+        </div>
+
+        <div class="modal__body">
+            <form id="bookingForm" class="booking-form">
+                <input type="hidden" id="bookingId">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="userName" class="form-label">Имя гостя *</label>
+                        <input type="text" id="userName" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userPhone" class="form-label">Телефон *</label>
+                        <input type="tel" id="userPhone" class="form-input" required placeholder="+375 (__) ___-__-__">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkIn" class="form-label">Дата заезда *</label>
+                        <input type="date" id="checkIn" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkOut" class="form-label">Дата выезда *</label>
+                        <input type="date" id="checkOut" class="form-input" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="adults" class="form-label">Взрослые</label>
+                        <input type="number" id="adults" class="form-input" min="1" value="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="kids" class="form-label">Дети</label>
+                        <input type="number" id="kids" class="form-input" min="0" value="0">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="roomName" class="form-label">Тип номера</label>
+                        <select id="roomName" class="form-input" required>
+                            <option value="Стандарт">Стандарт</option>
+                            <option value="Люкс">Люкс</option>
+                            <option value="Делюкс">Делюкс</option>
+                            <option value="Семейный">Семейный</option>
+                            <option value="Президентский">Президентский</option>
+                            <option value="Студия">Студия</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="totalPrice" class="form-label">Итого к оплате</label>
+                        <input type="text" id="totalPrice" class="form-input" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="status" class="form-label">Статус</label>
+                    <select id="status" class="form-input">
+                        <option value="pending">Ожидает подтверждения</option>
+                        <option value="confirmed">Подтверждено</option>
+                        <option value="cancelled">Отменено</option>
+                    </select>
+                </div>
+
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--outline" data-close-modal>Отмена</button>
+                    <button type="submit" class="btn btn--primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="roomModal" class="modal" role="dialog" aria-labelledby="roomModalTitle" aria-hidden="true">
+    <div class="modal__overlay" data-close-modal></div>
+    <div class="modal__container modal__container--xlarge">
+        <div class="modal__header">
+            <h3 id="roomModalTitle" class="modal__title">Номер</h3>
+            <button class="modal__close" type="button" data-close-modal aria-label="Закрыть">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+        </div>
+
+        <div class="modal__body">
+            <form id="roomForm" class="room-form">
+                <input type="hidden" id="roomId">
+
+                <div class="form-section">
+                    <h4 class="form-section__title">Основная информация</h4>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="roomNameInput" class="form-label">Название (RU) *</label>
+                            <input type="text" id="roomNameInput" class="form-input" required placeholder="Например: Люкс">
+                        </div>
+                        <div class="form-group">
+                            <label for="roomNameEn" class="form-label">Название (EN) *</label>
+                            <input type="text" id="roomNameEn" class="form-input" required placeholder="Например: Lux">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="roomCategory" class="form-label">Категория *</label>
+                            <select id="roomCategory" class="form-input" required>
+                                <option value="standard">Стандарт</option>
+                                <option value="lux">Люкс</option>
+                                <option value="deluxe">Делюкс</option>
+                                <option value="family">Семейный</option>
+                                <option value="presidential">Президентский</option>
+                                <option value="studio">Студия</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="roomPrice" class="form-label">Цена за ночь (₽) *</label>
+                            <input type="number" id="roomPrice" class="form-input" required min="0" placeholder="5000">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="roomArea" class="form-label">Площадь (м²) *</label>
+                            <input type="number" id="roomArea" class="form-input" required min="0" placeholder="25">
+                        </div>
+                        <div class="form-group">
+                            <label for="roomGuests" class="form-label">Макс. гостей *</label>
+                            <input type="number" id="roomGuests" class="form-input" required min="1" placeholder="2">
+                        </div>
+                        <div class="form-group">
+                            <label for="roomBeds" class="form-label">Кроватей *</label>
+                            <input type="number" id="roomBeds" class="form-input" required min="1" placeholder="1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4 class="form-section__title">Описание</h4>
+
+                    <div class="form-group">
+                        <label for="roomDescription" class="form-label">Описание (RU) *</label>
+                        <textarea id="roomDescription" class="form-input form-textarea" required rows="4" placeholder="Подробное описание номера на русском языке..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="roomDescriptionEn" class="form-label">Описание (EN) *</label>
+                        <textarea id="roomDescriptionEn" class="form-input form-textarea" required rows="4" placeholder="Detailed room description in English..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4 class="form-section__title">Удобства</h4>
+                    <div class="amenities-grid">
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="amenity-checkbox" value="wifi">
+                            <span class="checkbox-text">Wi-Fi</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="amenity-checkbox" value="tv">
+                            <span class="checkbox-text">TV</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="amenity-checkbox" value="ac">
+                            <span class="checkbox-text">Кондиционер</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="amenity-checkbox" value="minibar">
+                            <span class="checkbox-text">Минибар</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="amenity-checkbox" value="balcony">
+                            <span class="checkbox-text">Балкон</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="amenity-checkbox" value="seaView">
+                            <span class="checkbox-text">Вид на море</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="amenity-checkbox" value="jacuzzi">
+                            <span class="checkbox-text">Джакузи</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="amenity-checkbox" value="kidsArea">
+                            <span class="checkbox-text">Детская зона</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="amenity-checkbox" value="kitchen">
+                            <span class="checkbox-text">Кухня</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="amenity-checkbox" value="butler">
+                            <span class="checkbox-text">Батлер</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4 class="form-section__title">Изображения</h4>
+                    <div class="form-group">
+                        <label for="roomImages" class="form-label">URL изображений (каждое с новой строки)</label>
+                        <textarea id="roomImages" class="form-input form-textarea" rows="3" placeholder="assets/images/rooms/room-1.jpg&#10;assets/images/rooms/room-2.jpg"></textarea>
+                        <small class="form-hint">Введите URL каждого изображения с новой строки. Первое изображение будет главным.</small>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4 class="form-section__title">Настройки</h4>
+                    <label class="checkbox-label checkbox-label--large">
+                        <input type="checkbox" id="roomAvailable" class="form-checkbox" checked>
+                        <span class="checkbox-text">
+							<strong>Доступен для бронирования</strong>
+							<span class="checkbox-hint">Номер будет отображаться на сайте и доступен для бронирования</span>
+						</span>
+                    </label>
+                </div>
+
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--outline" data-close-modal>Отмена</button>
+                    <button type="submit" class="btn btn--primary">Сохранить номер</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+        if (!user.email || user.role !== 'admin') {
+            alert('Доступ разрешён только администраторам.');
+            window.location.href = 'auth.html';
+        }
+    })();
+</script>
+
+<script src="js/utils/storage.js" defer></script>
+<script src="js/utils/i18n.js" defer></script>
+<script src="js/utils/theme-switcher.js" defer></script>
+<script src="js/components/preloader.js" defer></script>
+<script src="js/components/burger-menu.js" defer></script>
+<script src="js/components/slider.js" defer></script>
+<script src="js/config/constants.js"></script>
+<script src="js/api/endpoints.js"></script>
+<script src="js/api/fetch.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/pages/admin.js" defer></script>
+
+</body>
+</html>
