@@ -1,10 +1,477 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Как добраться до отеля Santorini в Крыму. Способы трансфера, схема проезда, координаты и контакты.">
+    <title>Как добраться | Отель Santorini</title>
+
+    <link rel="icon" href="assets/favicons/favicon.ico" sizes="any">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="css/style.css" as="style">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <link rel="stylesheet" href="css/adaptive.css">
+    <link rel="stylesheet" href="css/pages/how-to-get.css">
+
+    <link rel="stylesheet" href="css/themes/light-theme.css" id="theme-style">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/adaptive.css">
+    <link rel="stylesheet" href="css/pages/reviews.css">
+    <link rel="stylesheet" href="css/pages/active-recreation.css">
+    <link rel="stylesheet" href="css/components/mobile-menu.css">
+
+    <link rel="icon" type="image/png" href="assets/favicons/favicon.ico">
+
+    <script src="js/utils/storage.js" defer></script>
+    <script src="js/utils/i18n.js" defer></script>
+    <script src="js/utils/theme-switcher.js" defer></script>
+    <script src="js/components/preloader.js" defer></script>
+    <script src="js/components/burger-menu.js" defer></script>
+    <script src="js/components/slider.js" defer></script>
+    <script src="js/config/constants.js"></script>
+    <script src="js/api/endpoints.js"></script>
+    <script src="js/api/fetch.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/pages/how-to-get.js" defer></script>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
+
+<div id="preloader" class="preloader" role="status" aria-label="Загрузка сайта">
+    <div class="preloader__spinner"></div>
+    <div class="preloader__logo">
+        <img src="assets/images/logo.svg" alt="HSE">
+    </div>
+</div>
+
+<header class="header" role="banner">
+    <div class="container header__container">
+        <div class="container header__container header__group">
+            <button class="burger-menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+            </button>
+
+            <a href="index.html" class="header__logo logo" aria-label="Santorini - на главную">
+                <img src="assets/images/logo.svg" alt="Santorini" class="logo__image" width="150" height="40">
+            </a>
+        </div>
+
+        <div class="controls header__controls">
+            <button class="controls__theme" aria-label="Сменить тему" id="theme-toggle">
+                <svg class="controls__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#moon"></use>
+                </svg>
+            </button>
+
+            <button class="controls__accessibility" aria-label="Версия для слабовидящих" id="accessibility-toggle">
+                <svg class="controls__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#eye"></use>
+                </svg>
+            </button>
+
+            <div class="controls__lang lang-switcher">
+                <button class="lang-switcher__btn active" data-lang="ru" aria-label="Русский язык">RU</button>
+                <button class="lang-switcher__btn" data-lang="en" aria-label="English">EN</button>
+            </div>
+
+            <a href="booking.html" class="controls__btn btn btn--primary book__btn">
+                <span class="controls__btn-text" data-i18n="bookNow">Забронировать</span>
+                <svg class="controls__icon controls__icon-arrow" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#arrow-up-right"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main id="main-content" class="how-to-get-page" role="main">
+    <section class="page-header" aria-labelledby="page-title">
+        <div class="page-header__bg">
+            <img src="assets/images/figma/imgBeach.jpg" alt="Вид на отель Santorini" class="page-header__image" loading="eager">
+            <div class="page-header__overlay"></div>
+        </div>
+        <div class="container page-header__container">
+            <h1 id="page-title" class="page-header__title">Как добраться</h1>
+            <p class="page-header__subtitle">Добро пожаловать в отель Santorini в Крыму</p>
+        </div>
+    </section>
+
+    <section class="map-section" aria-label="Расположение отеля на карте">
+        <div class="container">
+            <div class="map-section__wrapper">
+                <div class="map-section__map" id="hotel-map" role="application" aria-label="Интерактивная карта расположения отеля">
+                    <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2875.1234567890123!2d33.7890123456789!3d44.39012345678901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDIzJzI0LjQiTiAzM8KwNDcnMTguNCJF!5e0!3m2!1sru!2s!4v1234567890123!5m2!1sru!2s"
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Карта расположения отеля Santorini">
+                    </iframe>
+                </div>
+                <div class="map-section__info">
+                    <h2 class="map-section__title">Наш адрес</h2>
+                    <address class="map-section__address">
+                        <p><strong>Отель Santorini</strong></p>
+                        <p>298690, Россия, Крым</p>
+                        <p>г. Ялта, пгт Форос</p>
+                        <p>Форосский спуск, 1</p>
+                    </address>
+                    <div class="map-section__coords">
+                        <p><strong>Координаты:</strong></p>
+                        <p>44.3901° N, 33.7890° E</p>
+                    </div>
+                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--full">
+                        Построить маршрут
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="transport-section section" aria-labelledby="transport-title">
+        <div class="container">
+            <div class="section__header">
+                <div class="section__decor" aria-hidden="true">
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                </div>
+                <h2 id="transport-title" class="section__title">Способы добраться</h2>
+                <p class="section__subtitle">Выберите удобный для вас вариант</p>
+            </div>
+
+            <div class="transport-grid">
+                <article class="transport-card">
+                    <h3 class="transport-card__title">Самолётом</h3>
+                    <div class="transport-card__content">
+                        <p>Ближайший аэропорт — <strong>Международный аэропорт Симферополь</strong> (аэропорт имени И.С. Авакяна).</p>
+                        <ul class="transport-card__list">
+                            <li><strong>Расстояние:</strong> 120 км от отеля</li>
+                            <li><strong>Время в пути:</strong> 2–2.5 часа на автомобиле</li>
+                            <li><strong>Рейсы:</strong> регулярные из Москвы, Санкт-Петербурга и других городов</li>
+                        </ul>
+                        <p><strong>Как добраться:</strong></p>
+                        <ol class="transport-card__steps">
+                            <li> Из аэропорта можно заказать такси или трансфер</li>
+                            <li> Общественный транспорт: автобус/троллейбус до Ялты, затем такси до отеля</li>
+                        </ol>
+                    </div>
+                </article>
+
+                <article class="transport-card">
+                    <h3 class="transport-card__title">Поездом</h3>
+                    <div class="transport-card__content">
+                        <p>Ближайшая железнодорожная станция — <strong>Севастополь</strong>.</p>
+                        <ul class="transport-card__list">
+                            <li><strong>Расстояние:</strong> 70 км от отеля</li>
+                            <li><strong>Время в пути:</strong> 1.5 часа на автомобиле</li>
+                            <li><strong>Сообщение:</strong> поезда «Таврия» из Москвы и Санкт-Петербурга</li>
+                        </ul>
+                        <p><strong>Как добраться:</strong></p>
+                        <ol class="transport-card__steps">
+                            <li> От ж/д вокзала Севастополя можно доехать на такси</li>
+                            <li> Также ходят автобусы и троллейбусы до Ялты</li>
+                        </ol>
+                    </div>
+                </article>
+
+                <article class="transport-card">
+                    <h3 class="transport-card__title">На автомобиле</h3>
+                    <div class="transport-card__content">
+                        <p>До отеля можно доехать по трассе <strong>Таврида</strong> или через <strong>Крымский мост</strong>.</p>
+                        <ul class="transport-card__list">
+                            <li><strong> От Симферополя:</strong> 120 км по трассе А-291</li>
+                            <li><strong> От Севастополя:</strong> 70 км по трассе А-016</li>
+                            <li><strong> От Керчи:</strong> 230 км через трассу Таврида</li>
+                        </ul>
+                        <p><strong>Навигация:</strong></p>
+                        <p class="transport-card__note">Введите в навигаторе: <em>пгт Форос, Форосский спуск, 1</em></p>
+                    </div>
+                </article>
+
+                <article class="transport-card">
+                    <h3 class="transport-card__title">Паромом</h3>
+                    <div class="transport-card__content">
+                        <p>Ближайший порт — <strong>Ялтинский морской торговый порт</strong>.</p>
+                        <ul class="transport-card__list">
+                            <li><strong> Расстояние:</strong> 30 км от отеля</li>
+                            <li><strong> Время в пути:</strong> 40 минут на автомобиле</li>
+                            <li><strong> Рейсы:</strong> сезонное сообщение</li>
+                        </ul>
+                        <p><strong>Как добраться:</strong></p>
+                        <ol class="transport-card__steps">
+                            <li> От порта Ялты до отеля можно доехать на такси</li>
+                            <li> Также ходят регулярные автобусы до Фороса</li>
+                        </ol>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="transfer-section section" aria-labelledby="transfer-title">
+        <div class="container">
+            <div class="transfer-wrapper">
+                <div class="transfer-content">
+                    <header class="section__header">
+                        <div class="section__decor" aria-hidden="true">
+                            <span class="section__dot"></span>
+                            <span class="section__dot"></span>
+                            <span class="section__dot"></span>
+                        </div>
+                        <h2 id="transfer-title" class="section__title">Трансфер от отеля</h2>
+                        <p class="section__subtitle">Мы организуем комфортный трансфер</p>
+                    </header>
+
+                    <div class="transfer-description">
+                        <p>Отель Santorini предлагает услугу трансфера от/до аэропорта, железнодорожного вокзала или любой другой точки Крыма.</p>
+                        <ul class="transfer-list">
+                            <li>✓ Комфортабельные автомобили с кондиционером</li>
+                            <li>✓ Опытные водители со знанием маршрута</li>
+                            <li>✓ Встреча с табличкой в аэропорту/на вокзале</li>
+                            <li>✓ Помощь с багажом</li>
+                            <li>✓ Детские кресла по запросу</li>
+                        </ul>
+                    </div>
+
+                    <div class="transfer-pricing">
+                        <h3 class="transfer-pricing__title">Стоимость трансфера:</h3>
+                        <ul class="transfer-pricing__list">
+                            <li class="transfer-pricing__item">
+                                <span class="transfer-pricing__route">Аэропорт Симферополь ↔ Отель</span>
+                                <span class="transfer-pricing__price">от 3 500 ₽</span>
+                            </li>
+                            <li class="transfer-pricing__item">
+                                <span class="transfer-pricing__route">Ж/д вокзал Севастополь ↔ Отель</span>
+                                <span class="transfer-pricing__price">от 2 500 ₽</span>
+                            </li>
+                            <li class="transfer-pricing__item">
+                                <span class="transfer-pricing__route">Ялта ↔ Отель</span>
+                                <span class="transfer-pricing__price">от 1 500 ₽</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="booking.html" class="btn btn--primary btn--large">Заказать трансфер</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section section" aria-labelledby="faq-title">
+        <div class="container">
+            <header class="section__header">
+                <div class="section__decor" aria-hidden="true">
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                    <span class="section__dot"></span>
+                </div>
+                <h2 id="faq-title" class="section__title">Часто задаваемые вопросы</h2>
+                <p class="section__subtitle">Ответы на популярные вопросы</p>
+            </header>
+
+            <div class="faq-list" role="list">
+                <div class="faq-item" role="listitem">
+                    <button class="faq-item__trigger" aria-expanded="false" aria-controls="faq-answer-1">
+                        <span class="faq-item__question">Как лучше добраться до отеля из аэропорта Симферополя?</span>
+                        <svg class="faq-item__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <div class="faq-item__content" id="faq-answer-1" role="region" aria-hidden="true">
+                        <div class="faq-item__answer">
+                            <p>Оптимальный вариант — заказать трансфер от отеля заранее. Это удобно и комфортно. Также можно воспользоваться такси из аэропорта (стоимость около 3500–4000 ₽) или доехать на троллейбусе №52 до Ялты, а оттуда на такси до отеля.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" role="listitem">
+                    <button class="faq-item__trigger" aria-expanded="false" aria-controls="faq-answer-2">
+                        <span class="faq-item__question">Есть ли парковка для гостей отеля?</span>
+                        <svg class="faq-item__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <div class="faq-item__content" id="faq-answer-2" role="region" aria-hidden="true">
+                        <div class="faq-item__answer">
+                            <p>Да, на территории отеля есть бесплатная охраняемая парковка для гостей. Количество мест ограничено, поэтому рекомендуем заранее сообщить о необходимости парковки при бронировании номера.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" role="listitem">
+                    <button class="faq-item__trigger" aria-expanded="false" aria-controls="faq-answer-3">
+                        <span class="faq-item__question">Можно ли заказать трансфер в день приезда?</span>
+                        <svg class="faq-item__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <div class="faq-item__content" id="faq-answer-3" role="region" aria-hidden="true">
+                        <div class="faq-item__answer">
+                            <p>Мы рекомендуем заказывать трансфер минимум за 24 часа до прибытия, чтобы гарантировать наличие автомобиля. Однако при возможности мы стараемся выполнить и срочные заказы. Свяжитесь с нами по телефону 8 (912) 038-80-44.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" role="listitem">
+                    <button class="faq-item__trigger" aria-expanded="false" aria-controls="faq-answer-4">
+                        <span class="faq-item__question">Сколько времени занимает дорога от Ялты до отеля?</span>
+                        <svg class="faq-item__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <div class="faq-item__content" id="faq-answer-4" role="region" aria-hidden="true">
+                        <div class="faq-item__answer">
+                            <p>Расстояние от Ялты до отеля Santorini составляет около 30 км. Время в пути на автомобиле — примерно 40 минут по живописной трассе вдоль побережья.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+    <div class="container footer__container active_footer_container">
+        <div class="footer__info">
+            <div class="footer__logo">
+                <img src="assets/images/logo.svg" alt="Santorini" width="150" height="40">
+            </div>
+            <address class="footer__contacts">
+                <a href="tel:+79120388044" class="footer__phone">8 (912) 038-80-44</a>
+                <p class="footer__address">
+                    298690, Россия, Крым, г. Ялта,<br>
+                    пгт Форос, Форосский спуск, 1
+                </p>
+            </address>
+        </div>
+
+        <nav class="footer__nav active_footer_nav" aria-label="Навигация по сайту">
+            <div class="footer__nav-column">
+                <ul class="footer__list">
+                    <li><a href="rooms.html" class="footer__link" data-i18n="navRooms">Номера и цены</a></li>
+                    <li><a href="about.html" class="footer__link" data-i18n="navAbout">Об отеле</a></li>
+                    <li><a href="services.html" class="footer__link" data-i18n="navServices">Услуги</a></li>
+                    <li><a href="conditions.html" class="footer__link" data-i18n="navConditions">Условия проживания</a></li>
+                    <li><a href="news.html" class="footer__link" data-i18n="navNews">Новости</a></li>
+                    <li><a href="contacts.html" class="footer__link" data-i18n="navContacts">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer__nav-column">
+                <ul class="footer__list">
+                    <li><a href="photos.html" class="footer__link" data-i18n="navPhotos">Фото отеля</a></li>
+                    <li><a href="how-to-get.html" class="footer__link" data-i18n="navHowToGet">Как добраться</a></li>
+                    <li><a href="reviews.html" class="footer__link" data-i18n="navReviews">Отзывы гостей</a></li>
+                    <li><a href="attractions.html" class="footer__link" data-i18n="navAttractions">Достопримечательности</a></li>
+                    <li><a href="pasta-bar.html" class="footer__link" data-i18n="navPastaBar">Паста-бар</a></li>
+                    <li><a href="active-recreation.html" class="footer__link" data-i18n="navActive">Активный отдых</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="footer__social social">
+            <a href="https://vk.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+                <img src="assets/icons/VK.png" alt="" width="24" height="24">
+            </a>
+            <a href="https://youtube.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <img src="assets/icons/YouTube.png" alt="" width="24" height="24">
+            </a>
+            <a href="https://dzen.ru/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Zen">
+                <img src="assets/icons/zen.png" alt="" width="24" height="24">
+            </a>
+        </div>
+    </div>
+
+    <div class="footer__bottom">
+        <div class="container footer__bottom-container">
+            <p class="footer__copyright" data-i18n="copyright">© 2022 Santorini. Все права защищены.</p>
+            <a href="privacy.html" class="footer__privacy" data-i18n="privacy">Политика конфиденциальности</a>
+        </div>
+    </div>
+</footer>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__header">
+        <a href="index.html" class="mobile-menu__logo">
+            <img src="assets/images/logo.svg" alt="Santorini" width="150" height="40">
+        </a>
+        <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Закрыть меню">
+            <svg width="24" height="24" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#close"></use>
+            </svg>
+        </button>
+    </div>
+
+    <nav class="mobile-menu__nav" role="navigation" aria-label="Мобильная навигация">
+        <ul class="mobile-menu__list">
+            <li class="mobile-menu__item">
+                <a href="rooms.html" class="mobile-menu__link">НОМЕРА</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="how-to-get.html" class="mobile-menu__link">КАК ДОБРАТЬСЯ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="reviews.html" class="mobile-menu__link">ОТЗЫВЫ ГОСТЕЙ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="news.html" class="mobile-menu__link">НОВОСТИ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="contacts.html" class="mobile-menu__link">КОНТАКТЫ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="active-recreation.html" class="mobile-menu__link">АКТИВНЫЙ ОТДЫХ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="special-offers.html" class="mobile-menu__link">СПЕЦПРЕДЛОЖЕНИЯ</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="mobile-menu__footer">
+        <a href="booking.html" class="mobile-menu__btn">ЗАБРОНИРОВАТЬ</a>
+
+        <div class="mobile-menu__contacts">
+            <a href="tel:+79120388044" class="mobile-menu__phone">
+                <svg class="mobile-menu__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#phone"></use>
+                </svg>
+                8(912) 038-80-44
+            </a>
+            <p class="mobile-menu__address">
+                298690, РОССИЯ, КРЫМ, Г. ЯЛТА, ПГТ ФОРОС,<br>
+                ФОРОССКИЙ СПУСК, 1
+            </p>
+        </div>
+
+        <div class="mobile-menu__social">
+            <img src="assets/icons/VK.png" alt="VK" class="mobile-menu__social-link" height="40">
+            <img src="assets/icons/YouTube.png" alt="YouTube" class="mobile-menu__social-link" height="40">
+            <img src="assets/icons/zen.png" alt="Zen" class="mobile-menu__social-link" height="40">
+        </div>
+    </div>
+</div>
+
+<div class="mobile-menu__overlay" id="mobile-menu-overlay"></div>
+
+<div class="cookie-banner" role="alert" aria-live="polite" hidden>
+    <div class="container cookie-banner__container">
+        <p class="cookie-banner__text">Мы используем файлы cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с нашей политикой конфиденциальности.</p>
+        <div class="cookie-banner__actions">
+            <button class="btn btn--primary cookie-banner__btn" type="button">Принять</button>
+            <button class="btn btn--outline cookie-banner__btn" type="button" style="border-color: white; color: white;">Отклонить</button>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
