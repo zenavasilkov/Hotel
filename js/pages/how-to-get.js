@@ -129,3 +129,14 @@ window.addEventListener('error', function(e) {
         }
     }
 }, true);
+
+document.addEventListener('languageChanged', () => {
+    document.querySelectorAll('.faq-item__trigger').forEach(trigger => {
+        const questionEl = trigger.querySelector('.faq-item__question');
+        if (questionEl && questionEl.dataset.i18n) {
+            const key = questionEl.dataset.i18n + 'Trigger';
+            trigger.setAttribute('aria-label', I18n.t(key));
+        }
+    });
+});
+

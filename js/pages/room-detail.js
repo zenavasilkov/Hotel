@@ -1,13 +1,26 @@
 ﻿const AMENITIES_MAP = {
-    wifi: 'Бесплатный Wi-Fi',
-    tv: 'Smart TV',
-    ac: 'Кондиционер',
-    minibar: 'Мини-бар',
-    balcony: 'Балкон',
-    seaView: 'Вид на море',
-    jacuzzi: 'Джакузи',
-    kitchen: 'Кухня',
-    butler: 'Услуги батлера'
+    ru: {
+        wifi: 'Бесплатный Wi-Fi',
+        tv: 'Smart TV',
+        ac: 'Кондиционер',
+        minibar: 'Мини-бар',
+        balcony: 'Балкон',
+        seaView: 'Вид на море',
+        jacuzzi: 'Джакузи',
+        kitchen: 'Кухня',
+        butler: 'Услуги батлера'
+    },
+    en: {
+        wifi: 'Free Wi-Fi',
+        tv: 'Smart TV',
+        ac: 'Air Conditioning',
+        minibar: 'Mini-bar',
+        balcony: 'Balcony',
+        seaView: 'Sea View',
+        jacuzzi: 'Jacuzzi',
+        kitchen: 'Kitchen',
+        butler: 'Butler Service'
+    }
 };
 
 async function initRoomDetail() {
@@ -27,26 +40,42 @@ async function initRoomDetail() {
             return;
         }
 
-        document.title = `${room.name} - Santorini`;
-        document.getElementById('room-name').textContent = room.name;
+        const roomName = I18n.currentLang === 'ru' ? room.name : room.nameEn;
+        document.title = `${roomName} - Santorini`;
+
+        document.getElementById('room-name').textContent = roomName;
+
         document.getElementById('room-price').textContent = room.price.toLocaleString();
+
         document.getElementById('room-area').textContent = room.area;
         document.getElementById('room-guests').textContent = room.guests;
-        document.getElementById('room-beds').textContent = room.beds === 1 ? '1 большая кровать' : `${room.beds} раздельные кровати`;
-        document.getElementById('room-desc').textContent = room.description;
+
+        const bedsText = I18n.currentLang === 'ru'
+            ? (room.beds === 1 ? '1 большая кровать' : `${room.beds} раздельные кровати`)
+            : (room.beds === 1 ? '1 king bed' : `${room.beds} separate beds`);
+        document.getElementById('room-beds').textContent = bedsText;
+
+        document.getElementById('room-desc').textContent = I18n.currentLang === 'ru'
+            ? room.description
+            : room.descriptionEn;
 
         const imagesContainer = document.getElementById('room-images');
         imagesContainer.innerHTML = room.images.map(img => `
-            <img src="${img}" alt="${room.name}" class="room-gallery__img">
+            <img src="${img}" alt="${roomName}" class="room-gallery__img" loading="lazy">
         `).join('');
 
         const amenitiesContainer = document.getElementById('room-amenities');
+        const lang = I18n.currentLang;
         amenitiesContainer.innerHTML = room.amenities.map(key => `
             <div class="amenity-item">
                 <svg class="amenity-icon"><use href="assets/icons/sprite.svg#check"></use></svg>
-                <span>${AMENITIES_MAP[key] || key}</span>
+                <span>${AMENITIES_MAP[lang][key] || key}</span>
             </div>
         `).join('');
+
+        document.addEventListener('languageChanged', () => {
+            initRoomDetail();
+        });
 
     } catch (error) {
         console.error('Error loading room:', error);

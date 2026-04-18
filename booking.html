@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оформление бронирования - Santorini</title>
+    <title data-i18n="bookingPageTitle">Оформление бронирования - Santorini</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/pages/booking.css">
     <link rel="stylesheet" href="css/adaptive.css">
@@ -15,32 +15,32 @@
 <header class="header" role="banner">
     <div class="container header__container">
         <div class="container header__container header__group">
-            <button class="burger-menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+            <button class="burger-menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav" data-i18n-aria="burgerLabel">
                 <span class="burger-menu__line"></span>
                 <span class="burger-menu__line"></span>
             </button>
 
-            <a href="index.html" class="header__logo logo" aria-label="Santorini - на главную">
+            <a href="index.html" class="header__logo logo" aria-label="Santorini - на главную" data-i18n-aria="logoAria">
                 <img src="assets/images/logo.svg" alt="Santorini" class="logo__image" width="150" height="40">
             </a>
         </div>
 
         <div class="controls header__controls">
-            <button class="controls__theme" aria-label="Сменить тему" id="theme-toggle">
+            <button class="controls__theme" aria-label="Сменить тему" id="theme-toggle" data-i18n-aria="themeToggle">
                 <svg class="controls__icon" width="20" height="20" aria-hidden="true">
                     <use href="assets/icons/sprite.svg#moon"></use>
                 </svg>
             </button>
 
-            <button class="controls__accessibility" aria-label="Версия для слабовидящих" id="accessibility-toggle">
+            <button class="controls__accessibility" aria-label="Версия для слабовидящих" id="accessibility-toggle" data-i18n-aria="accessibilityToggle">
                 <svg class="controls__icon" width="20" height="20" aria-hidden="true">
                     <use href="assets/icons/sprite.svg#eye"></use>
                 </svg>
             </button>
 
             <div class="controls__lang lang-switcher">
-                <button class="lang-switcher__btn active" data-lang="ru" aria-label="Русский язык">RU</button>
-                <button class="lang-switcher__btn" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-switcher__btn active" data-lang="ru" aria-label="Русский язык" data-i18n-aria="langRu">RU</button>
+                <button class="lang-switcher__btn" data-lang="en" aria-label="English" data-i18n-aria="langEn">EN</button>
             </div>
         </div>
     </div>
@@ -50,77 +50,77 @@
     <section class="booking-container">
         <div class="container">
             <div class="auth-card">
-                <h1 class="auth-title">Бронирование номера</h1>
+                <h1 class="auth-title" data-i18n="bookingTitle">Бронирование номера</h1>
 
                 <div class="booking-room-preview">
                     <img src="" alt="Номер" id="room-img" class="booking-room-img">
                     <div class="booking-room-info">
                         <h2 id="room-name">Загрузка...</h2>
-                        <p><span id="room-price-val">0</span> ₽ / ночь</p>
+                        <p><span id="room-price-val">0</span> <span data-i18n="currency">₽</span> / <span data-i18n="perNight">ночь</span></p>
                     </div>
                 </div>
 
                 <form id="booking-form">
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Имя *</label>
-                            <input type="text" id="user-name" placeholder="Иван" required>
+                            <label data-i18n="firstNameLabel">Имя *</label>
+                            <input type="text" id="user-name" data-i18n-placeholder="firstNamePlaceholder" placeholder="Иван" required>
                         </div>
                         <div class="form-group">
-                            <label>Фамилия *</label>
-                            <input type="text" id="user-surname" placeholder="Иванов" required>
+                            <label data-i18n="lastNameLabel">Фамилия *</label>
+                            <input type="text" id="user-surname" data-i18n-placeholder="lastNamePlaceholder" placeholder="Иванов" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>Телефон *</label>
-                        <input type="tel" id="user-phone" placeholder="+375 (__) ___-__-__" maxlength="19" required>
+                        <label data-i18n="phoneLabel">Телефон *</label>
+                        <input type="tel" id="user-phone" data-i18n-placeholder="phonePlaceholder" placeholder="+375 (__) ___-__-__" maxlength="19" required>
                     </div>
 
                     <div class="form-row data-input">
                         <div class="form-group">
-                            <label>Дата заезда *</label>
+                            <label data-i18n="checkInLabel">Дата заезда *</label>
                             <input type="date" id="check-in" required>
                         </div>
                         <div class="form-group">
-                            <label>Дата выезда *</label>
+                            <label data-i18n="checkOutLabel">Дата выезда *</label>
                             <input type="date" id="check-out" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Взрослые</label>
+                            <label data-i18n="adultsLabel">Взрослые</label>
                             <select id="guests-adults">
-                                <option value="1">1 человек</option>
-                                <option value="2" selected>2 человека</option>
-                                <option value="3">3 человека</option>
-                                <option value="4">4 человека</option>
+                                <option value="1" data-i18n="oneAdult">1 человек</option>
+                                <option value="2" selected data-i18n="twoAdults">2 человека</option>
+                                <option value="3" data-i18n="threeAdults">3 человека</option>
+                                <option value="4" data-i18n="fourAdults">4 человека</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Дети до 12 лет</label>
+                            <label data-i18n="childrenLabel">Дети до 12 лет</label>
                             <select id="guests-kids">
-                                <option value="0" selected>0 детей</option>
-                                <option value="1">1 ребенок</option>
-                                <option value="2">2 детей</option>
+                                <option value="0" selected data-i18n="noChildren">0 детей</option>
+                                <option value="1" data-i18n="oneChild">1 ребенок</option>
+                                <option value="2" data-i18n="twoChildren">2 детей</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="booking-result">
                         <div class="booking-result__item">
-                            <span>Количество ночей:</span>
+                            <span data-i18n="nightsLabel">Количество ночей:</span>
                             <span id="nights-count">0</span>
                         </div>
                         <div class="booking-result__item total">
-                            <span>Итого к оплате:</span>
+                            <span data-i18n="totalPriceLabel">Итого к оплате:</span>
                             <span id="total-price">0 ₽</span>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn--primary btn--full" id="submit-booking">Забронировать</button>
-                    <span class="error-msg" id="date-error" style="display: none;">Дата выезда должна быть позже даты заезда!</span>
+                    <button type="submit" class="btn btn--primary btn--full" id="submit-booking" data-i18n="bookNow">Забронировать</button>
+                    <span class="error-msg" id="date-error" data-i18n="dateError" style="display: none;">Дата выезда должна быть позже даты заезда!</span>
                 </form>
             </div>
         </div>
@@ -135,14 +135,14 @@
             </div>
             <address class="footer__contacts">
                 <a href="tel:+79120388044" class="footer__phone">8 (912) 038-80-44</a>
-                <p class="footer__address">
+                <p class="footer__address" data-i18n="footerAddress">
                     298690, Россия, Крым, г. Ялта,<br>
                     пгт Форос, Форосский спуск, 1
                 </p>
             </address>
         </div>
 
-        <nav class="footer__nav active_footer_nav" aria-label="Навигация по сайту">
+        <nav class="footer__nav active_footer_nav" aria-label="Навигация по сайту" data-i18n-aria="footerNavAria">
             <div class="footer__nav-column">
                 <ul class="footer__list">
                     <li><a href="rooms.html" class="footer__link" data-i18n="navRooms">Номера и цены</a></li>
@@ -166,13 +166,13 @@
         </nav>
 
         <div class="footer__social social">
-            <a href="https://vk.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+            <a href="https://vk.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте" data-i18n-aria="socialVk">
                 <img src="assets/icons/VK.png" alt="" width="24" height="24">
             </a>
-            <a href="https://youtube.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <a href="https://youtube.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="YouTube" data-i18n-aria="socialYt">
                 <img src="assets/icons/YouTube.png" alt="" width="24" height="24">
             </a>
-            <a href="https://dzen.ru/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Zen">
+            <a href="https://dzen.ru/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Zen" data-i18n-aria="socialZen">
                 <img src="assets/icons/zen.png" alt="" width="24" height="24">
             </a>
         </div>
@@ -191,41 +191,41 @@
         <a href="index.html" class="mobile-menu__logo">
             <img src="assets/images/logo.svg" alt="Santorini" width="150" height="40">
         </a>
-        <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Закрыть меню">
+        <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Закрыть меню" data-i18n-aria="mobileClose">
             <svg width="24" height="24" aria-hidden="true">
                 <use href="assets/icons/sprite.svg#close"></use>
             </svg>
         </button>
     </div>
 
-    <nav class="mobile-menu__nav" role="navigation" aria-label="Мобильная навигация">
+    <nav class="mobile-menu__nav" role="navigation" aria-label="Мобильная навигация" data-i18n-aria="mobileNavAria">
         <ul class="mobile-menu__list">
             <li class="mobile-menu__item">
-                <a href="rooms.html" class="mobile-menu__link">НОМЕРА</a>
+                <a href="rooms.html" class="mobile-menu__link" data-i18n="mobileNavRooms">НОМЕРА</a>
             </li>
             <li class="mobile-menu__item">
-                <a href="how-to-get.html" class="mobile-menu__link">КАК ДОБРАТЬСЯ</a>
+                <a href="how-to-get.html" class="mobile-menu__link" data-i18n="mobileNavHowToGet">КАК ДОБРАТЬСЯ</a>
             </li>
             <li class="mobile-menu__item">
-                <a href="reviews.html" class="mobile-menu__link">ОТЗЫВЫ ГОСТЕЙ</a>
+                <a href="reviews.html" class="mobile-menu__link" data-i18n="mobileNavReviews">ОТЗЫВЫ ГОСТЕЙ</a>
             </li>
             <li class="mobile-menu__item">
-                <a href="news.html" class="mobile-menu__link">НОВОСТИ</a>
+                <a href="news.html" class="mobile-menu__link" data-i18n="mobileNavNews">НОВОСТИ</a>
             </li>
             <li class="mobile-menu__item">
-                <a href="contacts.html" class="mobile-menu__link">КОНТАКТЫ</a>
+                <a href="contacts.html" class="mobile-menu__link" data-i18n="mobileNavContacts">КОНТАКТЫ</a>
             </li>
             <li class="mobile-menu__item">
-                <a href="active-recreation.html" class="mobile-menu__link">АКТИВНЫЙ ОТДЫХ</a>
+                <a href="active-recreation.html" class="mobile-menu__link" data-i18n="mobileNavActive">АКТИВНЫЙ ОТДЫХ</a>
             </li>
             <li class="mobile-menu__item">
-                <a href="special-offers.html" class="mobile-menu__link">СПЕЦПРЕДЛОЖЕНИЯ</a>
+                <a href="special-offers.html" class="mobile-menu__link" data-i18n="mobileNavOffers">СПЕЦПРЕДЛОЖЕНИЯ</a>
             </li>
         </ul>
     </nav>
 
     <div class="mobile-menu__footer">
-        <a href="booking.html" class="mobile-menu__btn">ЗАБРОНИРОВАТЬ</a>
+        <a href="booking.html" class="mobile-menu__btn" data-i18n="bookNow">ЗАБРОНИРОВАТЬ</a>
 
         <div class="mobile-menu__contacts">
             <a href="tel:+79120388044" class="mobile-menu__phone">
@@ -234,16 +234,22 @@
                 </svg>
                 8(912) 038-80-44
             </a>
-            <p class="mobile-menu__address">
+            <p class="mobile-menu__address" data-i18n="mobileMenuAddress">
                 298690, РОССИЯ, КРЫМ, Г. ЯЛТА, ПГТ ФОРОС,<br>
                 ФОРОССКИЙ СПУСК, 1
             </p>
         </div>
 
         <div class="mobile-menu__social">
-            <img src="assets/icons/VK.png" alt="VK" class="mobile-menu__social-link" height="40">
-            <img src="assets/icons/YouTube.png" alt="YouTube" class="mobile-menu__social-link" height="40">
-            <img src="assets/icons/zen.png" alt="Zen" class="mobile-menu__social-link" height="40">
+            <a href="https://vk.com/santorini" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте" data-i18n-aria="socialVk">
+                <img src="assets/icons/VK.png" alt="" class="mobile-menu__social-link" height="40">
+            </a>
+            <a href="https://youtube.com/santorini" target="_blank" rel="noopener noreferrer" aria-label="YouTube" data-i18n-aria="socialYt">
+                <img src="assets/icons/YouTube.png" alt="" class="mobile-menu__social-link" height="40">
+            </a>
+            <a href="https://dzen.ru/santorini" target="_blank" rel="noopener noreferrer" aria-label="Zen" data-i18n-aria="socialZen">
+                <img src="assets/icons/zen.png" alt="" class="mobile-menu__social-link" height="40">
+            </a>
         </div>
     </div>
 </div>
@@ -253,13 +259,13 @@
 <script src="js/config/constants.js"></script>
 <script src="js/api/endpoints.js"></script>
 <script src="js/api/fetch.js"></script>
-<script src="js/pages/booking.js"></script>
+<script src="js/utils/i18n.js"></script>
 <script src="js/main.js" defer></script>
 <script src="js/utils/storage.js" defer></script>
-<script src="js/utils/i18n.js" defer></script>
 <script src="js/utils/theme-switcher.js" defer></script>
 <script src="js/components/burger-menu.js" defer></script>
 <script src="js/components/modal.js" defer></script>
 <script src="js/components/preloader.js" defer></script>
+<script src="js/pages/booking.js" defer></script>
 </body>
 </html>

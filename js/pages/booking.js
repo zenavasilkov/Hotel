@@ -68,7 +68,8 @@
 
         roomPrice = room.price;
         document.getElementById('room-img').src = room.images[0];
-        document.getElementById('room-name').textContent = room.name;
+        const roomName = I18n.currentLang === 'ru' ? room.name : room.nameEn;
+        document.getElementById('room-name').textContent = roomName;
         document.getElementById('room-price-val').textContent = roomPrice.toLocaleString();
     } catch (e) {
         window.location.href = '404.html';
@@ -86,12 +87,12 @@
 
                 errorEl.style.display = 'none';
                 nightsEl.textContent = nights;
-                totalEl.textContent = (nights * roomPrice).toLocaleString() + ' ₽';
+                totalEl.textContent = (nights * roomPrice).toLocaleString() + ' ' + I18n.t('currency');
                 return nights;
             } else {
                 errorEl.style.display = 'block';
                 nightsEl.textContent = '0';
-                totalEl.textContent = '0 ₽';
+                totalEl.textContent = '0 ' + I18n.t('currency');
                 return 0;
             }
         }
@@ -128,11 +129,33 @@
         try {
             const res = await FetchAPI.post(API_ENDPOINTS.BOOKINGS, bookingData);
             if (res) {
-                alert('Заявка на бронирование успешно отправлена!');
+                alert(I18n.t('bookingSuccess'));
                 window.location.href = 'index.html';
             }
         } catch (err) {
-            alert('Ошибка сервера при бронировании.');
+            alert(I18n.t('bookingError'));
         }
     });
+
+    document.addEventListener('languageChanged', () => {
+        updateSelectOptions();
+        calculateBooking();
+    });
+
+    function updateSelectOptions() {
+        const adultsSelect = document.getElementById('guests-adults');
+        const kidsSelect = document.getElementById('guests-kids');
+
+        const adultsOptions = adultsSelect.querySelectorAll('option');
+        adultsOptions.forEach(opt => {
+            opt.textContent = I18n.t(opt.dataset.i18n);
+        });
+
+        const kidsOptions = kidsSelect.querySelectorAll('option');
+        kidsOptions.forEach(opt => {
+            opt.textContent = I18n.t(opt.dataset.i18n);
+        });
+    }
+
+    updateSelectOptions();
 });

@@ -6,7 +6,7 @@
         const rooms = await FetchAPI.get(API_ENDPOINTS.ROOMS);
 
         if (!rooms || rooms.length === 0) {
-            container.innerHTML = '<p class="text-center">К сожалению, номера не найдены.</p>';
+            container.innerHTML = `<p class="text-center">${I18n.t('noRoomsFound')}</p>`;
             return;
         }
 
@@ -17,21 +17,27 @@
                 ? room.images[0]
                 : 'assets/images/placeholder.jpg';
 
+            const roomName = I18n.currentLang === 'ru' ? room.name : room.nameEn;
+
+            const balconyText = room.beds > 1
+                ? I18n.t('terrace')
+                : I18n.t('balcony');
+
             const roomCard = `
                 <article class="room-card-alt">
                     <div class="room-card-alt__img">
-                        <img src="${imageSrc}" alt="${room.name}" loading="lazy">
+                        <img src="${imageSrc}" alt="${roomName}" loading="lazy">
                     </div>
                     <div class="room-card-alt__body">
-                        <h3 class="room-card-alt__title">${room.name.toUpperCase()}</h3>
+                        <h3 class="room-card-alt__title">${roomName.toUpperCase()}</h3>
                         <div class="room-card-alt__meta">
-                            <span>${room.area} м²</span>
-                            <span>${room.guests} чел</span>
-                            <span>${room.beds > 1 ? 'Терраса' : 'Балкон'}</span>
+                            <span>${room.area} ${I18n.t('sqm')}</span>
+                            <span>${room.guests} ${I18n.t('guests')}</span>
+                            <span>${balconyText}</span>
                         </div>
                         <div class="room-card-alt__actions">
-                            <a href="booking.html?roomId=${room.id}" class="btn btn--primary">ЗАБРОНИРОВАТЬ</a>
-                            <a href="room-detail.html?id=${room.id}" class="btn btn--outline">ПОДРОБНЕЕ</a>
+                            <a href="booking.html?roomId=${room.id}" class="btn btn--primary">${I18n.t('book')}</a>
+                            <a href="room-detail.html?id=${room.id}" class="btn btn--outline">${I18n.t('details')}</a>
                         </div>
                     </div>
                 </article>
@@ -53,8 +59,14 @@
 
     } catch (error) {
         console.error('Критическая ошибка при загрузке номеров:', error);
-        container.innerHTML = '<p class="text-center">Ошибка загрузки. Проверьте путь к data/db.json или запустите локальный сервер.</p>';
+        container.innerHTML = `<p class="text-center">${I18n.t('loadError')}</p>`;
     }
 }
 
-document.addEventListener('DOMContentLoaded', initRoomsCatalog);
+document.addEventListener('DOMContentLoaded', () => {
+    initRoomsCatalog();
+
+    document.addEventListener('languageChanged', () => {
+        initRoomsCatalog();
+    });
+});

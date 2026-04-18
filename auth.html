@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход и Регистрация — Santorini</title>
+    <title data-i18n="authPageTitle">Вход и Регистрация — Santorini</title>
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Hind+Madurai:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/adaptive.css">
@@ -11,105 +11,146 @@
 </head>
 <body class="body">
 
+<header class="header" role="banner">
+    <div class="container header__container">
+        <div class="container header__container header__group">
+            <button class="burger-menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav" data-i18n-aria="burgerLabel">
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+            </button>
+
+            <a href="index.html" class="header__logo logo" aria-label="Santorini - на главную" data-i18n-aria="logoAria">
+                <img src="assets/images/logo.svg" alt="Santorini" class="logo__image" width="150" height="40">
+            </a>
+        </div>
+
+        <div class="controls header__controls">
+            <button class="controls__theme" aria-label="Сменить тему" id="theme-toggle" data-i18n-aria="themeToggle">
+                <svg class="controls__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#moon"></use>
+                </svg>
+            </button>
+
+            <button class="controls__accessibility" aria-label="Версия для слабовидящих" id="accessibility-toggle" data-i18n-aria="accessibilityToggle">
+                <svg class="controls__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#eye"></use>
+                </svg>
+            </button>
+
+            <div class="controls__lang lang-switcher">
+                <button class="lang-switcher__btn active" data-lang="ru" aria-label="Русский язык" data-i18n-aria="langRu">RU</button>
+                <button class="lang-switcher__btn" data-lang="en" aria-label="English" data-i18n-aria="langEn">EN</button>
+            </div>
+
+            <a href="booking.html" class="controls__btn btn btn--primary book__btn">
+                <span class="controls__btn-text" data-i18n="bookNow">Забронировать</span>
+                <svg class="controls__icon controls__icon-arrow" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#arrow-up-right"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+</header>
+
 <main class="main auth-page">
     <div class="container">
         <div class="auth-card">
             <div class="auth-tabs">
-                <button class="auth-tab active" data-tab="login">Вход</button>
-                <button class="auth-tab" data-tab="register">Регистрация</button>
+                <button class="auth-tab active" data-tab="login" data-i18n="tabLogin">Вход</button>
+                <button class="auth-tab" data-tab="register" data-i18n="tabRegister">Регистрация</button>
             </div>
 
             <form id="loginForm" class="auth-form active">
-                <h2 class="auth-title">Добро пожаловать</h2>
+                <h2 class="auth-title" data-i18n="loginWelcome">Добро пожаловать</h2>
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="loginEmail" placeholder="example@mail.com" required>
+                    <label data-i18n="labelEmail">Email</label>
+                    <input type="email" id="loginEmail" data-i18n-placeholder="emailPlaceholder" placeholder="example@mail.com" required>
                 </div>
                 <div class="form-group">
-                    <label>Пароль</label>
-                    <input type="password" id="loginPassword" placeholder="••••••••" required>
+                    <label data-i18n="labelPassword">Пароль</label>
+                    <input type="password" id="loginPassword" data-i18n-placeholder="passwordPlaceholder" placeholder="••••••••" required>
                 </div>
-                <button type="submit" class="btn btn--primary btn--full">Войти в профиль</button>
+                <button type="submit" class="btn btn--primary btn--full" data-i18n="btnLogin">Войти в профиль</button>
             </form>
 
             <form id="registerForm" class="auth-form">
-                <h2 class="auth-title">Создать аккаунт</h2>
+                <h2 class="auth-title" data-i18n="registerTitle">Создать аккаунт</h2>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Имя *</label>
-                        <input type="text" id="firstName" placeholder="Иван" required>
+                        <label data-i18n="labelFirstName">Имя *</label>
+                        <input type="text" id="firstName" data-i18n-placeholder="firstNamePlaceholder" placeholder="Иван" required>
                         <span class="error-msg" id="firstNameError"></span>
                     </div>
                     <div class="form-group">
-                        <label>Фамилия *</label>
-                        <input type="text" id="lastName" placeholder="Иванов" required>
+                        <label data-i18n="labelLastName">Фамилия *</label>
+                        <input type="text" id="lastName" data-i18n-placeholder="lastNamePlaceholder" placeholder="Иванов" required>
                         <span class="error-msg" id="lastNameError"></span>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Отчество</label>
-                    <input type="text" id="patronymic" placeholder="Иванович">
+                    <label data-i18n="labelPatronymic">Отчество</label>
+                    <input type="text" id="patronymic" data-i18n-placeholder="patronymicPlaceholder" placeholder="Иванович">
                 </div>
 
                 <div class="form-group">
-                    <label>Телефон (РБ) *</label>
-                    <input type="tel" id="phone" placeholder="+375 (__) ___-__-__" required>
+                    <label data-i18n="labelPhone">Телефон (РБ) *</label>
+                    <input type="tel" id="phone" data-i18n-placeholder="phonePlaceholder" placeholder="+375 (__) ___-__-__" required>
                     <span class="error-msg" id="phoneError"></span>
                     <span class="success-msg" id="phoneSuccess"></span>
                 </div>
 
                 <div class="form-group">
-                    <label>Email *</label>
-                    <input type="email" id="email" placeholder="email@example.com" required>
+                    <label data-i18n="labelEmail">Email *</label>
+                    <input type="email" id="email" data-i18n-placeholder="emailPlaceholder" placeholder="email@example.com" required>
                     <span class="error-msg" id="emailError"></span>
                     <span class="success-msg" id="emailSuccess"></span>
                 </div>
 
                 <div class="form-group">
-                    <label>Дата рождения * (16+ лет)</label>
+                    <label data-i18n="labelDateOfBirth">Дата рождения * (16+ лет)</label>
                     <input type="date" id="dateOfBirth" required>
                     <span class="error-msg" id="dateOfBirthError"></span>
                     <span class="success-msg" id="dateOfBirthSuccess"></span>
                 </div>
 
                 <div class="form-group">
-                    <label>Никнейм *</label>
+                    <label data-i18n="labelNickname">Никнейм *</label>
                     <div class="input-with-btn">
                         <input type="text" id="nickname" readonly required>
-                        <button type="button" id="generateNicknameBtn" class="btn-action">🪄 Создать</button>
+                        <button type="button" id="generateNicknameBtn" class="btn-action" data-i18n="btnGenerate">🪄 Создать</button>
                     </div>
-                    <span class="info-msg" id="nicknameAttempts">Попыток: 0/5</span>
+                    <span class="info-msg" id="nicknameAttempts" data-i18n="nicknameAttemptsText">Попыток: 0/5</span>
                     <span class="error-msg" id="nicknameError"></span>
                     <span class="success-msg" id="nicknameSuccess"></span>
                 </div>
 
                 <div class="form-group">
-                    <label>Способ задания пароля</label>
+                    <label data-i18n="labelPasswordMethod">Способ задания пароля</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="passwordMethod" value="manual" checked> Свой</label>
-                        <label><input type="radio" name="passwordMethod" value="auto"> Автоматический</label>
+                        <label><input type="radio" name="passwordMethod" value="manual" checked> <span data-i18n="passwordManual">Свой</span></label>
+                        <label><input type="radio" name="passwordMethod" value="auto"> <span data-i18n="passwordAuto">Автоматический</span></label>
                     </div>
                 </div>
 
                 <div id="passwordManualGroup">
                     <div class="form-group">
-                        <label>Пароль *</label>
-                        <input type="password" id="password" placeholder="Минимум 8 символов">
+                        <label data-i18n="labelPassword">Пароль *</label>
+                        <input type="password" id="password" data-i18n-placeholder="passwordPlaceholder" placeholder="Минимум 8 символов">
                         <div class="password-checklist">
-                            <div id="req-length" class="req-item invalid">8-20 символов</div>
-                            <div id="req-uppercase" class="req-item invalid">Заглавная буква</div>
-                            <div id="req-lowercase" class="req-item invalid">Строчная буква</div>
-                            <div id="req-number" class="req-item invalid">Цифра</div>
-                            <div id="req-special" class="req-item invalid">Спецсимвол</div>
-                            <div id="req-common" class="req-item invalid">Не из ТОП-100</div>
+                            <div id="req-length" class="req-item invalid" data-i18n="reqLength">8-20 символов</div>
+                            <div id="req-uppercase" class="req-item invalid" data-i18n="reqUppercase">Заглавная буква</div>
+                            <div id="req-lowercase" class="req-item invalid" data-i18n="reqLowercase">Строчная буква</div>
+                            <div id="req-number" class="req-item invalid" data-i18n="reqNumber">Цифра</div>
+                            <div id="req-special" class="req-item invalid" data-i18n="reqSpecial">Спецсимвол</div>
+                            <div id="req-common" class="req-item invalid" data-i18n="reqCommon">Не из ТОП-100</div>
                         </div>
                         <span class="error-msg" id="passwordError"></span>
                     </div>
                     <div class="form-group">
-                        <label>Повторите пароль *</label>
-                        <input type="password" id="passwordRepeat" placeholder="Повторите пароль">
+                        <label data-i18n="labelPasswordRepeat">Повторите пароль *</label>
+                        <input type="password" id="passwordRepeat" data-i18n-placeholder="passwordRepeatPlaceholder" placeholder="Повторите пароль">
                         <span class="error-msg" id="passwordRepeatError"></span>
                     </div>
                 </div>
@@ -118,27 +159,98 @@
                     <div class="form-group">
                         <div class="input-with-btn">
                             <input type="text" id="autoPassword" readonly>
-                            <button type="button" id="regenerateBtn" class="btn-action">🔄</button>
+                            <button type="button" id="regenerateBtn" class="btn-action" data-i18n-aria="btnRegenerateAria">🔄</button>
                         </div>
-                        <p class="info-text">Скопируйте и сохраните этот пароль.</p>
+                        <p class="info-text" data-i18n="passwordAutoHint">Скопируйте и сохраните этот пароль.</p>
                     </div>
                 </div>
 
                 <div class="form-group agreement">
                     <label class="checkbox-label">
                         <input type="checkbox" id="agreement">
-                        <span>Я принимаю <a href="#">соглашение пользователя</a></span>
+                        <span data-i18n="agreementText">Я принимаю <a href="#">соглашение пользователя</a></span>
                     </label>
                     <span class="error-msg" id="agreementError"></span>
                 </div>
 
-                <button type="submit" id="submitBtn" class="btn btn--primary btn--full" disabled>Зарегистрироваться</button>
+                <button type="submit" id="submitBtn" class="btn btn--primary btn--full" disabled data-i18n="btnRegister">Зарегистрироваться</button>
             </form>
         </div>
     </div>
 </main>
 
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__header">
+        <a href="index.html" class="mobile-menu__logo">
+            <img src="assets/images/logo.svg" alt="Santorini" width="150" height="40">
+        </a>
+        <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Закрыть меню" data-i18n-aria="mobileClose">
+            <svg width="24" height="24" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#close"></use>
+            </svg>
+        </button>
+    </div>
+
+    <nav class="mobile-menu__nav" role="navigation" aria-label="Мобильная навигация" data-i18n-aria="mobileNavAria">
+        <ul class="mobile-menu__list">
+            <li class="mobile-menu__item">
+                <a href="rooms.html" class="mobile-menu__link" data-i18n="mobileNavRooms">НОМЕРА</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="how-to-get.html" class="mobile-menu__link" data-i18n="mobileNavHowToGet">КАК ДОБРАТЬСЯ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="reviews.html" class="mobile-menu__link" data-i18n="mobileNavReviews">ОТЗЫВЫ ГОСТЕЙ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="#" class="mobile-menu__link" data-i18n="mobileNavNews">НОВОСТИ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="contacts.html" class="mobile-menu__link" data-i18n="mobileNavContacts">КОНТАКТЫ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="active-recreation.html" class="mobile-menu__link" data-i18n="mobileNavActive">АКТИВНЫЙ ОТДЫХ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="#" class="mobile-menu__link" data-i18n="mobileNavOffers">СПЕЦПРЕДЛОЖЕНИЯ</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="mobile-menu__footer">
+        <a href="booking.html" class="mobile-menu__btn" data-i18n="bookNow">ЗАБРОНИРОВАТЬ</a>
+
+        <div class="mobile-menu__contacts">
+            <a href="tel:+79120388044" class="mobile-menu__phone">
+                <svg class="mobile-menu__icon" width="20" height="20" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#phone"></use>
+                </svg>
+                8(912) 038-80-44
+            </a>
+            <p class="mobile-menu__address" data-i18n-html="mobileMenuAddress">
+                298690, РОССИЯ, КРЫМ, Г. ЯЛТА, ПГТ ФОРОС,<br>
+                ФОРОССКИЙ СПУСК, 1
+            </p>
+        </div>
+
+        <div class="mobile-menu__social">
+            <img src="assets/icons/VK.png" alt="VK" class="mobile-menu__social-link" height="40">
+            <img src="assets/icons/YouTube.png" alt="YouTube" class="mobile-menu__social-link" height="40">
+            <img src="assets/icons/zen.png" alt="Zen" class="mobile-menu__social-link" height="40">
+        </div>
+    </div>
+</div>
+
+<div class="mobile-menu__overlay" id="mobile-menu-overlay"></div>
+
+<script src="js/config/constants.js" defer></script>
+<script src="js/utils/storage.js" defer></script>
+<script src="js/utils/i18n.js" defer></script>
+<script src="js/utils/theme-switcher.js" defer></script>
+<script src="js/api/fetch.js" defer></script>
+<script src="js/api/endpoints.js" defer></script>
+<script src="js/components/preloader.js" defer></script>
+<script src="js/components/burger-menu.js" defer></script>
 <script src="js/pages/auth.js"></script>
 </body>
 </html>
-

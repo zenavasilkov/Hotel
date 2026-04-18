@@ -103,6 +103,7 @@
 }
 
 .btn-load-more {
+    display: inline-block;
     background: none;
     border: none;
     color: var(--color-primary);
@@ -110,6 +111,7 @@
     text-decoration: underline;
     cursor: pointer;
     transition: opacity 0.3s;
+    margin: 0 auto;
 }
 
 .btn-load-more:hover {

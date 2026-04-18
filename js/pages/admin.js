@@ -12,6 +12,11 @@ async function initAdminPanel() {
     await loadData();
     updateAdminInfo();
     renderAll();
+
+    document.addEventListener('languageChanged', () => {
+        renderAll();
+        updateAdminInfo();
+    });
 }
 
 async function loadData() {
@@ -78,7 +83,13 @@ function switchTab(tabName) {
         tab.hidden = !isActive;
     });
 
-    if (tabName === 'bookings') renderBookings();
+    if (tabName === 'bookings') {
+        renderBookings();
+        document.querySelectorAll('.status-badge').forEach(el => {
+            const status = el.classList[1]?.replace('status-badge--', '');
+            if (status) el.textContent = getStatusText(status);
+        });
+    }
     else if (tabName === 'rooms') renderRooms();
     else if (tabName === 'clients') renderClients();
     else if (tabName === 'reports') updateReports();
@@ -113,29 +124,42 @@ function renderBookings() {
 function createBookingRow(booking) {
     const tr = document.createElement('tr');
     const nights = calculateNights(booking.checkIn, booking.checkOut);
-    const guests = `${booking.adults} взр${booking.kids ? `, ${booking.kids} дет` : ''}`;
+
+    const adultsText = `${booking.adults} ${I18n.t(booking.adults === 1 ? 'guestAdultSingular' : 'guestAdultPlural')}`;
+    const kidsText = booking.kids ? `, ${booking.kids} ${I18n.t(booking.kids === 1 ? 'guestChildSingular' : 'guestChildPlural')}` : '';
+    const guests = adultsText + kidsText;
+
+    const roomNameTranslations = {
+        'Стандарт': I18n.t('roomStandard'),
+        'Люкс': I18n.t('roomLux'),
+        'Делюкс': I18n.t('roomDeluxe'),
+        'Семейный': I18n.t('roomFamily'),
+        'Президентский': I18n.t('roomPresidential'),
+        'Студия': I18n.t('roomStudio')
+    };
+    const translatedRoomName = roomNameTranslations[booking.roomName] || booking.roomName;
 
     tr.innerHTML = `
-		<td><strong>#${booking.id}</strong></td>
-		<td>${booking.userName || 'Не указан'}</td>
-		<td>${booking.userPhone || '—'}</td>
-		<td>${booking.roomName}</td>
-		<td>${formatDate(booking.checkIn)}</td>
-		<td>${formatDate(booking.checkOut)}</td>
-		<td>${guests}</td>
-		<td><strong>₽${(booking.totalPrice || nights * 5000).toLocaleString()}</strong></td>
-		<td><span class="status-badge status-badge--${booking.status}">${getStatusText(booking.status)}</span></td>
-		<td>
-			<div class="table-actions">
-				<button class="btn-icon btn-icon--primary" onclick="openBookingModal(${booking.id})" title="Редактировать">
-					<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-				</button>
-				<button class="btn-icon btn-icon--danger" onclick="deleteBooking(${booking.id})" title="Удалить">
-					<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-				</button>
-			</div>
-		</td>
-	`;
+        <td><strong>#${booking.id}</strong></td>
+        <td>${booking.userName || I18n.t('notSpecified')}</td>
+        <td>${booking.userPhone || '—'}</td>
+        <td>${translatedRoomName}</td>
+        <td>${formatDate(booking.checkIn)}</td>
+        <td>${formatDate(booking.checkOut)}</td>
+        <td>${guests}</td>
+        <td><strong>₽${(booking.totalPrice || nights * 5000).toLocaleString()}</strong></td>
+        <td><span class="status-badge status-badge--${booking.status}">${getStatusText(booking.status)}</span></td>
+        <td>
+            <div class="table-actions">
+                <button class="btn-icon btn-icon--primary" onclick="openBookingModal(${booking.id})" title="${I18n.t('btnEdit')}">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+                <button class="btn-icon btn-icon--danger" onclick="deleteBooking(${booking.id})" title="${I18n.t('btnDelete')}">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+        </td>
+    `;
 
     return tr;
 }
@@ -262,47 +286,49 @@ function createRoomCard(room) {
     card.className = 'room-card';
 
     const statusClass = room.available ? 'available' : 'unavailable';
-    const statusText = room.available ? 'Доступен' : 'Недоступен';
+    const statusText = room.available ? I18n.t('roomAvailable') : I18n.t('roomUnavailable');
     const mainImage = room.images && room.images.length > 0 ? room.images[0] : 'assets/images/rooms/default.jpg';
 
+    const displayName = I18n.currentLang === 'ru' ? room.name : (room.nameEn || room.name);
+
     card.innerHTML = `
-		<div class="room-card__image-wrapper">
-			<img src="${mainImage}" alt="${room.name}" class="room-card__image" loading="lazy" onerror="this.src='assets/images/rooms/default.jpg'">
-		</div>
-		<div class="room-card__header">
-			<div class="room-card__name">${room.name}</div>
-			<div class="room-card__price">₽${room.price.toLocaleString()} / ночь</div>
-		</div>
-		<div class="room-card__body">
-			<div class="room-card__info">
-				<div class="room-card__info-item">
-					<span class="room-card__info-label">Площадь:</span>
-					<span class="room-card__info-value">${room.area} м²</span>
-				</div>
-				<div class="room-card__info-item">
-					<span class="room-card__info-label">Гостей:</span>
-					<span class="room-card__info-value">${room.guests}</span>
-				</div>
-				<div class="room-card__info-item">
-					<span class="room-card__info-label">Кроватей:</span>
-					<span class="room-card__info-value">${room.beds}</span>
-				</div>
-			</div>
-			<span class="room-card__status room-card__status--${statusClass}">
-				<span class="status-dot"></span>
-				${statusText}
-			</span>
-		</div>
-		<div class="room-card__actions">
-			<button class="btn btn--outline" onclick="editRoom(${room.id})">
-				<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-				Редактировать
-			</button>
-			<button class="btn btn--primary" onclick="toggleRoomAvailability(${room.id})">
-				${room.available ? 'Скрыть' : 'Показать'}
-			</button>
-		</div>
-	`;
+        <div class="room-card__image-wrapper">
+            <img src="${mainImage}" alt="${displayName}" class="room-card__image" loading="lazy" onerror="this.src='assets/images/rooms/default.jpg'">
+        </div>
+        <div class="room-card__header">
+            <div class="room-card__name">${displayName}</div>
+            <div class="room-card__price">₽${room.price.toLocaleString()} / ${I18n.t('perNight')}</div>
+        </div>
+        <div class="room-card__body">
+            <div class="room-card__info">
+                <div class="room-card__info-item">
+                    <span class="room-card__info-label">${I18n.t('labelArea')}:</span>
+                    <span class="room-card__info-value">${room.area} ${I18n.t('sqm')}</span>
+                </div>
+                <div class="room-card__info-item">
+                    <span class="room-card__info-label">${I18n.t('labelGuests')}:</span>
+                    <span class="room-card__info-value">${room.guests}</span>
+                </div>
+                <div class="room-card__info-item">
+                    <span class="room-card__info-label">${I18n.t('labelBeds')}:</span>
+                    <span class="room-card__info-value">${room.beds}</span>
+                </div>
+            </div>
+            <span class="room-card__status room-card__status--${statusClass}">
+                <span class="status-dot"></span>
+                ${statusText}
+            </span>
+        </div>
+        <div class="room-card__actions">
+            <button class="btn btn--outline" onclick="editRoom(${room.id})">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                ${I18n.t('btnEdit')}
+            </button>
+            <button class="btn btn--primary" onclick="toggleRoomAvailability(${room.id})">
+                ${room.available ? I18n.t('btnHide') : I18n.t('btnShow')}
+            </button>
+        </div>
+    `;
 
     return card;
 }
@@ -339,9 +365,10 @@ function openRoomModal(roomId = null) {
             document.getElementById('roomImages').value = room.images.join('\n');
         }
 
-        document.getElementById('roomModalTitle').textContent = `Редактировать: ${room.name}`;
+        const roomNameDisplay = I18n.currentLang === 'ru' ? room.name : (room.nameEn || room.name);
+        document.getElementById('roomModalTitle').textContent = `${I18n.t('modalRoomTitleEdit')} ${roomNameDisplay}`;
     } else {
-        document.getElementById('roomModalTitle').textContent = 'Добавить номер';
+        document.getElementById('roomModalTitle').textContent = I18n.t('modalRoomTitleAdd');
     }
 
     openModal('roomModal');
@@ -456,7 +483,7 @@ function renderClients() {
 function createClientRow(client) {
     const tr = document.createElement('tr');
     const roleClass = client.role === 'admin' ? 'admin' : 'user';
-    const roleText = client.role === 'admin' ? 'Администратор' : 'Клиент';
+    const roleText = client.role === 'admin' ? I18n.t('roleAdmin') : I18n.t('roleClient');
 
     tr.innerHTML = `
 		<td><strong>#${client.id}</strong></td>
@@ -571,14 +598,23 @@ function calculateReports(period) {
     document.getElementById('avgCheck').textContent = `₽${Math.round(avgCheck).toLocaleString()}`;
     document.getElementById('totalBookingsReport').textContent = confirmedBookings.length;
 
+    const roomNameTranslations = {
+        'Стандарт': I18n.t('roomStandard'),
+        'Люкс': I18n.t('roomLux'),
+        'Делюкс': I18n.t('roomDeluxe'),
+        'Семейный': I18n.t('roomFamily'),
+        'Президентский': I18n.t('roomPresidential'),
+        'Студия': I18n.t('roomStudio')
+    };
+
     const popularRoomsEl = document.getElementById('popularRooms');
     if (popularRoomsEl) {
         popularRoomsEl.innerHTML = sortedRooms.map(([name, count]) => `
-			<div class="report-list-item">
-				<span class="report-list-item__name">${name}</span>
-				<span class="report-list-item__value">${count} бронирований</span>
-			</div>
-		`).join('') || '<div class="text-muted">Нет данных</div>';
+            <div class="report-list-item">
+                <span class="report-list-item__name">${roomNameTranslations[name] || name}</span>
+                <span class="report-list-item__value">${count} ${I18n.t(count === 1 ? 'bookingSingular' : 'bookingPlural')}</span>
+            </div>
+        `).join('') || `<div class="text-muted">${I18n.t('noData')}</div>`;
     }
 
     const totalDays = periodBookings.reduce((sum, b) => {
@@ -591,9 +627,9 @@ function calculateReports(period) {
 function generateReport() {
     const period = document.getElementById('reportPeriod').value;
     const periodText = {
-        week: 'неделю',
-        month: 'месяц',
-        year: 'год'
+        week: I18n.t('reportPeriodWeek'),
+        month: I18n.t('reportPeriodMonth'),
+        year: I18n.t('reportPeriodYear')
     }[period];
 
     const report = {
@@ -648,12 +684,12 @@ function formatDate(dateStr) {
 }
 
 function getStatusText(status) {
-    const statuses = {
-        pending: 'Ожидает',
-        confirmed: 'Подтверждено',
-        cancelled: 'Отменено'
+    const statusKeys = {
+        pending: 'statusPending',
+        confirmed: 'statusConfirmed',
+        cancelled: 'statusCancelled'
     };
-    return statuses[status] || status;
+    return I18n.t(statusKeys[status] || status);
 }
 
 function downloadCSV(content, filename) {
@@ -677,9 +713,10 @@ function showNotification(message, type = 'info') {
 }
 
 function updateAdminInfo() {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
     const nameEl = document.getElementById('adminName');
     if (nameEl) {
-        nameEl.textContent = user.fullName || user.nickname || user.email?.split('@')[0] || 'Админ';
+        const adminName = user.fullName?.split(' ')[0] || user.nickname || user.email?.split('@')[0] || I18n.t('adminDefault');
+        nameEl.textContent = adminName;
     }
 }

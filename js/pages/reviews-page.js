@@ -8,13 +8,19 @@ const loadMoreBtn = document.getElementById('load-more');
 async function initReviews() {
     try {
         allReviews = await FetchAPI.get(API_ENDPOINTS.REVIEWS);
-
         renderReviews();
 
         loadMoreBtn.addEventListener('click', () => {
             currentPage++;
             renderReviews();
         });
+
+        document.addEventListener('languageChanged', () => {
+            currentPage = 1;
+            renderReviews();
+            updateLoadMoreText();
+        });
+
     } catch (error) {
         console.error('Ошибка при загрузке отзывов:', error);
     }
@@ -34,7 +40,14 @@ function renderReviews() {
 
     if (endIndex >= allReviews.length) {
         loadMoreBtn.style.display = 'none';
+    } else {
+        loadMoreBtn.style.display = 'block';
+        updateLoadMoreText();
     }
+}
+
+function updateLoadMoreText() {
+    loadMoreBtn.textContent = I18n.t('loadMore');
 }
 
 function createReviewCard(data) {
@@ -46,8 +59,10 @@ function createReviewCard(data) {
         stars += i < data.rating ? '★' : '☆';
     }
 
+    const lang = I18n.currentLang;
+
     div.innerHTML = `
-        <div class="review-card__rating">${stars}</div>
+        <div class="review-card__rating" aria-label="${I18n.t('rating')}: ${data.rating} ${I18n.t('outOf5')}">${stars}</div>
         <p class="review-card__text">${data.text}</p>
         <div class="review-card__avatar"></div>
         <div class="review-card__info">

@@ -124,7 +124,7 @@ function renderRooms(rooms) {
         imgWrapper.className = 'room-card__image-wrapper';
         const img = document.createElement('img');
         img.src = room.images[0];
-        img.alt = room.name;
+        img.alt = I18n.currentLang === 'ru' ? room.name : room.nameEn;
         img.className = 'room-card__image';
         img.loading = 'lazy';
         imgWrapper.appendChild(img);
@@ -138,7 +138,7 @@ function renderRooms(rooms) {
 
         const title = document.createElement('h3');
         title.className = 'room-card__title';
-        title.textContent = room.name;
+        title.textContent = I18n.currentLang === 'ru' ? room.name : room.nameEn;
 
         const price = document.createElement('div');
         price.className = 'room-card__price-wrapper';
@@ -147,7 +147,7 @@ function renderRooms(rooms) {
         priceValue.textContent = `${room.price.toLocaleString()} ₽`;
         const period = document.createElement('span');
         period.className = 'room-card__price-period';
-        period.textContent = ' / ночь';
+        period.textContent = ` ${I18n.t('perNight')}`;
         price.append(priceValue, period);
 
         header.append(title, price);
@@ -171,7 +171,7 @@ function renderRooms(rooms) {
             return item;
         };
 
-        meta.append(createMeta('area', `${room.area} м²`), createMeta('guests', `${room.guests} чел`));
+        meta.append(createMeta('area', `${room.area} ${I18n.t('sqm')}`), createMeta('guests', `${room.guests} ${I18n.t('guests')}`));
         content.appendChild(meta);
 
         const actions = document.createElement('div');
@@ -180,12 +180,12 @@ function renderRooms(rooms) {
         const bookBtn = document.createElement('a');
         bookBtn.href = `booking.html?roomId=${room.id}`;
         bookBtn.className = 'btn btn--primary btn--full';
-        bookBtn.textContent = 'Забронировать';
+        bookBtn.textContent = I18n.t('book');
 
         const infoBtn = document.createElement('a');
         infoBtn.href = `room-detail.html?id=${room.id}`;
         infoBtn.className = 'btn btn--outline btn--full';
-        infoBtn.textContent = 'Подробнее';
+        infoBtn.textContent = I18n.t('details');
 
         actions.append(bookBtn, infoBtn);
         content.appendChild(actions);
@@ -209,7 +209,7 @@ function renderOffers(offers) {
 
         const img = document.createElement('img');
         img.src = offer.image;
-        img.alt = offer.title;
+        img.alt = I18n.currentLang === 'ru' ? offer.title : offer.titleEn;
         img.className = 'offer-card__image';
         img.loading = 'lazy';
 
@@ -223,16 +223,16 @@ function renderOffers(offers) {
 
         const h3 = document.createElement('h3');
         h3.className = 'offer-card__title';
-        h3.textContent = offer.title;
+        h3.textContent = I18n.currentLang === 'ru' ? offer.title : offer.titleEn;
 
         const p = document.createElement('p');
         p.className = 'offer-card__description';
-        p.textContent = offer.description;
+        p.textContent = I18n.currentLang === 'ru' ? offer.description : offer.descriptionEn;
 
         const link = document.createElement('a');
-        link.href = 'special-offers.html';
+        link.href = '#';
         link.className = 'offer-card__link';
-        link.textContent = 'Подробнее';
+        link.textContent = `${I18n.t('details')}`;
 
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.setAttribute('width', '16');
@@ -365,7 +365,8 @@ function setupResetSettings() {
 
 function formatDate(dateString) {
     const date = new Date(dateString);
-    return date.toLocaleDateString('ru-RU', {
+    const locale = I18n.currentLang === 'ru' ? 'ru-RU' : 'en-US';
+    return date.toLocaleDateString(locale, {
         day: 'numeric',
         month: 'long',
         year: 'numeric'
@@ -499,6 +500,25 @@ function syncAmenitiesUI(index) {
 
     console.log('✅ Admin Quick Access Panel initialized');
 })();
+
+document.addEventListener('languageChanged', () => {
+    const roomsSliderContainer = document.querySelector('.rooms__slider .slider__container');
+    if (roomsSliderContainer && roomsSliderContainer.children.length > 0) {
+        loadRoomsData();
+    }
+
+    const offersContainer = document.querySelector('.offers__list');
+    if (offersContainer && offersContainer.children.length > 0) {
+        loadOffersData();
+    }
+
+    const roomsCatalogContainer = document.getElementById('rooms-catalog-container');
+    if (roomsCatalogContainer && roomsCatalogContainer.children.length > 0) {
+        if (typeof initRoomsCatalog === 'function') {
+            initRoomsCatalog();
+        }
+    }
+});
 
 window.SantoriniApp = {
     loadRoomsData,

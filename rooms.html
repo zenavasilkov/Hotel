@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Номера - Santorini Hotel</title>
+    <title data-i18n="roomsPageTitle">Номера - Santorini Hotel</title>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/pages/rooms-page.css">
@@ -19,32 +19,32 @@
 <header class="header" role="banner">
     <div class="container header__container">
         <div class="container header__container header__group">
-            <button class="burger-menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+            <button class="burger-menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav" data-i18n-aria="burgerLabel">
                 <span class="burger-menu__line"></span>
                 <span class="burger-menu__line"></span>
             </button>
 
-            <a href="index.html" class="header__logo logo" aria-label="Santorini - на главную">
+            <a href="index.html" class="header__logo logo" aria-label="Santorini - на главную" data-i18n-aria="logoAria">
                 <img src="assets/images/logo.svg" alt="Santorini" class="logo__image" width="150" height="40">
             </a>
         </div>
 
         <div class="controls header__controls">
-            <button class="controls__theme" aria-label="Сменить тему" id="theme-toggle">
+            <button class="controls__theme" aria-label="Сменить тему" id="theme-toggle" data-i18n-aria="themeToggle">
                 <svg class="controls__icon" width="20" height="20" aria-hidden="true">
                     <use href="assets/icons/sprite.svg#moon"></use>
                 </svg>
             </button>
 
-            <button class="controls__accessibility" aria-label="Версия для слабовидящих" id="accessibility-toggle">
+            <button class="controls__accessibility" aria-label="Версия для слабовидящих" id="accessibility-toggle" data-i18n-aria="accessibilityToggle">
                 <svg class="controls__icon" width="20" height="20" aria-hidden="true">
                     <use href="assets/icons/sprite.svg#eye"></use>
                 </svg>
             </button>
 
             <div class="controls__lang lang-switcher">
-                <button class="lang-switcher__btn active" data-lang="ru" aria-label="Русский язык">RU</button>
-                <button class="lang-switcher__btn" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-switcher__btn active" data-lang="ru" aria-label="Русский язык" data-i18n-aria="langRu">RU</button>
+                <button class="lang-switcher__btn" data-lang="en" aria-label="English" data-i18n-aria="langEn">EN</button>
             </div>
 
             <a href="booking.html" class="controls__btn btn btn--primary book__btn">
@@ -62,27 +62,27 @@
         <div class="container rooms-hero__container">
             <div class="rooms-hero__wrapper">
                 <div class="rooms-hero__bg">
-                    <img src="assets/images/figma/rooms-hero.png" alt="Santorini Rooms">
+                    <img src="assets/images/figma/rooms-hero.png" alt="Santorini Rooms" data-i18n-alt="roomsHeroAlt">
                     <div class="hero__overlay"></div>
                 </div>
 
-                <form class="search-form search-form--figma rooms-hero__search">
+                <form class="search-form search-form--figma rooms-hero__search" role="search" aria-label="Поиск номеров" data-i18n-aria="searchAria">
                     <div class="search-form__date">
                         <svg width="20" height="20"><use href="assets/icons/sprite.svg#calendar"></use></svg>
-                        <input type="text" placeholder="ДАТА ЗАЕЗДА - ДАТА ВЫЕЗДА">
-                        <button type="button" class="search-form__pill"><svg width="18" height="18"><use href="assets/icons/sprite.svg#chevron-down"></use></svg></button>
+                        <input type="text" data-i18n-placeholder="searchDatePlaceholder" placeholder="ДАТА ЗАЕЗДА - ДАТА ВЫЕЗДА">
+                        <button type="button" class="search-form__pill" aria-label="Открыть выбор дат" data-i18n-aria="searchDateAria"><svg width="18" height="18"><use href="assets/icons/sprite.svg#chevron-down"></use></svg></button>
                     </div>
                     <div class="search-form__divider"></div>
                     <div class="search-form__people">
                         <svg width="20" height="20"><use href="assets/icons/sprite.svg#guests"></use></svg>
-                        <span>КОЛ-ВО ЧЕЛОВЕК</span>
+                        <span data-i18n="searchGuestsLabel">КОЛ-ВО ЧЕЛОВЕК</span>
                     </div>
-                    <div class="search-form__counterWrap">
-                        <button type="button" class="search-form__counterBtn">−</button>
+                    <div class="search-form__counterWrap" aria-label="Количество человек" data-i18n-aria="guestsAria">
+                        <button type="button" class="search-form__counterBtn" aria-label="Уменьшить" data-i18n-aria="decreaseAria">−</button>
                         <output>02</output>
-                        <button type="button" class="search-form__counterBtn">+</button>
+                        <button type="button" class="search-form__counterBtn" aria-label="Увеличить" data-i18n-aria="increaseAria">+</button>
                     </div>
-                    <button type="submit" class="search-form__submit"><svg width="18" height="18"><use href="assets/icons/sprite.svg#search"></use></svg></button>
+                    <button type="submit" class="search-form__submit" aria-label="Найти номера" data-i18n-aria="searchSubmitAria"><svg width="18" height="18"><use href="assets/icons/sprite.svg#search"></use></svg></button>
                 </form>
             </div>
         </div>
@@ -92,8 +92,8 @@
         <div class="container">
             <div class="section__header">
                 <div class="section__decor"><span class="section__dot"></span><span class="section__dot"></span><span class="section__dot"></span></div>
-                <h1 class="section__title">НОМЕРА</h1>
-                <p class="section__subtitle">Выбери свой номер</p>
+                <h1 class="section__title" data-i18n="roomsCatalogTitle">НОМЕРА</h1>
+                <p class="section__subtitle" data-i18n="roomsCatalogSubtitle">Выбери свой номер</p>
                 <div class="section__decor"><span class="section__dot"></span><span class="section__dot"></span><span class="section__dot"></span></div>
             </div>
 
@@ -110,44 +110,44 @@
             </div>
             <address class="footer__contacts">
                 <a href="tel:+79120388044" class="footer__phone">8 (912) 038-80-44</a>
-                <p class="footer__address">
+                <p class="footer__address" data-i18n-html="footerAddress">
                     298690, Россия, Крым, г. Ялта,<br>
                     пгт Форос, Форосский спуск, 1
                 </p>
             </address>
         </div>
 
-        <nav class="footer__nav active_footer_nav" aria-label="Навигация по сайту">
+        <nav class="footer__nav active_footer_nav" aria-label="Навигация по сайту" data-i18n-aria="footerNavAria">
             <div class="footer__nav-column">
                 <ul class="footer__list">
                     <li><a href="rooms.html" class="footer__link" data-i18n="navRooms">Номера и цены</a></li>
-                    <li><a href="about.html" class="footer__link" data-i18n="navAbout">Об отеле</a></li>
-                    <li><a href="services.html" class="footer__link" data-i18n="navServices">Услуги</a></li>
-                    <li><a href="conditions.html" class="footer__link" data-i18n="navConditions">Условия проживания</a></li>
-                    <li><a href="news.html" class="footer__link" data-i18n="navNews">Новости</a></li>
-                    <li><a href="contacts.html" class="footer__link" data-i18n="navContacts">Контакты</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="navAbout">Об отеле</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="navServices">Услуги</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="navConditions">Условия проживания</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="navNews">Новости</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="navContacts">Контакты</a></li>
                 </ul>
             </div>
             <div class="footer__nav-column">
                 <ul class="footer__list">
-                    <li><a href="photos.html" class="footer__link" data-i18n="navPhotos">Фото отеля</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="navPhotos">Фото отеля</a></li>
                     <li><a href="how-to-get.html" class="footer__link" data-i18n="navHowToGet">Как добраться</a></li>
                     <li><a href="reviews.html" class="footer__link" data-i18n="navReviews">Отзывы гостей</a></li>
-                    <li><a href="attractions.html" class="footer__link" data-i18n="navAttractions">Достопримечательности</a></li>
-                    <li><a href="pasta-bar.html" class="footer__link" data-i18n="navPastaBar">Паста-бар</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="navAttractions">Достопримечательности</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="navPastaBar">Паста-бар</a></li>
                     <li><a href="active-recreation.html" class="footer__link" data-i18n="navActive">Активный отдых</a></li>
                 </ul>
             </div>
         </nav>
 
         <div class="footer__social social">
-            <a href="https://vk.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+            <a href="https://vk.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте" data-i18n-aria="socialVk">
                 <img src="assets/icons/VK.png" alt="" width="24" height="24">
             </a>
-            <a href="https://youtube.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <a href="https://youtube.com/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="YouTube" data-i18n-aria="socialYt">
                 <img src="assets/icons/YouTube.png" alt="" width="24" height="24">
             </a>
-            <a href="https://dzen.ru/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Zen">
+            <a href="https://dzen.ru/santorini" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Zen" data-i18n-aria="socialZen">
                 <img src="assets/icons/zen.png" alt="" width="24" height="24">
             </a>
         </div>
@@ -156,7 +156,7 @@
     <div class="footer__bottom">
         <div class="container footer__bottom-container">
             <p class="footer__copyright" data-i18n="copyright">© 2022 Santorini. Все права защищены.</p>
-            <a href="privacy.html" class="footer__privacy" data-i18n="privacy">Политика конфиденциальности</a>
+            <a href="#" class="footer__privacy" data-i18n="privacy">Политика конфиденциальности</a>
         </div>
     </div>
 </footer>
@@ -166,41 +166,41 @@
         <a href="index.html" class="mobile-menu__logo">
             <img src="assets/images/logo.svg" alt="Santorini" width="150" height="40">
         </a>
-        <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Закрыть меню">
+        <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Закрыть меню" data-i18n-aria="mobileClose">
             <svg width="24" height="24" aria-hidden="true">
                 <use href="assets/icons/sprite.svg#close"></use>
             </svg>
         </button>
     </div>
 
-    <nav class="mobile-menu__nav" role="navigation" aria-label="Мобильная навигация">
+    <nav class="mobile-menu__nav" role="navigation" aria-label="Мобильная навигация" data-i18n-aria="mobileNavAria">
         <ul class="mobile-menu__list">
             <li class="mobile-menu__item">
-                <a href="rooms.html" class="mobile-menu__link">НОМЕРА</a>
+                <a href="rooms.html" class="mobile-menu__link" data-i18n="mobileNavRooms">НОМЕРА</a>
             </li>
             <li class="mobile-menu__item">
-                <a href="how-to-get.html" class="mobile-menu__link">КАК ДОБРАТЬСЯ</a>
+                <a href="how-to-get.html" class="mobile-menu__link" data-i18n="mobileNavHowToGet">КАК ДОБРАТЬСЯ</a>
             </li>
             <li class="mobile-menu__item">
-                <a href="reviews.html" class="mobile-menu__link">ОТЗЫВЫ ГОСТЕЙ</a>
+                <a href="reviews.html" class="mobile-menu__link" data-i18n="mobileNavReviews">ОТЗЫВЫ ГОСТЕЙ</a>
             </li>
             <li class="mobile-menu__item">
-                <a href="news.html" class="mobile-menu__link">НОВОСТИ</a>
+                <a href="#" class="mobile-menu__link" data-i18n="mobileNavNews">НОВОСТИ</a>
             </li>
             <li class="mobile-menu__item">
-                <a href="contacts.html" class="mobile-menu__link">КОНТАКТЫ</a>
+                <a href="contacts.html" class="mobile-menu__link" data-i18n="mobileNavContacts">КОНТАКТЫ</a>
             </li>
             <li class="mobile-menu__item">
-                <a href="active-recreation.html" class="mobile-menu__link">АКТИВНЫЙ ОТДЫХ</a>
+                <a href="active-recreation.html" class="mobile-menu__link" data-i18n="mobileNavActive">АКТИВНЫЙ ОТДЫХ</a>
             </li>
             <li class="mobile-menu__item">
-                <a href="special-offers.html" class="mobile-menu__link">СПЕЦПРЕДЛОЖЕНИЯ</a>
+                <a href="#" class="mobile-menu__link" data-i18n="mobileNavOffers">СПЕЦПРЕДЛОЖЕНИЯ</a>
             </li>
         </ul>
     </nav>
 
     <div class="mobile-menu__footer">
-        <a href="booking.html" class="mobile-menu__btn">ЗАБРОНИРОВАТЬ</a>
+        <a href="booking.html" class="mobile-menu__btn" data-i18n="bookNow">ЗАБРОНИРОВАТЬ</a>
 
         <div class="mobile-menu__contacts">
             <a href="tel:+79120388044" class="mobile-menu__phone">
@@ -209,22 +209,16 @@
                 </svg>
                 8(912) 038-80-44
             </a>
-            <p class="mobile-menu__address">
+            <p class="mobile-menu__address" data-i18n-html="mobileMenuAddress">
                 298690, РОССИЯ, КРЫМ, Г. ЯЛТА, ПГТ ФОРОС,<br>
                 ФОРОССКИЙ СПУСК, 1
             </p>
         </div>
 
         <div class="mobile-menu__social">
-            <a href="https://vk.com/santorini" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
-                <img src="assets/icons/VK.png" alt="" class="mobile-menu__social-link" height="40">
-            </a>
-            <a href="https://youtube.com/santorini" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                <img src="assets/icons/YouTube.png" alt="" class="mobile-menu__social-link" height="40">
-            </a>
-            <a href="https://dzen.ru/santorini" target="_blank" rel="noopener noreferrer" aria-label="Zen">
-                <img src="assets/icons/zen.png" alt="" class="mobile-menu__social-link" height="40">
-            </a>
+            <img src="assets/icons/VK.png" alt="VK" class="mobile-menu__social-link" height="40">
+            <img src="assets/icons/YouTube.png" alt="YouTube" class="mobile-menu__social-link" height="40">
+            <img src="assets/icons/zen.png" alt="Zen" class="mobile-menu__social-link" height="40">
         </div>
     </div>
 </div>
