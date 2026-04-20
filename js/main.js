@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     Preloader.init();
     I18n.init();
-    ThemeSwitcher.init();
     BurgerMenu.init();
     Modal.init();
+    ThemeSwitcher.init();
 
     initializePageScripts();
     setupAccessibility();

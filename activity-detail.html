@@ -15,6 +15,13 @@
 </head>
 <body class="body">
 
+<div id="preloader" class="preloader" role="status" aria-label="Загрузка сайта" data-i18n-aria="preloaderAria">
+    <div class="preloader__spinner"></div>
+    <div class="preloader__logo">
+        <img src="assets/images/logo.svg" alt="HSE">
+    </div>
+</div>
+
 <main class="main">
     <section class="activity-hero">
         <div class="activity-hero__bg">
@@ -193,11 +200,17 @@
 
 <div class="mobile-menu__overlay" id="mobile-menu-overlay"></div>
 
-<script src="js/config/constants.js"></script>
-<script src="js/api/endpoints.js"></script>
-<script src="js/api/fetch.js"></script>
-<script src="js/main.js"></script>
-<script src="js/utils/i18n.js"></script>
-<script src="js/pages/activity-detail.js"></script>
+<script src="js/config/constants.js" defer></script>
+<script src="js/utils/storage.js" defer></script>
+<script src="js/utils/i18n.js" defer></script>
+<script src="js/utils/theme-switcher.js" defer></script>
+<script src="js/api/endpoints.js" defer></script>
+<script src="js/api/fetch.js" defer></script>
+<script src="js/components/preloader.js" defer></script>
+<script src="js/components/burger-menu.js" defer></script>
+<script src="js/components/slider.js" defer></script>
+<script src="js/components/modal.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/pages/activity-detail.js" defer></script>
 </body>
 </html>

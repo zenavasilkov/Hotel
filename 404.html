@@ -17,6 +17,13 @@
 </head>
 <body class="body">
 
+<div id="preloader" class="preloader" role="status" aria-label="Загрузка сайта" data-i18n-aria="preloaderAria">
+    <div class="preloader__spinner"></div>
+    <div class="preloader__logo">
+        <img src="assets/images/logo.svg" alt="HSE">
+    </div>
+</div>
+
 <header class="header" role="banner">
     <div class="container header__container">
         <div class="container header__container header__group">
@@ -226,8 +233,11 @@
 <script src="js/utils/storage.js" defer></script>
 <script src="js/utils/i18n.js" defer></script>
 <script src="js/utils/theme-switcher.js" defer></script>
+<script src="js/api/fetch.js" defer></script>
+<script src="js/api/endpoints.js" defer></script>
 <script src="js/components/preloader.js" defer></script>
 <script src="js/components/burger-menu.js" defer></script>
+<script src="js/components/modal.js" defer></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>
