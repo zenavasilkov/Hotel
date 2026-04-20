@@ -295,34 +295,6 @@ function initializeTabs() {
     });
 }
 
-function setupAccessibility() {
-    const accessibilityToggle = document.getElementById('accessibility-toggle');
-    if (!accessibilityToggle) return;
-
-    accessibilityToggle.addEventListener('click', () => {
-        const isAccessible = StorageUtils.get(APP_CONFIG.STORAGE_KEYS.ACCESSIBILITY, false);
-        StorageUtils.set(APP_CONFIG.STORAGE_KEYS.ACCESSIBILITY, !isAccessible);
-        applyAccessibilitySettings(!isAccessible);
-    });
-
-    const isAccessible = StorageUtils.get(APP_CONFIG.STORAGE_KEYS.ACCESSIBILITY, false);
-    if (isAccessible) {
-        applyAccessibilitySettings(true);
-    }
-}
-
-function applyAccessibilitySettings(enabled) {
-    const accessibilityStyle = document.getElementById('accessibility-style');
-    if (accessibilityStyle) {
-        accessibilityStyle.disabled = !enabled;
-    }
-
-    if (enabled) {
-        document.body.classList.add('accessibility-mode');
-    } else {
-        document.body.classList.remove('accessibility-mode');
-    }
-}
 
 function setupCookieBanner() {
     const banner = document.getElementById('cookie-banner');

@@ -2144,3 +2144,216 @@ img {
 :root[data-theme="dark"] .admin-quick-access__logout:hover {
     background: rgba(239, 68, 68, 0.3);
 }
+
+.modal__container--accessibility {
+    max-width: 400px;
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.acc-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.acc-section__title {
+    font-size: 16px;
+    margin-bottom: 12px;
+    text-transform: none;
+    color: var(--color-text);
+}
+
+.acc-size-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.acc-btn--size {
+    flex: 1;
+    padding: 8px 12px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.acc-btn--size:hover, .acc-btn--size.active {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.acc-color-controls {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+.acc-color-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.acc-color-circle:hover, .acc-color-circle.active {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.acc-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.acc-switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+}
+
+.acc-switch input { opacity: 0; width: 0; height: 0; }
+
+.acc-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.acc-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .acc-slider { background-color: var(--color-primary); }
+input:checked + .acc-slider:before { transform: translateX(24px); }
+
+.acc-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+body.accessibility-mode {
+    font-family: Arial, Helvetica, sans-serif !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.05em !important;
+    word-spacing: 0.1em !important;
+    text-align: left !important;
+}
+
+
+body.accessibility-mode.font-small { font-size: 16px !important; }
+body.accessibility-mode.font-medium { font-size: 20px !important; }
+body.accessibility-mode.font-large { font-size: 24px !important; }
+
+body.accessibility-mode.hide-images img,
+body.accessibility-mode.hide-images svg,
+body.accessibility-mode.hide-images .hero__bg,
+body.accessibility-mode.hide-images .video-section__thumb {
+    display: none !important;
+    opacity: 0 !important;
+    height: 0 !important;
+}
+
+body.accessibility-mode .section__decor,
+body.accessibility-mode .hero__overlay {
+    display: none !important;
+}
+
+body.accessibility-mode a {
+    text-decoration: underline !important;
+}
+
+body.accessibility-mode button,
+body.accessibility-mode .btn {
+    font-weight: bold !important;
+    border: 2px solid currentColor !important;
+}
+
+body.accessibility-mode.scheme-bw {
+    --color-text: #FFFFFF !important;
+    --color-text-light: #DDDDDD !important;
+    --color-text-inverse: #000000 !important;
+    --color-bg: #000000 !important;
+    --color-bg-secondary: #111111 !important;
+    --color-bg-dark: #000000 !important;
+    --color-border: #FFFFFF !important;
+    background-color: #000000 !important;
+}
+body.accessibility-mode.scheme-bw a { color: #88CCFF !important; }
+body.accessibility-mode.scheme-bw .btn--primary { background-color: #FFFFFF !important; color: #000 !important; }
+
+body.accessibility-mode.scheme-bg {
+    --color-text: #00FF00 !important;
+    --color-text-light: #00CC00 !important;
+    --color-text-inverse: #000000 !important;
+    --color-bg: #000000 !important;
+    --color-bg-secondary: #111111 !important;
+    --color-bg-dark: #000000 !important;
+    --color-border: #00FF00 !important;
+    background-color: #000000 !important;
+}
+body.accessibility-mode.scheme-bg .btn--primary { background-color: #00FF00 !important; color: #000 !important; border-color: #00FF00 !important; }
+
+body.accessibility-mode.scheme-wb {
+    --color-text: #000000 !important;
+    --color-text-light: #333333 !important;
+    --color-text-inverse: #FFFFFF !important;
+    --color-bg: #FFFFFF !important;
+    --color-bg-secondary: #F5F5F5 !important;
+    --color-bg-dark: #EEEEEE !important;
+    --color-border: #000000 !important;
+    background-color: #FFFFFF !important;
+}
+body.accessibility-mode.scheme-wb .btn--primary { background-color: #000000 !important; color: #FFF !important; }
+
+body.accessibility-mode.scheme-bc {
+    --color-text: #4B3621 !important;
+    --color-text-light: #6F4E37 !important;
+    --color-text-inverse: #F5F5DC !important;
+    --color-bg: #F5F5DC !important;
+    --color-bg-secondary: #EBE6D6 !important;
+    --color-bg-dark: #E6E1D1 !important;
+    --color-border: #4B3621 !important;
+    background-color: #F5F5DC !important;
+}
+body.accessibility-mode.scheme-bc .btn--primary { background-color: #4B3621 !important; color: #F5F5DC !important; }
+
+body.accessibility-mode.scheme-bd {
+    --color-text: #000080 !important;
+    --color-text-light: #0000CD !important;
+    --color-text-inverse: #B0E0E6 !important;
+    --color-bg: #B0E0E6 !important;
+    --color-bg-secondary: #A0D0D6 !important;
+    --color-bg-dark: #90C0C6 !important;
+    --color-border: #000080 !important;
+    background-color: #B0E0E6 !important;
+}
+body.accessibility-mode.scheme-bd .btn--primary { background-color: #000080 !important; color: #B0E0E6 !important; }
+
+body.accessibility-mode .modal__container--accessibility {
+    background: #fff !important;
+    color: #000 !important;
+}
+body.accessibility-mode .modal__container--accessibility .acc-btn--size {
+    background: #f0f0f0 !important;
+    color: #000 !important;
+    border-color: #ccc !important;
+}

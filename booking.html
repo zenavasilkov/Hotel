@@ -263,6 +263,60 @@
 
 <div class="mobile-menu__overlay" id="mobile-menu-overlay"></div>
 
+<div id="accessibility-modal" class="modal accessibility-modal" aria-hidden="true" role="dialog">
+    <div class="modal__overlay" data-acc-close></div>
+    <div class="modal__container modal__container--accessibility">
+
+        <div class="modal__header">
+            <h2 class="modal__title" data-i18n="accTitle">Версия для слабовидящих</h2>
+            <button class="modal__close" type="button" data-acc-close aria-label="Закрыть">
+                <svg width="24" height="24"><use href="assets/icons/sprite.svg#close"></use></svg>
+            </button>
+        </div>
+
+        <div class="modal__body acc-settings">
+
+            <div class="acc-section">
+                <h3 class="acc-section__title" data-i18n="accFontSize">Размер шрифта</h3>
+                <div class="acc-size-controls">
+                    <button class="acc-btn acc-btn--size" data-size="small" data-i18n="accSizeSmall">Маленький</button>
+                    <button class="acc-btn acc-btn--size" data-size="medium" data-i18n="accSizeMedium">Средний</button>
+                    <button class="acc-btn acc-btn--size" data-size="large" data-i18n="accSizeLarge">Большой</button>
+                </div>
+            </div>
+
+            <div class="acc-section">
+                <h3 class="acc-section__title" data-i18n="accColorScheme">Цветовая схема</h3>
+                <div class="acc-color-controls">
+                    <button class="acc-color-circle" data-scheme="bw" style="background: #000; border: 2px solid #fff;" aria-label="Черный/Белый"></button>
+                    <button class="acc-color-circle" data-scheme="bg" style="background: #000; border: 2px solid #00ff00;" aria-label="Черный/Зеленый"></button>
+                    <button class="acc-color-circle" data-scheme="wb" style="background: #fff; border: 2px solid #000;" aria-label="Белый/Черный"></button>
+                    <button class="acc-color-circle" data-scheme="bc" style="background: #f5f5dc; border: 2px solid #8b4513;" aria-label="Бежевый/Коричневый"></button>
+                    <button class="acc-color-circle" data-scheme="bd" style="background: #b0e0e6; border: 2px solid #00008b;" aria-label="Голубой/Темно-синий"></button>
+                </div>
+            </div>
+
+            <div class="acc-section">
+                <h3 class="acc-section__title" data-i18n="accImages">Изображения</h3>
+                <div class="acc-toggle-container">
+                    <label class="acc-switch">
+                        <input type="checkbox" id="acc-images-toggle">
+                        <span class="acc-slider"></span>
+                    </label>
+                    <span class="acc-label" data-i18n="accShowImages">Показывать изображения</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal__footer acc-footer">
+            <button class="btn btn--primary" data-acc-reset data-i18n="accReset">Сбросить настройки</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/components/accessibility.js" defer></script>
+
 <script src="js/config/constants.js"></script>
 <script src="js/api/endpoints.js"></script>
 <script src="js/api/fetch.js"></script>

@@ -463,6 +463,16 @@
             ageError: 'Регистрация разрешена только с 16 лет',
             nicknameNameRequired: 'Сначала введите Имя и Фамилию',
             registrationError: 'Ошибка при регистрации. Попробуйте ещё раз.',
+            accTitle: 'Версия для слабовидящих',
+            accFontSize: 'Размер шрифта',
+            accSizeSmall: 'Маленький',
+            accSizeMedium: 'Средний',
+            accSizeLarge: 'Большой',
+            accColorScheme: 'Цветовая схема',
+            accImages: 'Изображения',
+            accShowImages: 'Показывать изображения',
+            accReset: 'Сбросить настройки',
+            accResetConfirm: 'Вы уверены? Настройки будут сброшены до стандартных.',
         },
         en: {
             pageTitle: 'Santorini - Comfortable Stay in Crimea',
@@ -923,6 +933,16 @@
             ageError: 'Registration is only allowed for users 16+',
             nicknameNameRequired: 'Please enter First Name and Last Name first',
             registrationError: 'Registration error. Please try again.',
+            accTitle: 'Accessibility Mode',
+            accFontSize: 'Font Size',
+            accSizeSmall: 'Small',
+            accSizeMedium: 'Medium',
+            accSizeLarge: 'Large',
+            accColorScheme: 'Color Scheme',
+            accImages: 'Images',
+            accShowImages: 'Show images',
+            accReset: 'Reset Settings',
+            accResetConfirm: 'Are you sure? Settings will be reset to default.'
         }
     },
 
