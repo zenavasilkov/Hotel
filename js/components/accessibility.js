@@ -63,7 +63,7 @@
         const settings = saved ? JSON.parse(saved) : this.defaultSettings;
 
         this.applySettings(settings);
-
+        this.applyImageVisibility(settings.showImages);
         this.updateActiveState(this.toggles.sizeBtns, document.querySelector(`.acc-btn--size[data-size="${settings.fontSize}"]`));
         this.updateActiveState(this.toggles.colorBtns, document.querySelector(`.acc-color-circle[data-scheme="${settings.colorScheme}"]`));
         if (this.toggles.imagesToggle) {
@@ -114,6 +114,31 @@
         settings.showImages = show;
         this.saveSettings(settings);
         this.applySettings(settings);
+        this.applyImageVisibility(show);
+    },
+
+    applyImageVisibility(show) {
+        document.querySelectorAll('img').forEach(img => {
+            if (!img.alt || img.alt.trim() === '') return;
+
+            if (show) {
+                img.style.display = '';
+                const placeholder = img.nextElementSibling;
+                if (placeholder && placeholder.classList.contains('acc-alt-placeholder')) {
+                    placeholder.remove();
+                }
+            } else {
+                img.style.display = 'none';
+                if (!img.nextElementSibling?.classList.contains('acc-alt-placeholder')) {
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'acc-alt-placeholder';
+                    placeholder.textContent = img.alt.trim();
+                    placeholder.setAttribute('role', 'img');
+                    placeholder.setAttribute('aria-label', img.alt);
+                    img.parentNode.insertBefore(placeholder, img.nextSibling);
+                }
+            }
+        });
     },
 
     resetSettings() {
