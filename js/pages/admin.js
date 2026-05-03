@@ -55,7 +55,7 @@ function setupEventListeners() {
         window.location.href = 'auth.html';
     });
 
-    document.getElementById('exportBookingsBtn')?.addEventListener('click', exportBookingsToCSV);
+    document.getElementById('exportBookingsBtn')?.addEventListener('click', exportBookingsToExcel);
 
     document.getElementById('addRoomBtn')?.addEventListener('click', () => openRoomModal());
 
@@ -245,28 +245,66 @@ async function deleteBooking(id) {
     }
 }
 
-function exportBookingsToCSV() {
+function exportBookingsToExcel() {
     if (bookings.length === 0) {
         showNotification('Нет данных для экспорта', 'warning');
         return;
     }
 
-    const headers = ['ID', 'Гость', 'Телефон', 'Номер', 'Заезд', 'Выезд', 'Взрослые', 'Дети', 'Сумма', 'Статус'];
-    const rows = bookings.map(b => [
-        b.id,
-        b.userName,
-        b.userPhone,
-        b.roomName,
-        b.checkIn,
-        b.checkOut,
-        b.adults,
-        b.kids,
-        b.totalPrice,
-        b.status
-    ]);
+    const data = bookings.map(b => {
+        const nights = calculateNights(b.checkIn, b.checkOut);
+        const adultsText = `${b.adults} ${I18n.t(b.adults === 1 ? 'guestAdultSingular' : 'guestAdultPlural')}`;
+        const kidsText = b.kids ? `, ${b.kids} ${I18n.t(b.kids === 1 ? 'guestChildSingular' : 'guestChildPlural')}` : '';
+        const guests = adultsText + kidsText;
 
-    const csvContent = [headers, ...rows].map(row => row.join(';')).join('\n');
-    downloadCSV(csvContent, 'bookings_santorini.csv');
+        const roomNameTranslations = {
+            'Стандарт': I18n.t('roomStandard'),
+            'Люкс': I18n.t('roomLux'),
+            'Делюкс': I18n.t('roomDeluxe'),
+            'Семейный': I18n.t('roomFamily'),
+            'Президентский': I18n.t('roomPresidential'),
+            'Студия': I18n.t('roomStudio')
+        };
+        const translatedRoomName = roomNameTranslations[b.roomName] || b.roomName;
+
+        return {
+            [I18n.t('tableHeaderId')]: b.id,
+            [I18n.t('tableHeaderGuest')]: b.userName || I18n.t('notSpecified'),
+            [I18n.t('tableHeaderPhone')]: b.userPhone || '—',
+            [I18n.t('tableHeaderRoom')]: translatedRoomName,
+            [I18n.t('tableHeaderCheckIn')]: formatDate(b.checkIn),
+            [I18n.t('tableHeaderCheckOut')]: formatDate(b.checkOut),
+            [I18n.t('tableHeaderGuests')]: guests,
+            [I18n.t('tableHeaderAmount')]: `₽${(b.totalPrice || nights * 5000).toLocaleString()}`,
+            [I18n.t('tableHeaderStatus')]: getStatusText(b.status),
+            [I18n.t('tableHeaderCreatedAt')]: b.createdAt ? formatDate(b.createdAt) : '—'
+        };
+    });
+
+    const ws = XLSX.utils.json_to_sheet(data);
+
+    ws['!cols'] = [
+        { wch: 8 },
+        { wch: 20 },
+        { wch: 18 },
+        { wch: 15 },
+        { wch: 12 },
+        { wch: 12 },
+        { wch: 10 },
+        { wch: 15 },
+        { wch: 20 },
+        { wch: 15 }
+    ];
+
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, I18n.t('sheetNameBookings') || 'Бронирования');
+
+    const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+    const filename = `bookings_santorini_${dateStr}.xlsx`;
+
+    XLSX.writeFile(wb, filename);
+
+    showNotification('Файл Excel успешно создан', 'success');
 }
 
 function renderRooms() {

@@ -473,6 +473,9 @@
             accShowImages: 'Показывать изображения',
             accReset: 'Сбросить настройки',
             accResetConfirm: 'Вы уверены? Настройки будут сброшены до стандартных.',
+            exportExcel: 'Экспорт Excel',
+            sheetNameBookings: 'Бронирования',
+            tableHeaderCreatedAt: 'Дата создания',
         },
         en: {
             pageTitle: 'Santorini - Comfortable Stay in Crimea',
@@ -942,7 +945,10 @@
             accImages: 'Images',
             accShowImages: 'Show images',
             accReset: 'Reset Settings',
-            accResetConfirm: 'Are you sure? Settings will be reset to default.'
+            accResetConfirm: 'Are you sure? Settings will be reset to default.',
+            exportExcel: 'Export to Excel',
+            sheetNameBookings: 'Bookings',
+            tableHeaderCreatedAt: 'Created At',
         }
     },
 
