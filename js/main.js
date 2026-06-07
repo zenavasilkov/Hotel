@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     BurgerMenu.init();
     Modal.init();
     ThemeSwitcher.init();
+    Accessibility.init();
 
     initializePageScripts();
     setupAccessibility();

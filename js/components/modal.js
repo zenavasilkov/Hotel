@@ -1,17 +1,12 @@
-﻿/**
- * Modal Component
- */
-const Modal = {
+﻿const Modal = {
     activeModals: [],
+    videoPlayer: null,
 
     init() {
         this.setupEventListeners();
         this.setupTriggers();
     },
 
-    /**
-     * Setup global event listeners
-     */
     setupEventListeners() {
         document.addEventListener('click', (e) => {
             if (e.target.hasAttribute('data-modal-close')) {
@@ -26,9 +21,6 @@ const Modal = {
         });
     },
 
-    /**
-     * Setup modal triggers
-     */
     setupTriggers() {
         document.querySelectorAll('[data-modal-trigger]').forEach(trigger => {
             trigger.addEventListener('click', (e) => {
@@ -42,10 +34,6 @@ const Modal = {
         });
     },
 
-    /**
-     * Open modal
-     * @param {HTMLElement} modal - Modal element
-     */
     open(modal) {
         if (!modal) return;
 
@@ -62,15 +50,44 @@ const Modal = {
 
         this.activeModals.push(modal);
 
+        if (modal.id === 'video-modal') {
+            this.setupVideoPlayer(modal);
+        }
+
         console.log('Modal opened:', modal.id);
     },
 
-    /**
-     * Close modal
-     * @param {HTMLElement} modal - Modal element
-     */
+    setupVideoPlayer(modal) {
+        const videoContainer = modal.querySelector('#video-player');
+        if (!videoContainer) return;
+
+        this.videoPlayer = document.createElement('video');
+        this.videoPlayer.src = 'assets/videos/yacht.mp4';
+        this.videoPlayer.controls = true;
+        this.videoPlayer.autoplay = true;
+        this.videoPlayer.style.width = '100%';
+        this.videoPlayer.style.height = '100%';
+        this.videoPlayer.style.objectFit = 'contain';
+        this.videoPlayer.setAttribute('playsinline', '');
+        this.videoPlayer.setAttribute('webkit-playsinline', '');
+
+        videoContainer.innerHTML = '';
+        videoContainer.appendChild(this.videoPlayer);
+
+        this.videoPlayer.play().catch(error => {
+            console.log('Autoplay prevented:', error);
+        });
+    },
+
     close(modal) {
         if (!modal) return;
+
+        if (modal.id === 'video-modal' && this.videoPlayer) {
+            this.videoPlayer.pause();
+            this.videoPlayer.src = '';
+            this.videoPlayer.load();
+            this.videoPlayer = null;
+        }
 
         modal.classList.remove('active');
         modal.setAttribute('aria-hidden', 'true');
@@ -90,9 +107,6 @@ const Modal = {
         }
     },
 
-    /**
-     * Close all modals
-     */
     closeAll() {
         [...this.activeModals].forEach(modal => this.close(modal));
     }
